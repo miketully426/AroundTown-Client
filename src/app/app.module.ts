@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NewUserFormComponent } from './new-user-form/new-user-form.component';
+import { AppRoutingModule } from './app-routing.module';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -12,8 +14,9 @@ import { NewUserFormComponent } from './new-user-form/new-user-form.component';
   ],
   imports: [
     BrowserModule,
-    NgModule,
-    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
