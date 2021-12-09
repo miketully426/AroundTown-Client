@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NewUserFormComponent } from './new-user-form/new-user-form.component';
@@ -10,11 +10,12 @@ import {HttpClientModule} from "@angular/common/http";
 @NgModule({
   declarations: [
     AppComponent,
-    NewUserFormComponent
+    NewUserFormComponent,
+
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
   ],

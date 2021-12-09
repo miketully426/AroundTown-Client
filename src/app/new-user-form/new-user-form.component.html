@@ -1,5 +1,7 @@
-<router-outlet></router-outlet>
-<div class="container">
+<!--- <!DOCTYPE html>
+<html>
+  <router-outlet></router-outlet>
+  <div class="container">
     <h1>Register</h1>
       <p>Please fill out this form to create or view events</p>
       <hr>
@@ -15,9 +17,71 @@
       <hr>
   
       <button type="submit" class="registerbtn">Register</button>
-    </div>
+  </div>
   
     <div class="container signin">
       <p>Already have an account? <a href="#">Sign in</a>.</p>
     </div>
   
+</html>
+--->
+<!DOCTYPE html>
+<html>
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          required
+          [(ngModel)]="user.name"
+          name="name"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          class="form-control"
+          id="email"
+          required
+          [(ngModel)]="user.email"
+          name="email"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          class="form-control"
+          id="username"
+          required
+          [(ngModel)]="user.username"
+          name="username"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="epassword">Password</label>
+        <input
+          class="form-control"
+          id="password"
+          required
+          [(ngModel)]="user.password"
+          name="password"
+        />
+      </div>
+
+      <button (click)="saveUser()" class="btn btn-success">Submit</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>User was submitted successfully!</h4>
+      <button class="btn btn-success" (click)="newTutorial()">Add</button>
+    </div>
+  </div>
+</div>
+</html>
