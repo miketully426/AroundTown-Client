@@ -9,7 +9,7 @@ import { User } from '../model/user';
   styleUrls: ['./user-form.component.css']
 })
 export class UserFormComponent implements OnInit {
-
+  passwordmatch: boolean;
   user: User;
 
   constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) {
@@ -19,9 +19,13 @@ export class UserFormComponent implements OnInit {
    gotoUserList() {
     this.router.navigate(['/users']);
   }
-   onSubmit() {
+   onSubmit(password: String, confirmPassword: String) {
      //add password confirmation validation here in an if statement
-     this.userService.save(this.user).subscribe((result) => this.gotoUserList());
+    if(password === confirmPassword) {
+      
+      this.userService.save(this.user).subscribe((result) => this.gotoUserList());
+      
+    }
   
    }
 
