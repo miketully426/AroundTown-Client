@@ -20,7 +20,8 @@ export class UserFormComponent implements OnInit {
     this.router.navigate(['/users']);
   }
    onSubmit() {
-     this.userService.save(this.user).subscribe(result => this.gotoUserList());
+     //add password confirmation validation here in an if statement
+     this.userService.save(this.user).subscribe((result) => this.gotoUserList());
   
    }
 
