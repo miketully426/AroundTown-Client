@@ -6,13 +6,11 @@ import { AppComponent } from './app.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from "@angular/common/http";
-import { UserListComponent } from './user-list/user-list.component';
 import { UserFormComponent } from './user-form/user-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserListComponent,
     UserFormComponent,
 
   ],
