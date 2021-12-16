@@ -4,11 +4,15 @@
             <p>No events to display.</p>
         </div>
         <table class="table table-bordered table-striped">
-            <thead class="thead-dark">   
+            <thead class="thead-dark">      
                 <tr>
                     <th scope="col">Event Name</th>
                     <th scope="col">Event Description</th>
                     <th scope="col">Event Location</th>
+                    <th scope="col">Event Date</th>
+                    <th scope="col">Event Time</th>
+                    <th scope="col">Event Cost</th>
+                    <th scope="col">Family Friendly</th>
                 </tr>
             </thead>
             <tbody>
@@ -16,6 +20,10 @@
                     <td>{{ event.name }}</td>
                     <td>{{ event.description }}</td>
                     <td>{{ event.location }}</td>
+                    <td>{{ event.date }}</td>
+                    <td>{{ event.time }}</td>
+                    <td>{{ event.entryCost }}</td>
+                    <td>{{ event.familyFriendly }}</td>
                 </tr>
             </tbody>
         </table>

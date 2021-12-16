@@ -1,20 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { EventService } from './service/event-service.service'
-import { AppComponent } from './app.component';
-
-import { AppRoutingModule } from './app-routing.module';
-import {HttpClientModule} from "@angular/common/http";
 import { EventListComponent } from './event-list/event-list.component';
 import { EventFormComponent } from './event-form/event-form.component';
+import { UserFormComponent } from './user-form/user-form.component';
+import { EventService } from './service/event-service.service'
+import { UserService } from './service/user-service.service'
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
     AppComponent,
     EventListComponent,
     EventFormComponent,
-
+    UserFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,7 +23,8 @@ import { EventFormComponent } from './event-form/event-form.component';
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [EventService],
+  providers: [EventService, UserService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
