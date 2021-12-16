@@ -2,37 +2,78 @@
     <div class="card-body">
       <form (ngSubmit)="onSubmit()" #eventForm="ngForm">
         <div class="form-group">
-          <label for="name">Event Name</label>
+          <label for="name">Event Name: </label>
           <input type="text" [(ngModel)]="event.name" 
-            class="form-control" 
+            
             id="name" 
             name="name" 
             placeholder="Enter Event Name"
             required #name="ngModel">
         </div>
-        <div [hidden]="!name.pristine" class="alert alert-danger">Event Name is required</div>
+
         <div class="form-group">
-          <label for="description">Description</label>
+          <label for="description">Event Description: </label>
           <input type="text" [(ngModel)]="event.description" 
-            class="form-control" 
+
             id="description" 
             name="description" 
             placeholder="Enter Event Description"
             required #description="ngModel">
-          <div [hidden]="!description.pristine" class="alert alert-danger">Description is required</div>
         </div>
+
         <div class="form-group">
-            <label for="location">Location</label>
+            <label for="location">Event Location: </label>
             <input type="text" [(ngModel)]="event.location" 
-              class="form-control" 
+           
               id="location" 
               name="location" 
               placeholder="Enter Event Location"
               required #location="ngModel">
-            <div [hidden]="!location.pristine" class="alert alert-danger">Location is required</div>
           </div>
+
+          <div class="form-group">
+            <label for="date">Event Date: </label>
+            <input type="text" [(ngModel)]="event.date" 
+             
+              id="date" 
+              name="date"
+              placeholder="Enter Event Date"
+              required #date="ngModel">
+          </div>
+
+          <div class="form-group">
+            <label for="time">Event Time: </label>
+            <input type="text" [(ngModel)]="event.time" 
+             
+              id="time" 
+              name="time" 
+              placeholder="Enter Event Time"
+              required #time="ngModel">
+          </div>
+
+          <div class="form-group">
+            <label for="entryCost">Event Entry Cost: </label>
+            <input type="text" [(ngModel)]="event.entryCost" 
+            
+              id="entryCost" 
+              name="entryCost" 
+              placeholder="Enter Event Entry Cost"
+              required #entryCost="ngModel">
+          </div>
+
+          <div class="form-group">
+            <label for="familyFriendly">Family Friendly: </label>
+            <input type="checkbox" [(ngModel)]="event.familyFriendly" 
+           
+              id="familyFriendly" 
+              name="familyFriendly" 
+              checked="checked"              
+              #familyFriendly="ngModel">
+          </div>
+
         <button type="submit" [disabled]="!eventForm.form.valid" 
           class="btn btn-info">Submit</button>
       </form>
     </div>
   </div>
+

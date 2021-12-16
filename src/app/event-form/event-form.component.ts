@@ -21,10 +21,8 @@ export class EventFormComponent implements OnInit {
   }
    onSubmit() {
      this.eventService.save(this.event).subscribe(result => this.gotoEventList());
-  
    }
-
-   
+  
   ngOnInit() {
   }
 

@@ -21,9 +21,4 @@ export class EventListComponent implements OnInit {
     });
   }
 
-  // alphabetizeEvents(eventsArr: Event[]) {
-  //   this.alphabetizedByName = eventsArr.sort(function(a, b) {return a.name.localeCompare(b.name)});
-    
-  // }
-
 }
