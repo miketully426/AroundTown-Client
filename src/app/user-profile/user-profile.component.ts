@@ -21,7 +21,10 @@ export class UserProfileComponent implements OnInit {
      }
 
   ngOnInit() {
-    this.userProfileService.findById(this.user.id);
+    this.userProfileService.findById(this.user.id)
+    .subscribe((data)=>{
+      this.user = data;
+    });
   }
 
 }

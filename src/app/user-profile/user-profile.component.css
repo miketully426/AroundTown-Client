@@ -9,6 +9,12 @@
     color: grey;
     font-size: 18px;
   }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
   
   button {
     border: none;
