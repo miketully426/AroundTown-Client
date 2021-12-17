@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: 'events', component: EventListComponent },
   {path: 'addevent', component: EventFormComponent},
   {path: 'adduser', component: UserFormComponent},  
-  {path: 'login', component: LoginFormComponent}
+  {path: 'login', component: LoginFormComponent},
+  {path: 'logout', component: LoginFormComponent}
 ];
 
 @NgModule({

@@ -13,6 +13,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
 
 import { HttpInterceptorService } from '../app/service/http-interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MenuComponent } from './menu/menu.component';
+import { LogoutFormComponent } from './logout-form/logout-form.component';
 
 
 @NgModule({
@@ -22,6 +24,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     EventFormComponent,
     UserFormComponent,
     LoginFormComponent,
+    MenuComponent,
+    LogoutFormComponent,
   ],
   imports: [
     BrowserModule,

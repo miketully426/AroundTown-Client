@@ -7,6 +7,9 @@ import { map } from 'rxjs/operators';
 })
 export class AuthenticationService {
 
+  //use user service methods to find the user and pwhashes
+  //need to figure out why usesrs arent saving, is it because event is not pushed
+
     // BASE_PATH: 'http://localhost:8080'
     USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser'
 
