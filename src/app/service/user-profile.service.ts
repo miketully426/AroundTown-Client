@@ -22,7 +22,7 @@ export class UserProfileService {
      return this.http.post<User>(this.userprofileURL, user);
    }
 
-   public findById(id: number) {
-    return this.http.get<User>('userprofile/${id}');
+   public findById(id: number): Observable<User> {
+    return this.http.get<User>(this.userprofileURL);
  }
 }
