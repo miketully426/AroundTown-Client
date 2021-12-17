@@ -14,6 +14,15 @@
             <li class="list-inline-item">
               <a routerLink="/adduser" class="btn btn-info">Create Account</a>
             </li>
+
+            <li class="list-inline-item">
+              <a routerLink="/login" class="btn btn-info">Login</a>
+            </li>
+
+            <li>
+              <a *ngIf="isLoggedIn" class="nav-link" href="/logout" (click)=handleLogout()>Logout</a>
+          </li>
+
           </ul>
         </div>
       </div>
@@ -21,4 +30,7 @@
     </div>
   </div>
 </div>
+
+
+
 

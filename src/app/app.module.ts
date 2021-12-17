@@ -9,6 +9,11 @@ import { UserService } from './service/user-service.service'
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from "@angular/common/http";
+import { LoginFormComponent } from './login-form/login-form.component';
+
+import { HttpInterceptorService } from '../app/service/http-interceptor.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -16,6 +21,7 @@ import {HttpClientModule} from "@angular/common/http";
     EventListComponent,
     EventFormComponent,
     UserFormComponent,
+    LoginFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,7 +29,13 @@ import {HttpClientModule} from "@angular/common/http";
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [EventService, UserService],
+  providers: [EventService, UserService, 
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: HttpInterceptorService,
+    multi: true
+  }
+    ],
 
   bootstrap: [AppComponent]
 })
