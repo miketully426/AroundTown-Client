@@ -23,4 +23,8 @@ export class UserService {
      return this.http.post<User>(this.userURL, user);
    }
 
+   public findUser(id: number): Observable<User[]> {
+      return this.http.get<User[]>('/api/userprofile' + id)
+   }
+
 }

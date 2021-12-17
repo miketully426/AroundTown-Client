@@ -11,18 +11,21 @@ import { User } from '../model/user';
 export class UserFormComponent implements OnInit {
   user: User;
 
-  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) {
+  constructor(
+    private route: ActivatedRoute, 
+    private router: Router, 
+    private userService: UserService) {
     this.user = new User();
    }
 
-   goHome() {
-    this.router.navigate(['']);
+   goToProfile() {
+    this.router.navigate(['userprofile']);
   }
    onSubmit(password: String, confirmPassword: String) {
      //add password confirmation validation here in an if statement
     if(password === confirmPassword) {
       
-      this.userService.save(this.user).subscribe((result) => this.goHome());
+      this.userService.save(this.user).subscribe((result) => this.goToProfile());
       
     }
   
