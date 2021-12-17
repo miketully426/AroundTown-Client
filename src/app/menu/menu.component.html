@@ -1,10 +1,12 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <div><a routerLink="/events" class="navbar-brand">AroundTown</a></div>
-        <ul class="navbar-nav navbar-collapse justify-content-end">
-             <li>
+        <a class="navbar-brand" href="/events" style="max-width: 15%;">
+            <img src="/assets/images/AroundTown Logo.png" class="img-fluid">
+        </a>
+            <ul class="navbar-nav navbar-collapse justify-content-end">
+                <li>
                 <a *ngIf="!isLoggedIn" class="nav-link" href="/login">Login</a>
-            </li>
+                </li>
             <li>
                 <a *ngIf="isLoggedIn" class="nav-link" href="/logout" (click)=handleLogout()>Logout</a>
             </li>
