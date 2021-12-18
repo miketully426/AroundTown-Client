@@ -26,8 +26,8 @@ export class EventService {
       return this.http.get<Event>(`${this.eventsURL}/${eventId}`);
    }
 
-   public updateEvent(eventId: any, data: any): Observable<any> {
-     return this.http.put(`${this.eventsURL}/${eventId}`, data);
+   public updateEvent(eventId: any, data: Event): Observable<Event> {
+     return this.http.put<Event>(`${this.eventsURL}/${eventId}`, data);
    }
 
 }

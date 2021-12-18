@@ -1,31 +1,78 @@
-<div>
-    <div>
-        <h4>Event Details</h4>
-        <label for="name">Name</label>
-        <p>{{ currentEvent.name }}</p>
+<div class="card my-5">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #editEvent="ngForm">
+        <div class="form-group">
+          <label for="name">Event Name: </label>
+          <input type="text" [(ngModel)]="currentEvent.name" 
+            
+            id="name" 
+            name="name" 
+            placeholder=" "
+            required #name="ngModel">
+        </div>
+
+        <div class="form-group">
+          <label for="description">Event Description: </label>
+          <input type="text" [(ngModel)]="currentEvent.description" 
+
+            id="description" 
+            name="description" 
+            placeholder="{{ currentEvent.description }}"
+            required #description="ngModel">
+        </div>
+
+        <div class="form-group">
+            <label for="location">Event Location: </label>
+            <input type="text" [(ngModel)]="currentEvent.location" 
+           
+              id="location" 
+              name="location" 
+              placeholder="{{ currentEvent.location }}"
+              required #location="ngModel">
+          </div>
+
+          <div class="form-group">
+            <label for="date">Event Date: </label>
+            <input type="text" [(ngModel)]="currentEvent.date" 
+             
+              id="date" 
+              name="date"
+              placeholder="{{currentEvent.date}}"
+              required #date="ngModel">
+          </div>
+
+          <div class="form-group">
+            <label for="time">Event Time: </label>
+            <input type="text" [(ngModel)]="currentEvent.time" 
+             
+              id="time" 
+              name="time" 
+              placeholder="{{currentEvent.time}}"
+              required #time="ngModel">
+          </div>
+
+          <div class="form-group">
+            <label for="entryCost">Event Entry Cost: </label>
+            <input type="text" [(ngModel)]="currentEvent.entryCost" 
+            
+              id="entryCost" 
+              name="entryCost" 
+              placeholder="{{currentEvent.entryCost}}"
+              required #entryCost="ngModel">
+          </div>
+
+          <div class="form-group">
+            <label for="familyFriendly">Family Friendly: </label>
+            <input type="checkbox" [(ngModel)]="currentEvent.familyFriendly" 
+           
+              id="familyFriendly" 
+              name="familyFriendly" 
+              checked="checked"              
+              #familyFriendly="ngModel">
+          </div>
+
+        <button type="submit" [disabled]="!editEvent.form.valid" 
+          class="btn btn-info">Submit</button>
+      </form>
     </div>
-    <div>
-        <label for="description">Description</label>
-        <p>{{ currentEvent.description }}</p>
-    </div>
-    <div>
-        <label for="location">location</label>
-        <p>{{ currentEvent.location }}</p>
-    </div>
-    <div>
-        <label for="date">Date</label>
-        <p>{{ currentEvent.date }}</p>
-    </div>
-    <div>
-        <label for="time">Time</label>
-        <p>{{ currentEvent.time }}</p>
-    </div>
-    <div>
-        <label for="entryCost">Cost</label>
-        <p>{{ currentEvent.entryCost }}</p>
-    </div>
-    <div>
-        <label for="familyFriendly">Family Friendly?</label>
-        <p>{{ currentEvent.familyFriendly }}</p>
-    </div>
-</div>
+  </div>

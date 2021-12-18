@@ -9,7 +9,8 @@ import { Event } from '../model/event';
   styleUrls: ['./edit-event.component.css']
 })
 export class EditEventComponent implements OnInit {
-    currentEvent: Event;
+    currentEvent: Event = new Event;
+    updated: boolean;
 
   constructor( private eventService: EventService, private route: ActivatedRoute, private router: Router) { }
 
@@ -19,6 +20,14 @@ export class EditEventComponent implements OnInit {
 
   public getEvent(id: number): void {
     this.eventService.findEventById(id).subscribe(data => this.currentEvent = data);
+  }
+
+  public onSubmit() {
+    this.eventService.updateEvent(this.currentEvent.eventId, this.currentEvent).subscribe((result) => this.goToEvents());
+  }
+
+  public goToEvents() {
+    this.router.navigate(['/events']);
   }
 
 }

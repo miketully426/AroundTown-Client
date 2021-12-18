@@ -26,7 +26,6 @@
                     <td *ngIf="event.familyFriendly; else elseBlock">Yes</td>
                     <ng-template #elseBlock>No</ng-template>
                     <td><button routerLink="/edit-events/{{event.eventId}}" routerLinkActive="active">Edit</button></td>
-                   <!-- <td><button onclick="onEdit(event.eventId)">Edit</button></td>-->
                 </tr>
             </tbody>
         </table>
