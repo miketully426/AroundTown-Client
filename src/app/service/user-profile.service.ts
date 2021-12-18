@@ -11,7 +11,7 @@ export class UserProfileService {
   private userprofileURL: string;
 
   constructor(private http: HttpClient) {
-      this.userprofileURL = 'http://localhost:8080/api/userprofile';
+      this.userprofileURL = 'http://localhost:8080/api/userprofile/:id';
    }
 
    public findAll(): Observable<User[]> {
@@ -22,7 +22,7 @@ export class UserProfileService {
      return this.http.post<User>(this.userprofileURL, user);
    }
 
-   public findById(id: number): Observable<User> {
-    return this.http.get<User>(this.userprofileURL);
+   public findUserById(id: number): Observable<User> {
+    return this.http.get<User>(`${this.userprofileURL}/${id}`);
  }
 }
