@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Event } from '../model/event';
 import { EventService } from '../service/event-service.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-event-list',
@@ -11,8 +12,9 @@ export class EventListComponent implements OnInit {
 
   events: Event[];
   alphabetizedByName: Event[];
-
-  constructor(private eventService: EventService) { }
+ 
+  
+  constructor(private route: ActivatedRoute, private router: Router, private eventService: EventService) { }
 
   ngOnInit() {
     this.eventService.findAll().subscribe(data => {
@@ -21,4 +23,7 @@ export class EventListComponent implements OnInit {
     });
   }
 
+  public onEdit(eventID: number) {
+    this.router.navigate([`edit-events/${eventID}`]);
+  }
 }

@@ -1,6 +1,6 @@
 export class Event {
 
-    id: number;
+    eventId: number;
     name: string;
     description: string;
     location: string;
@@ -8,5 +8,4 @@ export class Event {
     time: string;
     entryCost: string;
     familyFriendly: boolean;    
-
 }

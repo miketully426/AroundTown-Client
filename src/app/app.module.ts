@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from "@angular/common/http";
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { EditEventComponent } from './edit-event/edit-event.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     EventFormComponent,
     SearchResultsComponent,
     UserFormComponent,
+    EditEventComponent,
 
   ],
   imports: [

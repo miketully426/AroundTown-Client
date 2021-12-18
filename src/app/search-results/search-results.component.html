@@ -6,13 +6,16 @@
                 placeholder="Search here"/>
             <button (click)="search(searchTerm.value)">Search</button>
           </div>
-        <p [hidden]="!searchedEvents">No Events Match Your Search Term... Try searching something else</p>
         <table class="table table-bordered table-striped">
             <thead class="thead-dark">   
                 <tr>
                     <th scope="col">Event Name</th>
                     <th scope="col">Event Description</th>
                     <th scope="col">Event Location</th>
+                    <th scope="col">Event Date</th>
+                    <th scope="col">Event Time</th>
+                    <th scope="col">Event Cost</th>
+                    <th scope="col">Family Friendly</th>
                 </tr>
             </thead>
             <tbody>
@@ -20,8 +23,16 @@
                     <td>{{ event.name }}</td>
                     <td>{{ event.description }}</td>
                     <td>{{ event.location }}</td>
+                    <td>{{ event.date }}</td>
+                    <td>{{ event.time }}</td>
+                    <td>{{ event.entryCost }}</td>
+                    <td *ngIf="event.familyFriendly; else elseBlock">Yes</td>
+                    <ng-template #elseBlock>No</ng-template>
                 </tr>
             </tbody>
         </table>
+        <div>
+            <p *ngIf="searchedEvents.length == 0">No events match your search... Try searching something else</p>
+        </div>
     </div>
 </div>
