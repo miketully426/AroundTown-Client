@@ -25,7 +25,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   public getUser(id: number): void {
-    this.userProfileService.findUserById(id)
+    this.userService.findUserById(id)
     .subscribe(data => this.user = data);
   }
 

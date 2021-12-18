@@ -18,16 +18,17 @@ export class UserFormComponent implements OnInit {
     this.user = new User();
    }
 
-   goToProfile() {
-    this.router.navigate(['userprofile']);
+   goToProfile(userId: number) {
+    this.router.navigate([`/userprofile/${userId}`]);
   }
    onSubmit(password: String, confirmPassword: String) {
      //add password confirmation validation here in an if statement
     if(password === confirmPassword) {
-      
-      this.userService.save(this.user).subscribe((result) => this.goToProfile());
-      
+    
+      this.userService.save(this.user).subscribe((result) => this.goToProfile(this.user.id));
+      console.log(this.user.id);
     }
+  
   
    }
 

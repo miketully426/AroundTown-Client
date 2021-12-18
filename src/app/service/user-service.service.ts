@@ -23,5 +23,8 @@ export class UserService {
      return this.http.post<User>(this.userURL, user);
    }
 
+   public findUserById(id: number): Observable<User> {
+    return this.http.get<User>(`${this.userURL}/${id}`);
+  }
 
 }

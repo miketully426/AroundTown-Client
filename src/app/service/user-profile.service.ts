@@ -24,5 +24,5 @@ export class UserProfileService {
 
    public findUserById(id: number): Observable<User> {
     return this.http.get<User>(`${this.userprofileURL}/${id}`);
- }
+  }
 }
