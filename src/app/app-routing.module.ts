@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'events', component: EventListComponent },
   {path: 'addevent', component: EventFormComponent},
   {path: 'adduser', component: UserFormComponent},
-  { path: 'userprofile', component: UserProfileComponent }  
+  { path: 'userprofile/:id', component: UserProfileComponent }  
 ];
 
 @NgModule({
