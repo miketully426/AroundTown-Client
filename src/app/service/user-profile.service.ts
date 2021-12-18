@@ -11,7 +11,7 @@ export class UserProfileService {
   private userprofileURL: string;
 
   constructor(private http: HttpClient) {
-      this.userprofileURL = 'http://localhost:8080/api/userprofile/:id';
+      this.userprofileURL = 'http://localhost:8080/api/userprofile';
    }
 
    public findAll(): Observable<User[]> {

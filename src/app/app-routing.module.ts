@@ -8,8 +8,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 const routes: Routes = [
   // {path: 'list-user', redirectTo: '/', pathMatch: 'full'},
   { path: 'events', component: EventListComponent },
-  {path: 'addevent', component: EventFormComponent},
-  {path: 'adduser', component: UserFormComponent},
+  { path: 'addevent', component: EventFormComponent },
+  { path: 'adduser', component: UserFormComponent },
   { path: 'userprofile/:id', component: UserProfileComponent }  
 ];
 
