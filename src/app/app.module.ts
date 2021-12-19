@@ -10,14 +10,18 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from "@angular/common/http";
 import { SearchResultsByIdComponent } from './search-results-by-id/search-results-by-id.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EventListComponent,
     EventFormComponent,
+    SearchResultsComponent,
     UserFormComponent,
     SearchResultsByIdComponent,
+    
+
   ],
   imports: [
     BrowserModule,
