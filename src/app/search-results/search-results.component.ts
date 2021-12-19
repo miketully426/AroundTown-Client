@@ -26,12 +26,10 @@ export class SearchResultsComponent implements OnInit {
     let matchingEvents: Event[] = [];
     searchTerm = searchTerm.toLowerCase();
     for(let i=0; i < this.events.length; i++) {
-      for(let property in this.events[i]) {
-          if(this.events[i][property].toString().toLowerCase().includes(searchTerm)) {
-            matchingEvents.push(this.events[i]);
-            break;
-            
-          }
+      if(this.events[i].name.toString().toLowerCase().includes(searchTerm) 
+        || this.events[i].description.toString().toLowerCase().includes(searchTerm)
+        || this.events[i].location.toString().toLowerCase().includes(searchTerm)) {
+           matchingEvents.push(this.events[i]);
       }  
     }
     this.searchedEvents = matchingEvents;

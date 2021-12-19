@@ -6,7 +6,6 @@
                 placeholder="Search here"/>
             <button (click)="search(searchTerm.value)">Search</button>
           </div>
-        <p [hidden]="!searchedEvents">No Events Match Your Search Term... Try searching something else</p>
         <table class="table table-bordered table-striped">
             <thead class="thead-dark">   
                 <tr>
@@ -23,5 +22,8 @@
                 </tr>
             </tbody>
         </table>
+        <div>
+            <p *ngIf="searchedEvents.length == 0">No events match your search... Try searching something else</p>
+        </div>       
     </div>
 </div>
