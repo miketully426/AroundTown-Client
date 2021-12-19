@@ -18,6 +18,7 @@ import { SearchResultsComponent } from './search-results/search-results.componen
     EventFormComponent,
     SearchResultsComponent,
     UserFormComponent,
+    
 
   ],
   imports: [
