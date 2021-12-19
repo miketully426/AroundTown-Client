@@ -9,6 +9,7 @@ import { UserService } from './service/user-service.service'
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from "@angular/common/http";
+import { SearchResultsByIdComponent } from './search-results-by-id/search-results-by-id.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import {HttpClientModule} from "@angular/common/http";
     EventListComponent,
     EventFormComponent,
     UserFormComponent,
+    SearchResultsByIdComponent,
   ],
   imports: [
     BrowserModule,
