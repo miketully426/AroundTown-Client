@@ -10,6 +10,7 @@ import { User } from '../model/user';
 })
 export class UserFormComponent implements OnInit {
   user: User;
+  users: User[] = [];
 
   constructor(
     private route: ActivatedRoute, 
@@ -18,15 +19,17 @@ export class UserFormComponent implements OnInit {
     this.user = new User();
    }
 
-   goToProfile(userId: number) {
-    this.router.navigate([`/userprofile/${userId}`]);
+   goToProfile() {
+    this.userService.findAll().subscribe(data => {
+      this.users = data;})
+    this.router.navigate([`/userprofile/${this.users[this.users.length-1].id}`]);
   }
    onSubmit(password: String, confirmPassword: String) {
      //add password confirmation validation here in an if statement
     if(password === confirmPassword) {
     
-      this.userService.save(this.user).subscribe((result) => this.goToProfile(this.user.id));
-      console.log(this.user.id);
+      this.userService.save(this.user).subscribe((result) => this.goToProfile());
+     
     }
   
   
@@ -34,6 +37,9 @@ export class UserFormComponent implements OnInit {
 
    
   ngOnInit() {
+    // this.userService.findAll().subscribe(data => {
+    //   this.users = data;})
   }
+
 
 }

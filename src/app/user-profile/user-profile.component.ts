@@ -10,7 +10,7 @@ import { UserProfileService } from '../service/user-profile.service';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  user: User;
+  currentUser: User;
 
   constructor(
     private route: ActivatedRoute, 
@@ -26,7 +26,7 @@ export class UserProfileComponent implements OnInit {
 
   public getUser(id: number): void {
     this.userService.findUserById(id)
-    .subscribe(data => this.user = data);
+    .subscribe(data => this.currentUser = data);
   }
 
 }
