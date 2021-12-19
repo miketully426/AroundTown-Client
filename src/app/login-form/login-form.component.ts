@@ -30,9 +30,11 @@ export class LoginFormComponent implements OnInit {
       this.loginSuccess = true;
       this.successMessage = 'Login Successful.';
       this.router.navigate(['/events']);
+      console.log("success!");
     }, () => {
       this.invalidLogin = true;
       this.loginSuccess = false;
+      console.log('fail');
     });      
   }
 

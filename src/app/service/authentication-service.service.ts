@@ -14,33 +14,33 @@ export class AuthenticationService {
     USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser'
 
     public username: String;
-    public password: String;
+    public pwHash: String;
   
     constructor(private http: HttpClient) {
   
     }
   
-    authenticationService(username: String, password: String) {
+    authenticationService(username: String, pwHash: String) {
       return this.http.get(`http://localhost:8080/api/login`,
-        { headers: { authorization: this.createBasicAuthToken(username, password) } }).pipe(map((res) => {
+        { headers: { authorization: this.createBasicAuthToken(username, pwHash) } }).pipe(map((res) => {
           this.username = username;
-          this.password = password;
-          this.registerSuccessfulLogin(username, password);
+          this.pwHash= this.pwHash;
+          this.registerSuccessfulLogin(username, pwHash);
         }));
     }
   
-    createBasicAuthToken(username: String, password: String) {
-      return 'Basic ' + window.btoa(username + ":" + password)
+    createBasicAuthToken(username: String, pwHash: String) {
+      return 'Basic ' + window.btoa(username + ":" + pwHash)
     }
   
-    registerSuccessfulLogin(username, password) {
+    registerSuccessfulLogin(username, pwHash) {
       sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, username)
     }
   
     logout() {
       sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
       this.username = null;
-      this.password = null;
+      this.pwHash = null;
     }
   
     isUserLoggedIn() {
