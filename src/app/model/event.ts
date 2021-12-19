@@ -1,6 +1,6 @@
 export class Event {
 
-    id: number;
+    eventId: number;
     name: string;
     description: string;
     location: string;
