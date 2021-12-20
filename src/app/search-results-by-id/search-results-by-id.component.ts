@@ -28,7 +28,7 @@ export class SearchResultsByIdComponent implements OnInit {
     let matchingEventIds: Event[] = [];
     for(let i=0; i < this.events.length; i++) {
       for(let property in this.events[i]) {
-          if(this.events[i][property].toString().includes(searchId)) {
+          if(this.events[i][property].toString() === searchId) {
             matchingEventIds.push(this.events[i]);
             break;
             
