@@ -7,11 +7,10 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 
 
 const routes: Routes = [
-  // {path: 'list-user', redirectTo: '/', pathMatch: 'full'},
   { path: 'events', component: EventListComponent },
-  {path: 'addevent', component: EventFormComponent},
+  { path: 'addevent', component: EventFormComponent },
   { path: 'searchresults', component: SearchResultsComponent},
-  {path: 'adduser', component: UserFormComponent},  
+  { path: 'adduser', component: UserFormComponent },  
 ];
 
 @NgModule({
