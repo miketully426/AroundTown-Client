@@ -40,6 +40,7 @@
               name="date"
               placeholder="Enter Event Date"
               required #date="ngModel">
+              <div [hidden]="date.pristine || !!date.value" class="alert alert-danger">Date is required</div>
           </div>
 
           <div class="form-group">
@@ -50,6 +51,7 @@
               name="time" 
               placeholder="Enter Event Time"
               required #time="ngModel">
+              <div [hidden]="time.pristine || !!time.value" class="alert alert-danger">Time is required</div>
           </div>
 
           <div class="form-group">
@@ -60,6 +62,7 @@
               name="entryCost" 
               placeholder="Enter Event Entry Cost"
               required #entryCost="ngModel">
+              <div [hidden]="entryCost.pristine || !!entryCost.value" class="alert alert-danger">Entry Cost is required</div>
           </div>
 
           <div class="form-group">
