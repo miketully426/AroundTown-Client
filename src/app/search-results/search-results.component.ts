@@ -9,9 +9,9 @@ import { EventService } from '../service/event-service.service';
 })
 export class SearchResultsComponent implements OnInit {
 
-  events: Event[];
+  events: Event[] = [];
   alphabetizedByName: Event[];
-  searchedEvents: Event[];
+  searchedEvents: Event[] = [];
 
   constructor(private eventService: EventService) { }
 
