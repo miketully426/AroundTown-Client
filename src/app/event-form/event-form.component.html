@@ -9,9 +9,18 @@
             name="name" 
             placeholder="Enter Event Name"
             required #name="ngModel">
-        </div>
+            </div>
 
-        <div class="form-group">
+            
+
+            <div>
+              <p *ngIf="name.errors?.['required']">
+                Name is required.</p>
+            </div>
+
+        
+
+         <div class="form-group">
           <label for="description">Event Description: </label>
           <input type="text" [(ngModel)]="event.description" 
 
@@ -19,6 +28,7 @@
             name="description" 
             placeholder="Enter Event Description"
             required #description="ngModel">
+            
         </div>
 
         <div class="form-group">
