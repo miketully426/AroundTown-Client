@@ -1,7 +1,10 @@
-<div>
-    <div>
-        <table>
-            <thead>   
+<div class="card my-5">
+    <div class="card-body">
+        <div >
+            <p *ngIf="alphabetizedByName == 0">No events to display.</p>
+        </div>
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">      
                 <tr>
                     <th scope="col">Event Name</th>
                     <th scope="col">Event Description</th>
@@ -13,7 +16,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let event of events">
+                <tr *ngFor="let event of alphabetizedByName">
                     <td>{{ event.name }}</td>
                     <td>{{ event.description }}</td>
                     <td>{{ event.location }}</td>
