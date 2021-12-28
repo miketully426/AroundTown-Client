@@ -30,4 +30,7 @@ export class EditEventComponent implements OnInit {
     this.router.navigate(['/events']);
   }
 
+  //I'd like to create a new page that allows you to view your event after editing, then choose between re-editing and going back to all events.
+  //I think we need a separate user story for this, and the same page can be used to click on a single event from the events list
+
 }

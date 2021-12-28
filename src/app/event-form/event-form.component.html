@@ -1,79 +1,82 @@
 <div class="card my-5">
-    <div class="card-body">
-      <form (ngSubmit)="onSubmit()" #eventForm="ngForm">
-        <div class="form-group">
-          <label for="name">Event Name: </label>
-          <input type="text" [(ngModel)]="event.name" 
-            
-            id="name" 
-            name="name" 
-            placeholder="Enter Event Name"
-            required #name="ngModel">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #eventForm="ngForm">
+      <div class="form-group">
+        <label for="name">Event Name: </label>
+        <input type="text" [(ngModel)]="event.name" 
+          id="name" 
+          name="name" 
+          placeholder="Enter Event Name"
+          required #name="ngModel">
+      </div>
+      <div [hidden]="name.pristine || !!name.value" class="alert alert-danger">Event Name is required</div>
+      
+      <div class="form-group">
+        <label for="description">Event Description: </label>
+        <input type="text" [(ngModel)]="event.description" 
+          id="description" 
+          name="description" 
+          placeholder="Enter Event Description"
+          required #description="ngModel">
+        <div [hidden]="description.pristine || !!description.value" class="alert alert-danger">Description is required</div>
+      </div>
+
+      <div class="form-group">
+          <label for="location">Event Location: </label>
+          <input type="text" [(ngModel)]="event.location" 
+         
+            id="location" 
+            name="location" 
+            placeholder="Enter Event Location"
+            required #location="ngModel">
+          <div [hidden]="location.pristine || !!location.value" class="alert alert-danger">Location is required</div>
         </div>
 
         <div class="form-group">
-          <label for="description">Event Description: </label>
-          <input type="text" [(ngModel)]="event.description" 
-
-            id="description" 
-            name="description" 
-            placeholder="Enter Event Description"
-            required #description="ngModel">
+          <label for="date">Event Date: </label>
+          <input type="text" [(ngModel)]="event.date" 
+           
+            id="date" 
+            name="date"
+            placeholder="Enter Event Date"
+            required #date="ngModel">
+            <div [hidden]="date.pristine || !!date.value" class="alert alert-danger">Date is required</div>
         </div>
 
         <div class="form-group">
-            <label for="location">Event Location: </label>
-            <input type="text" [(ngModel)]="event.location" 
+          <label for="time">Event Time: </label>
+          <input type="text" [(ngModel)]="event.time" 
            
-              id="location" 
-              name="location" 
-              placeholder="Enter Event Location"
-              required #location="ngModel">
-          </div>
+            id="time" 
+            name="time" 
+            placeholder="Enter Event Time"
+            required #time="ngModel">
+            <div [hidden]="time.pristine || !!time.value" class="alert alert-danger">Time is required</div>
+        </div>
 
-          <div class="form-group">
-            <label for="date">Event Date: </label>
-            <input type="text" [(ngModel)]="event.date" 
-             
-              id="date" 
-              name="date"
-              placeholder="Enter Event Date"
-              required #date="ngModel">
-          </div>
+        <div class="form-group">
+          <label for="entryCost">Event Entry Cost: </label>
+          <input type="text" [(ngModel)]="event.entryCost" 
+          
+            id="entryCost" 
+            name="entryCost" 
+            placeholder="Enter Event Entry Cost"
+            required #entryCost="ngModel">
+            <div [hidden]="entryCost.pristine || !!entryCost.value" class="alert alert-danger">Entry Cost is required</div>
+        </div>
 
-          <div class="form-group">
-            <label for="time">Event Time: </label>
-            <input type="text" [(ngModel)]="event.time" 
-             
-              id="time" 
-              name="time" 
-              placeholder="Enter Event Time"
-              required #time="ngModel">
-          </div>
+        <div class="form-group">
+          <label for="familyFriendly">Family Friendly: </label>
+          <input type="checkbox" [(ngModel)]="event.familyFriendly" 
+         
+            id="familyFriendly" 
+            name="familyFriendly" 
+            checked="checked"              
+            #familyFriendly="ngModel">
+        </div>
 
-          <div class="form-group">
-            <label for="entryCost">Event Entry Cost: </label>
-            <input type="text" [(ngModel)]="event.entryCost" 
-            
-              id="entryCost" 
-              name="entryCost" 
-              placeholder="Enter Event Entry Cost"
-              required #entryCost="ngModel">
-          </div>
-
-          <div class="form-group">
-            <label for="familyFriendly">Family Friendly: </label>
-            <input type="checkbox" [(ngModel)]="event.familyFriendly" 
-           
-              id="familyFriendly" 
-              name="familyFriendly" 
-              checked="checked"              
-              #familyFriendly="ngModel">
-          </div>
-
-        <button type="submit" [disabled]="!eventForm.form.valid" 
-          class="btn btn-info">Submit</button>
-      </form>
-    </div>
+      <button type="submit" [disabled]="!eventForm.form.valid" 
+        class="btn btn-info">Submit</button>
+    </form>
   </div>
-
+</div>

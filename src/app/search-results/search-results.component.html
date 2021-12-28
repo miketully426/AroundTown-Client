@@ -4,7 +4,7 @@
             <input #searchTerm (keyup.enter)="search(searchTerm.value)" 
                 type="text" 
                 placeholder="Search here"/>
-            <button (click)="search(searchTerm.value)">Search</button>
+            <button #searchButton (click)="search(searchTerm.value)">Search</button>
           </div>
         <table class="table table-bordered table-striped">
             <thead class="thead-dark">   
@@ -32,7 +32,7 @@
             </tbody>
         </table>
         <div>
-            <p *ngIf="searchedEvents.length == 0">No events match your search... Try searching something else</p>
-        </div>
+            <p *ngIf="searchedEvents.length == 0 && searchTerm.value">No events match your search... Try searching something else</p>
+        </div>       
     </div>
 </div>
