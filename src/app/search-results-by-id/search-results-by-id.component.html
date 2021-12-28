@@ -1,33 +1,3 @@
-<!-- <div class="card my-5">
-    <div class="card-body">
-        <div class="search-form">
-            <input #searchTerm (keyup.enter)="search(searchTerm.value)" 
-                type="text" 
-                placeholder="Search by id here"/>
-            <button (click)="search(searchTerm.value)">Search</button>
-          </div>
-        <p [hidden]="!searchedEvents">No Event Ids Match Your Search ... Try searching something else</p>
-        <table class="table table-bordered table-striped">
-            <thead class="thead-dark">   
-                <tr>
-                    <th scope="col">Event Id</th>
-                    <th scope="col">Event Name</th>
-                    <th scope="col">Event Description</th>
-                    <th scope="col">Event Location</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let event of searchedEvents">
-                    <td>{{event.eventId}}</td>
-                    <td>{{ event.name }}</td>
-                    <td>{{ event.description }}</td>
-                    <td>{{ event.location }}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div> -->
-
 <div class="card my-5">
     <div class="card-body">
         <div class="search-form">
