@@ -12,6 +12,7 @@
         events: Event[];
         alphabetizedByName: Event[];
         searchedEvents: Event[];
+        searchedById: Event[];
 
       
         constructor(private eventService: EventService) { }
@@ -20,6 +21,7 @@
           this.eventService.findAll().subscribe(data => {
             this.events = data;
             this.searchedEvents = data;
+            this.searchedById = data;
             this.alphabetizedByName = this.events.sort(function(a, b) {return a.name.localeCompare(b.name)});
           });
         }
@@ -30,17 +32,17 @@
           //if the id's match, set that event to currentEvent or whatever you call it.
           //then reference currentEvent in the html
         search(searchId: number) {
-          let matchingEventIds: Event[] = [];
+        
           for(let i=0; i < this.events.length; i++) {
-            for(let property in this.events[i]) {
-                if(this.events[i][property].toString() === searchId) {
-                  matchingEventIds.push(this.events[i]);
+              if(this.events[i][eventId] === searchId) {
+                 let currentEvent.toNumber() = this.events[i];
+                 return currentEvent;
                   break;
                   
                 }
             }  
           }
-          this.searchedEvents = matchingEventIds;
+          this.searchedById = matchingEventIds;
         }
       }
       //You also have the option of creating and using a findEventById method in the event-service that will call http.get to find an event by an Id,
