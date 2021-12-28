@@ -24,6 +24,11 @@
           });
         }
       
+        //since you're only going to be pulling one event because each eventId is unique (theoretically), so I would make some edits to this function:
+          //return a single event object called currentEvent or something (you can declare this up at the top if needed)
+          //instead using matchingEvents at all and doing multiple for loops, just loop through the events array only pulling the id if(this.events[i][eventId] === searchId) (you may have to use '.toNumber')
+          //if the id's match, set that event to currentEvent or whatever you call it.
+          //then reference currentEvent in the html
         search(searchId: number) {
           let matchingEventIds: Event[] = [];
           for(let i=0; i < this.events.length; i++) {
@@ -38,3 +43,5 @@
           this.searchedEvents = matchingEventIds;
         }
       }
+      //You also have the option of creating and using a findEventById method in the event-service that will call http.get to find an event by an Id,
+      //which then connects to a similar method on the server side. I do it in the edit events branch if you'd like to see how it looks. :)
