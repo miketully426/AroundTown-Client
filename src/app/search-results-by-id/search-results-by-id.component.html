@@ -16,11 +16,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let id of searchedEvents">
+                <tr *ngFor="let event of searchedEvents">
                     <td>{{event.eventId}}</td>
-                    <!-- <td>{{ event.name }}</td>
+                    <td>{{ event.name }}</td>
                     <td>{{ event.description }}</td>
-                    <td>{{ event.location }}</td> -->
+                    <td>{{ event.location }}</td>
                 </tr>
             </tbody>
         </table>
