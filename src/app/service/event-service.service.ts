@@ -22,4 +22,5 @@ export class EventService {
      return this.http.post<Event>(this.eventsURL, event);
    }
 
+
 }
