@@ -25,16 +25,16 @@
         }
       
         search(searchId: number) {
-          let matchingEvents: Event[] = [];
+          let matchingEventIds: Event[] = [];
           for(let i=0; i < this.events.length; i++) {
             for(let property in this.events[i]) {
                 if(this.events[i][property].toString() === searchId.toString()) {
-                  matchingEvents.push(this.events[i]);
+                  matchingEventIds.push(this.events[i]);
                   break;
                   
                 }
             }  
           }
-          this.searchedEvents = matchingEvents;
+          this.searchedEvents = matchingEventIds;
         }
       }
