@@ -20,5 +20,4 @@ export class EventListComponent implements OnInit {
       this.alphabetizedByName = this.events.sort(function(a, b) {return a.name.localeCompare(b.name)});
     });
   }
-
 }
