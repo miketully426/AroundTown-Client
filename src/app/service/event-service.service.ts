@@ -22,5 +22,12 @@ export class EventService {
      return this.http.post<Event>(this.eventsURL, event);
    }
 
+   public findEventById(eventId: number): Observable<Event> {
+      return this.http.get<Event>(`${this.eventsURL}/${eventId}`);
+   }
+
+   public updateEvent(eventId: any, data: Event): Observable<Event> {
+     return this.http.put<Event>(`${this.eventsURL}/${eventId}`, data);
+   }
 
 }

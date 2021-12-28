@@ -1,10 +1,10 @@
 <div class="card my-5">
     <div class="card-body">
         <div class="search-form">
-            <input #searchTerm (keyup.enter)="search(searchTerm.value)" 
+            <input #searchTerm (keyup.enter)="getEvent(searchTerm.value)" 
                 type="text" 
                 placeholder="Search by id here!"/>
-            <button (click)="search(searchTerm.value)">Input id you would like to search for here</button>
+            <button (click)="getEvent(searchTerm.value)">Search by id</button>
           </div>
         <table class="table table-bordered table-striped">
             <thead class="thead-dark">   
@@ -15,17 +15,17 @@
                     <th scope="col">Event Location</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody *ngIf="currentEvent"> 
                 <tr>
-                    <td>{{event.eventId}}</td>
-                    <td>{{ event.name }}</td>
-                    <td>{{ event.description }}</td>
-                    <td>{{ event.location }}</td>
+                    <td>{{ currentEvent.eventId }}</td>
+                    <td>{{ currentEvent.name }}</td>
+                    <td>{{ currentEvent.description }}</td>
+                    <td>{{ currentEvent.location }}</td>
                 </tr>
             </tbody>
         </table>
         <div>
-            <p *ngIf="searchedEvents.length == 0">No events match your search... Try searching something else</p>
+            <p *ngIf="!currentEvent">No events match your search... Try searching something else</p>
         </div>       
     </div>
 </div>

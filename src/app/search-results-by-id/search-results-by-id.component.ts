@@ -11,25 +11,25 @@
 
       export class SearchResultsByIdComponent implements OnInit {
         currentEvent: Event = new Event;
-        updated: boolean;
+        
     
       constructor( private eventService: EventService, private route: ActivatedRoute, private router: Router) { }
     
       ngOnInit(): void {
-        this.getEvent(this.route.snapshot.params.id);
+        }
+    
+      public getEvent(eventId: number) {
+        this.eventService.findEventById(eventId).subscribe(data => this.currentEvent = data);
+        return this.currentEvent;
       }
     
-      public getEvent(id: number): void {
-        this.eventService.findEventById(id).subscribe(data => this.currentEvent = data);
-      }
+      // public onSubmit() {
+      //   this.eventService.updateEvent(this.currentEvent.eventId, this.currentEvent)
+      // }
     
-      public onSubmit() {
-        this.eventService.updateEvent(this.currentEvent.eventId, this.currentEvent).subscribe((result) => this.goToEvents());
-      }
-    
-      public goToEvents() {
-        this.router.navigate(['/events/eventId']);
-      }
+      // public goToEvents() {
+      //   this.router.navigate(['/events/eventId']);
+      // }
     }
     
 
