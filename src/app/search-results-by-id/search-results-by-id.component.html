@@ -1,4 +1,4 @@
-<!-- <div class="card my-5">
+<div class="card my-5">
     <div class="card-body">
         <div class="search-form">
             <input #searchTerm (keyup.enter)="search(searchTerm.value)" 
@@ -26,36 +26,6 @@
             </tbody>
         </table>
     </div>
-</div> -->
-
-<div class="card my-5">
-    <div class="card-body">
-        <div class="search-form">
-            <input #searchTerm (keyup.enter)="search(searchTerm.value)" 
-                type="text" 
-                placeholder="Search here"/>
-            <button (click)="search(searchTerm.value)">Search</button>
-          </div>
-        <table class="table table-bordered table-striped">
-            <thead class="thead-dark">   
-                <tr>
-                    <th scope="col">Event Id</th>
-                    <th scope="col">Event Name</th>
-                    <th scope="col">Event Description</th>
-                    <th scope="col">Event Location</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let event of searchedEvents">
-                    <td>{{event.eventId}}</td>
-                    <td>{{ event.name }}</td>
-                    <td>{{ event.description }}</td>
-                    <td>{{ event.location }}</td>
-                </tr>
-            </tbody>
-        </table>
-        <div>
-            <p *ngIf="searchedEvents.length == 0">No events match your search... Try searching something else</p>
-        </div>       
-    </div>
 </div>
+
+
