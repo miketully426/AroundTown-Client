@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../service/user-service.service';
 import { User } from '../model/user';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user-form',
@@ -11,7 +12,8 @@ import { User } from '../model/user';
 export class UserFormComponent implements OnInit {
   user: User;
 
-  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) {
+  constructor(private route: ActivatedRoute, 
+    private router: Router, private userService: UserService,) {
     this.user = new User();
    }
 
@@ -30,6 +32,7 @@ export class UserFormComponent implements OnInit {
 
    
   ngOnInit() {
+    
   }
 
 }
