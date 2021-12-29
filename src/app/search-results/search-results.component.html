@@ -1,10 +1,11 @@
 <div class="card my-5">
     <div class="card-body">
         <div class="search-form">
-            <input #searchTerm (keyup.enter)="search(searchTerm.value)" 
+            <input #searchTerm (keyup.enter)="searchByKeyword(searchTerm.value)" 
                 type="text" 
+                id="searchTerm"
                 placeholder="Search here"/>
-            <button #searchButton (click)="search(searchTerm.value)">Search</button>
+            <button #searchButton (click)="searchByKeyword(searchTerm.value)">Search</button>
           </div>
         <table class="table table-bordered table-striped">
             <thead class="thead-dark">   

@@ -22,4 +22,11 @@ export class EventService {
      return this.http.post<Event>(this.eventsURL, event);
    }
 
+   public searchEventsByKeyword(searchTerm: String) {
+     return this.http.post<String>(`${this.eventsURL}/:${searchTerm}`, searchTerm);
+   }
+
+   public viewMatchingEventsByKeyword(searchTerm: String): Observable<Event[]> {
+     return this.http.get<Event[]>(`${this.eventsURL}/${searchTerm}`);
+   }
 }
