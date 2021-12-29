@@ -19,6 +19,7 @@ import { EditEventComponent } from './edit-event/edit-event.component';
     EventFormComponent,
     SearchResultsComponent,
     UserFormComponent,
+    EditEventComponent,
   ],
   imports: [
     BrowserModule,

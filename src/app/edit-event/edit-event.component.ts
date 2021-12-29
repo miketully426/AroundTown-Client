@@ -10,7 +10,6 @@ import { Event } from '../model/event';
 })
 export class EditEventComponent implements OnInit {
     currentEvent: Event = new Event;
-    updated: boolean;
 
   constructor( private eventService: EventService, private route: ActivatedRoute, private router: Router) { }
 
