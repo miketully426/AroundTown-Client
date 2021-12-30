@@ -5,7 +5,10 @@
                 <tr>
                     <th scope="col">Event Name</th>
                     <th scope="col">Event Description</th>
-                    <th scope="col">Event Location</th>
+                    <th scope="col">Event Address</th>
+                    <th scope="col">Event City</th>
+                    <th scope="col">Event State</th>
+                    <th scope="col">Event Zip Code</th>
                     <th scope="col">Event Date</th>
                     <th scope="col">Event Time</th>
                     <th scope="col">Event Cost</th>
@@ -16,7 +19,11 @@
                 <tr *ngFor="let event of alphabetizedByName">
                     <td>{{ event.name }}</td>
                     <td>{{ event.description }}</td>
-                    <td>{{ event.location }}</td>
+                    <td>{{ event.locationName }}</td>
+                    <td>{{ event.address }}</td>
+                    <td>{{ event.city }}</td>
+                    <td>{{ event.state }}</td>
+                    <td>{{ event.zip }}</td>
                     <td>{{ event.date }}</td>
                     <td>{{ event.time }}</td>
                     <td [hidden]="event.entryCost === 'free'">${{ event.entryCost }}</td>
