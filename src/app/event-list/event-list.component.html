@@ -19,7 +19,8 @@
                     <td>{{ event.location }}</td>
                     <td>{{ event.date }}</td>
                     <td>{{ event.time }}</td>
-                    <td>{{ event.entryCost }}</td>
+                    <td [hidden]="event.entryCost === 'free'">${{ event.entryCost }}</td>
+                    <td [hidden]="event.entryCost !== 'free'">{{ event.entryCost }}</td>
                     <td>{{ event.familyFriendly }}</td>
                 </tr>
             </tbody>

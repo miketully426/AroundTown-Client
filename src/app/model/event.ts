@@ -6,7 +6,7 @@ export class Event {
     location: string;
     date: string;
     time: string;
-    entryCost: string;
+    entryCost: String;
     familyFriendly: boolean;    
 
 }
