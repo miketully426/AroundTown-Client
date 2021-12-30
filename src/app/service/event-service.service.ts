@@ -26,7 +26,12 @@ export class EventService {
      return this.http.post<String>(`${this.eventsURL}/:${searchTerm}`, searchTerm);
    }
 
-   public viewMatchingEventsByKeyword(searchTerm: String): Observable<Event[]> {
-     return this.http.get<Event[]>(`${this.eventsURL}/${searchTerm}`);
+   public viewMatchingEventsByKeyword(searchTerm: String, filter: String): Observable<Event[]> {
+    if(searchTerm) { 
+      return this.http.get<Event[]>(`${this.eventsURL}/${searchTerm}/${filter}`);
+    }
+    if(!searchTerm) {
+      return this.http.get<Event[]>(`${this.eventsURL}/${filter}`)
+    }
    }
 }

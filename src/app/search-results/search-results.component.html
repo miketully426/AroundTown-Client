@@ -1,12 +1,19 @@
 <div class="card my-5">
     <div class="card-body">
         <div class="search-form">
-            <input #searchTerm (keyup.enter)="searchByKeyword(searchTerm.value)" 
-                type="text" 
-                id="searchTerm"
-                placeholder="Search here"/>
-            <button #searchButton (click)="searchByKeyword(searchTerm.value)">Search</button>
-          </div>
+                <input #searchTerm (keyup.enter)="searchByKeyword(searchTerm.value, filterBy.value)" 
+                    type="text" 
+                    id="searchTerm"
+                    placeholder="Search here"/>
+                <button #searchButton type="submit" (click)="searchByKeyword(searchTerm.value, filterBy.value)" class="list-inline-item">Search</button>
+                <label for="filterBy" class="list-inline-item">Filter By:</label>
+                <select #filterBy id="filterBy" name="filterBy">
+                    <option value="none" selected="selected">None</option>
+                    <option value="familyFriendly">Family Friendly</option>
+                    <option value="notFamilyFriendly">Not Family Friendly</option>
+                </select>
+        </div>
+
         <table class="table table-bordered table-striped">
             <thead class="thead-dark">   
                 <tr>

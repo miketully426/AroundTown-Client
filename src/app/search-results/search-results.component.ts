@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵɵsetComponentScope } from '@angular/core';
 import { Event } from '../model/event'
 import { EventService } from '../service/event-service.service';
 
@@ -17,11 +17,15 @@ export class SearchResultsComponent implements OnInit {
 
   }
 
-  searchByKeyword(searchTerm: string) {
-    this.eventService.viewMatchingEventsByKeyword(searchTerm.toLowerCase()).subscribe(searchData => {
-      this.searchedEvents = searchData;
-    });
-  }
+  searchByKeyword(searchTerm: string, filter: string) {
+    // if(!searchTerm) { //change this to handle no search term WITH a filter
+    //   this.eventService.findAll().subscribe(searchData => {this.searchedEvents = searchData});
+    // } else {
+      this.eventService.viewMatchingEventsByKeyword(searchTerm.toLowerCase(), filter).subscribe(searchData => {
+        this.searchedEvents = searchData;
+      });
+    }
+  // }
 
 }
 
