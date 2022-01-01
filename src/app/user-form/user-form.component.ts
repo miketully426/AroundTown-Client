@@ -37,11 +37,11 @@ export class UserFormComponent implements OnInit {
     }
   }
 
-  // confirmUsername(username: String) {
-  //   if(username != '') {
-  //     this.userService.sendUsername(username).subscribe(result => this.usernameAvailable = result);
-  //   }
-  // }
+  confirmUsername(username: String) {
+    if(username != '') {
+      this.userService.sendUsername(username).subscribe(result => this.usernameAvailable = result);
+    }
+  }
    
   ngOnInit() {
   }

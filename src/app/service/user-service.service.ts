@@ -27,8 +27,8 @@ export class UserService {
      return this.http.get<boolean>(`${this.userURL}/confirm/${email}`);
    }
 
-  //  public sendUsername(username: String) {
-  //    return this.http.get<boolean>(`${this.userURL}/confirm/${username}`)
-  //  }
+   public sendUsername(username: String) {
+     return this.http.get<boolean>(`${this.userURL}/confirm/${username}`)
+   }
 
 }
