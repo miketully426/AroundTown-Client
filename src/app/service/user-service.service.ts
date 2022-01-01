@@ -23,4 +23,8 @@ export class UserService {
      return this.http.post<User>(this.userURL, user);
    }
 
+   public sendEmail(email: String) {
+     return this.http.get<boolean>(`${this.userURL}/confirm/${email}`);
+   }
+
 }
