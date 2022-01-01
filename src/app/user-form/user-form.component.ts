@@ -10,6 +10,8 @@ import { User } from '../model/user';
 })
 export class UserFormComponent implements OnInit {
   user: User;
+  emailAvailable: boolean = true;
+  usernameAvailable: boolean = true;  
 
   constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) {
     this.user = new User();
@@ -18,6 +20,7 @@ export class UserFormComponent implements OnInit {
    goHome() {
     this.router.navigate(['']);
   }
+
    onSubmit(password: String, confirmPassword: String) {
      //add password confirmation validation here in an if statement
     if(password === confirmPassword) {
@@ -28,6 +31,17 @@ export class UserFormComponent implements OnInit {
   
    }
 
+  confirmEmail(email: String) {
+    if(email != '') {
+      this.userService.sendEmail(email).subscribe(result => this.emailAvailable = result);
+    }
+  }
+
+  // confirmUsername(username: String) {
+  //   if(username != '') {
+  //     this.userService.sendUsername(username).subscribe(result => this.usernameAvailable = result);
+  //   }
+  // }
    
   ngOnInit() {
   }
