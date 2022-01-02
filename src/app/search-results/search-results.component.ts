@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { Event } from '../model/event'
 import { EventService } from '../service/event-service.service';
-import { Event } from '../model/event';
-
 
 @Component({
-  selector: 'app-search-by-location',
-  templateUrl: './search-by-location.component.html',
-  styleUrls: ['./search-by-location.component.css']
+  selector: 'app-search-results',
+  templateUrl: './search-results.component.html',
+  styleUrls: ['./search-results.component.css']
 })
-export class SearchByLocationComponent implements OnInit {
+export class SearchResultsComponent implements OnInit {
 
   searchedEvents: Event[] = [];
 
   constructor(private eventService: EventService) { }
 
   ngOnInit() {
+
   }
 
   searchByKeyword(searchTerm: string) {
@@ -24,3 +24,4 @@ export class SearchByLocationComponent implements OnInit {
   }
 
 }
+

@@ -5,12 +5,14 @@
                 <tr>
                     <th scope="col">Event Name</th>
                     <th scope="col">Event Description</th>
-                    <th scope="col">Event Location</th>
+                    <th scope="col">Event Location Name</th>
                     <th scope="col">Zip Code</th>
                     <th scope="col">Event Date</th>
                     <th scope="col">Event Time</th>
                     <th scope="col">Event Cost</th>
                     <th scope="col">Family Friendly</th>
+                    <th scope="col">City</th>
+                    <th scope="col">State</th>
                     
                 </tr>
             </thead>
@@ -18,12 +20,14 @@
                 <tr *ngFor="let event of events">
                     <td>{{ event.name }}</td>
                     <td>{{ event.description }}</td>
-                    <td>{{ event.location }}</td>
+                    <td>{{ event.locationName}}</td>
                     <td>{{ event.zipCode }}</td>
                     <td>{{ event.date }}</td>
                     <td>{{ event.time }}</td>
                     <td>{{ event.entryCost }}</td>
                     <td>{{ event.familyFriendly }}</td>
+                    <td>{{event.city}}</td>
+                    <td>{{event.state}}</td>
                     
                 </tr>
             </tbody>

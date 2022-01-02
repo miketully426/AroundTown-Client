@@ -12,14 +12,20 @@
                 <tr>
                     <th scope="col">Event Name</th>
                     <th scope="col">Event Description</th>
-                    <th scope="col">Event Location</th>
+                    <th scope="col">Event Location Name</th>
+                    <th scope="col">Event Zip Code</th>
+                    <th scope="col"> Event City</th>
+                    <th scope="col"> Event State</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let event of searchedEvents">
                     <td>{{ event.name }}</td>
                     <td>{{ event.description }}</td>
-                    <td>{{ event.location }}</td>
+                    <td>{{ event.locationName }}</td>
+                    <td> {{event.zipCode}}</td>
+                    <td> {{event.city}}</td>
+                    <td> {{event.state}} </td>
                 </tr>
             </tbody>
         </table>
