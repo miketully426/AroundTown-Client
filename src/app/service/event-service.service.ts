@@ -26,6 +26,11 @@ export class EventService {
       return this.http.get<Event>(`${this.eventsURL}/${eventId}`);
    }
 
+   public getPriceById(eventId: number): Observable<Number> {
+      return this.http.get<Number>(`${this.eventsURL}/getPriceById/${eventId}`);
+      //this will not be needed when we can save the price as a number here and a double on the back.
+   }
+
    public updateEvent(eventId: any, data: Event): Observable<Event> {
      return this.http.put<Event>(`${this.eventsURL}/${eventId}`, data);
    }

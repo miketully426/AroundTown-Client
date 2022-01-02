@@ -3,7 +3,6 @@
         <table>
             <thead>   
                 <tr>
-                    <th scope="col">Event ID</th>
                     <th scope="col">Event Name</th>
                     <th scope="col">Event Description</th>
                     <th scope="col">Event Location</th>
@@ -16,15 +15,15 @@
             </thead>
             <tbody>
                 <tr *ngFor="let event of alphabetizedByName">
-                    <td>{{ event.eventId }}</td>
                     <td>{{ event.name }}</td>
                     <td>{{ event.description }}</td>
-                    <td>{{ event.location }}</td>
+                    <td>{{ event.locationName }}</td>
                     <td>{{ event.date }}</td>
                     <td>{{ event.time }}</td>
-                    <td>{{ event.entryCost }}</td>
-                    <td *ngIf="event.familyFriendly; else elseBlock">Yes</td>
-                    <ng-template #elseBlock>No</ng-template>
+                    <td [hidden]="event.entryCost === '0'">${{ event.entryCost }}</td>
+                    <td [hidden]="event.entryCost !== '0'">Free Entry!</td>
+                    <td [hidden]="event.familyFriendly === false">Yes</td>
+                    <td [hidden]="event.familyFriendly === true">No</td>
                     <td><button routerLink="/edit-events/{{event.eventId}}" routerLinkActive="active">Edit</button></td>
                 </tr>
             </tbody>

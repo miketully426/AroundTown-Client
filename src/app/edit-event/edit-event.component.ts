@@ -10,6 +10,8 @@ import { Event } from '../model/event';
 })
 export class EditEventComponent implements OnInit {
     currentEvent: Event = new Event;
+    eventCost: boolean = true;
+    eventCostNum: Number;
 
   constructor( private eventService: EventService, private route: ActivatedRoute, private router: Router) { }
 
@@ -18,10 +20,17 @@ export class EditEventComponent implements OnInit {
   }
 
   public getEvent(id: number): void {
-    this.eventService.findEventById(id).subscribe(data => this.currentEvent = data);
+    this.eventService.findEventById(id).subscribe(data => {this.currentEvent = data});
+    this.eventService.getPriceById(id).subscribe(price => this.eventCostNum = price)
+
   }
 
   public onSubmit() {
+    if(Number(this.eventCostNum) == 0){
+      this.currentEvent.entryCost = String(this.eventCostNum)
+    } else {
+      this.currentEvent.entryCost = this.eventCostNum.toFixed(2);
+    }
     this.eventService.updateEvent(this.currentEvent.eventId, this.currentEvent).subscribe((result) => this.goToEvents());
   }
 
