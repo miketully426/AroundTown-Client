@@ -153,7 +153,7 @@
               id="entryCost" name="entryCost" 
               checked="checked"
               (change)="eventCost = true">
-            <label for="entryCost">Paid Entry1</label> 
+            <label for="entryCost">Paid Entry</label> 
         
             <input #entryCost1="ngModel" [(ngModel)]="eventCostNum"  
               type="radio"  
@@ -161,7 +161,7 @@
               name="entryCost" 
               value="0" 
               (change)="eventCost = false">
-            <label for="entryCost1">Free Entry1</label>
+            <label for="entryCost1">Free Entry</label>
             
             <div *ngIf="eventCost">
               <p>Enter the Entry Cost</p>
@@ -179,8 +179,8 @@
             <ng-template #elseBlock>
                 <input #entryCost type="radio" 
                 id="entryCost" name="entryCost" 
-                (change)="eventCost = false">
-              <label for="entryCost">Paid Entry2</label> 
+                (change)="eventCost = false" autocomplete="off">
+              <label for="entryCost">Paid Entry</label> 
           
               <input #entryCost1="ngModel" [(ngModel)]="eventCostNum"  
                 type="radio"  
@@ -188,7 +188,7 @@
                 name="entryCost" 
                 value="0" 
                 (change)="eventCost = true" checked="checked">
-              <label for="entryCost1">Free Entry2</label>
+              <label for="entryCost1">Free Entry</label>
               
               <div *ngIf="!eventCost">
                 <p>Enter the Entry Cost</p>
