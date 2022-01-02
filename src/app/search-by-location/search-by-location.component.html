@@ -1,0 +1,32 @@
+<div class="card my-5">
+    <div class="card-body">
+        <div class="search-form">
+            <input #zipCode (keyup.enter)="searchByZipCode(zipCode.value)" 
+                type="text" 
+                id="zipCode"
+                placeholder="Search here"/>
+            <button #searchButton (click)="searchByZipCode(zipCode.value)">Search</button>
+          </div>
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">   
+                <tr>
+                    <th scope="col">Event Name</th>
+                    <th scope="col">Event Description</th>
+                    <th scope="col">Event Location</th>
+                    <th scope="col">Event Zip Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let event of searchedEvents">
+                    <td>{{ event.name }}</td>
+                    <td>{{ event.description }}</td>
+                    <td>{{ event.location }}</td>
+                    <td>{{ event.zipCode }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <p *ngIf="searchedEvents.length == 0 && zipCode.value">No events match your search... Try searching something else</p>
+        </div>       
+    </div>
+</div>

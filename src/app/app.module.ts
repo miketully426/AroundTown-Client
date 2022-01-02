@@ -9,6 +9,7 @@ import { UserService } from './service/user-service.service'
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientModule} from "@angular/common/http";
+import { SearchByLocationComponent } from './search-by-location/search-by-location.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import {HttpClientModule} from "@angular/common/http";
     EventListComponent,
     EventFormComponent,
     UserFormComponent,
+    SearchByLocationComponent,
   ],
   imports: [
     BrowserModule,
