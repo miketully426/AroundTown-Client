@@ -8,7 +8,7 @@ export class Event {
     time: string;
     entryCost: string;
     familyFriendly: boolean;  
-    zipCode: number;  
+    zipCode: string;  
 
 
     //zipcode: string;

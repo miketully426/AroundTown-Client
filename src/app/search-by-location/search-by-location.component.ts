@@ -17,8 +17,8 @@ export class SearchByLocationComponent implements OnInit {
   ngOnInit() {
   }
 
-  searchByZipCode(zipCode: number) {
-    this.eventService.viewMatchingEventsByZipCode(zipCode).subscribe(searchData => {
+  searchByKeyword(searchTerm: string) {
+    this.eventService.viewMatchingEventsByKeyword(searchTerm.toLowerCase()).subscribe(searchData => {
       this.searchedEvents = searchData;
     });
   }

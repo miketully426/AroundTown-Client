@@ -22,12 +22,11 @@ export class EventService {
      return this.http.post<Event>(this.eventsURL, event);
    }
 
-   public searchEventsByZipCode(zipCode: number) {
-    return this.http.post<String>(`${this.eventsURL}/:${zipCode}`, zipCode);
-  }
+   public searchEventsByKeyword(searchTerm: String) {
+     return this.http.post<String>(`${this.eventsURL}/:${searchTerm}`, searchTerm);
+   }
 
-  public viewMatchingEventsByZipCode(zipCode: number): Observable<Event[]> {
-    return this.http.get<Event[]>(`${this.eventsURL}/${zipCode}`);
-  }
-
+   public viewMatchingEventsByKeyword(searchTerm: String): Observable<Event[]> {
+     return this.http.get<Event[]>(`${this.eventsURL}/${searchTerm}`);
+   }
 }
