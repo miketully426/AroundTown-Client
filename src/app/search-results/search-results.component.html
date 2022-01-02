@@ -1,13 +1,13 @@
 <div class="card my-5">
     <div class="card-body">
         <div class="search-form">
-                <input #searchTerm (keyup.enter)="searchByKeyword(searchTerm.value, filterBy.value)" 
+                <input #searchTerm (keyup.enter)="onSearch(searchTerm.value, filterByFamFriendly.value)" 
                     type="text" 
                     id="searchTerm"
                     placeholder="Search here"/>
-                <button #searchButton type="submit" (click)="searchByKeyword(searchTerm.value, filterBy.value)" class="list-inline-item">Search</button>
-                <label for="filterBy" class="list-inline-item">Filter By:</label>
-                <select #filterBy id="filterBy" name="filterBy">
+                <button #searchButton type="submit" (click)="onSearch(searchTerm.value, filterByFamFriendly.value)" class="list-inline-item">Search</button>
+                <label for="filterByFamFriendly" class="list-inline-item">Filter By:</label>
+                <select #filterByFamFriendly id="filterByFamFriendly" name="filterByFamFriendly">
                     <option value="none" selected="selected">None</option>
                     <option value="familyFriendly">Family Friendly</option>
                     <option value="notFamilyFriendly">Not Family Friendly</option>
@@ -20,18 +20,28 @@
                     <th scope="col">Event Name</th>
                     <th scope="col">Event Description</th>
                     <th scope="col">Event Location</th>
+                    <th scope="col">Event Date</th>
+                    <th scope="col">Event Time</th>
+                    <th scope="col">Entry Cost</th>
+                    <th scope="col">Family Friendly?</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let event of searchedEvents">
                     <td>{{ event.name }}</td>
                     <td>{{ event.description }}</td>
-                    <td>{{ event.location }}</td>
+                    <td>{{ event.locationName }}</td>
+                    <td>{{ event.date }}</td>
+                    <td>{{ event.time }}</td>
+                    <td [hidden]="event.entryCost === '0'">${{ event.entryCost }}</td>
+                    <td [hidden]="event.entryCost !== '0'">Free Entry</td>
+                    <td [hidden]="event.familyFriendly === false">Yes</td>
+                    <td [hidden]="event.familyFriendly === true">No</td>
                 </tr>
             </tbody>
         </table>
         <div>
-            <p *ngIf="searchedEvents.length == 0 && searchTerm.value">No events match your search... Try searching something else</p>
+            <p *ngIf="searchedEvents.length == 0 && (searchTerm.value || filterByFamFriendly.value != 'none')">No events match your search... Try searching something else</p>
         </div>       
     </div>
 </div>

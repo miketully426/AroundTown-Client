@@ -22,16 +22,16 @@ export class EventService {
      return this.http.post<Event>(this.eventsURL, event);
    }
 
-   public searchEventsByKeyword(searchTerm: String) {
-     return this.http.post<String>(`${this.eventsURL}/:${searchTerm}`, searchTerm);
-   }
+    public viewAllFamFriendly(famFriendly: boolean) {
+      return this.http.get<Event[]>(`${this.eventsURL}/filterAllFamFriendly/${famFriendly}`);
+    }
 
-   public viewMatchingEventsByKeyword(searchTerm: String, filter: String): Observable<Event[]> {
-    if(searchTerm) { 
-      return this.http.get<Event[]>(`${this.eventsURL}/${searchTerm}/${filter}`);
+    public searchByKeywordNoFilter(searchTerm: String) {
+      return this.http.get<Event[]>(`${this.eventsURL}/searchByKeyword/${searchTerm}`)
     }
-    if(!searchTerm) {
-      return this.http.get<Event[]>(`${this.eventsURL}/${filter}`)
+ 
+    public searchByKeywordFamFriendly(searchTerm: String, famFriendly: boolean) {
+      return this.http.get<Event[]>(`${this.eventsURL}/searchByKeywordFamFriendly/${searchTerm}/${famFriendly}`);
     }
-   }
+
 }
