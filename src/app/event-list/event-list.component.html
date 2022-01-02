@@ -21,8 +21,8 @@
                     <td>{{ event.time }}</td>
                     <td [hidden]="event.entryCost === '0'">${{ event.entryCost }}</td>
                     <td [hidden]="event.entryCost !== '0'">Free Entry!</td>
-                    <td [hidden]="event.familyFriendly === true">Yes</td>
-                    <td [hidden]="event.familyFriendly === false">No</td>
+                    <td [hidden]="event.familyFriendly === false">Yes</td>
+                    <td [hidden]="event.familyFriendly === true">No</td>
                 </tr>
             </tbody>
         </table>
