@@ -13,8 +13,7 @@ import { isNull } from 'util';
 export class UserFormComponent implements OnInit {
   user: User;
   emailAvailable: boolean = true;
-
-
+  usernameAvailable: boolean = true;  
 
   constructor(private route: ActivatedRoute, 
     private router: Router, private userService: UserService,) {
@@ -24,6 +23,7 @@ export class UserFormComponent implements OnInit {
    goHome() {
     this.router.navigate(['']);
   }
+
    onSubmit(password: String, confirmPassword: String) {
 
     
@@ -41,6 +41,12 @@ export class UserFormComponent implements OnInit {
   }
 
 
+  confirmUsername(username: String) {
+    if(username != '') {
+      this.userService.sendUsername(username).subscribe(result => this.usernameAvailable = result);
+    }
+  }
+   
   ngOnInit() {
     
   }
