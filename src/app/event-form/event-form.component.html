@@ -4,6 +4,7 @@
         <div class="form-group">
           <label for="name">Event Name: </label>
           <input type="text" [(ngModel)]="event.name" 
+
             class="form-control"
             id="name" 
             name="name" 
@@ -51,6 +52,7 @@
             id="city"
             name="city"
             required #city="ngModel">
+
           </div>
           <div class="form-group col-md-4">
             <label for="state">State</label>
@@ -131,8 +133,10 @@
               name="date"
               placeholder="Enter Event Date"
               required #date="ngModel">
+
             <div [hidden]="date.pristine || !!date.value" class="alert alert-danger">Date is required</div>
         </div>
+
 
           <div class="form-group col-md-4">
             <label for="time">Event Time: </label>
@@ -144,6 +148,7 @@
               required #time="ngModel">
               <div [hidden]="time.pristine || !!time.value" class="alert alert-danger">Time is required</div>
         </div>
+
 
         <p>Event Entry Cost:</p>
         <div class="form-group">
@@ -174,8 +179,7 @@
                 <div [hidden]="costsMoney.pristine || !!costsMoney.value" class="alert alert-danger">Price is required</div>
             </div>
         </div>
-        
-        
+   
 
         <div class="form-group">
           <label for="familyFriendly">Family Friendly: </label>
