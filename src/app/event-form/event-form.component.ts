@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EventService } from '../service/event-service.service';
 import { Event } from '../model/event';
+import { NgbCalendar, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-event-form',
@@ -13,8 +15,11 @@ export class EventFormComponent implements OnInit {
   event: Event;
   eventCost: boolean = true;
   eventCostNum: number;
+  model: NgbDateStruct;
+  date: {year:number, month: number}
 
-  constructor(private route: ActivatedRoute, private router: Router, private eventService: EventService) {
+  constructor(private route: ActivatedRoute, private router: Router, 
+    private eventService: EventService, private calendar: NgbCalendar) {
     this.event = new Event();
    }
 
