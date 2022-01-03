@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EventService } from '../service/event-service.service';
 import { Event } from '../model/event';
 
+
 @Component({
   selector: 'app-event-form',
   templateUrl: './event-form.component.html',
