@@ -27,6 +27,7 @@
                     name="email"
                     placeholder="Email address"
                     required #email="ngModel">
+
             <div [hidden]="emailAvailable" class="alert alert-danger">An account already exists using this email.</div>
             <div [hidden]="email.pristine || !!email.value" class="alert alert-danger">Email is required</div>
             </div>
@@ -70,7 +71,9 @@
             </div>
             <div [hidden]="user.pwHash === user.confirmPassword" class="alert alert-danger">Passwords must match!</div>
             
+
             <button type="submit" [disabled]="!userForm.form.valid || !emailAvailable || !usernameAvailable"
+
                 class="btn btn-info">Submit</button>
         </form>
         <div class="container signin">

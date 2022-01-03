@@ -1,0 +1,57 @@
+<div class="card my-5">
+    <div class="card-body">
+        <div class="search-form">
+                <input #searchTerm (keyup.enter)="onSearch(searchTerm.value, filterByFamFriendly.value, filterByPrice.value)" 
+                    type="text" 
+                    id="searchTerm"
+                    placeholder="Search here"/>
+                <button #searchButton type="submit" (click)="onSearch(searchTerm.value, filterByFamFriendly.value, filterByPrice.value)" class="list-inline-item">Search</button>
+                <label for="filterBy" class="list-inline-item">Filter by Family Friendliness:</label>
+                <select #filterByFamFriendly id="filterByFamFriendly" name="filterByFamFriendly">
+                    <option value="none" selected="selected">No Filter</option>
+                    <option value="familyFriendly">Family Friendly</option>
+                    <option value="notFamilyFriendly">Not Family Friendly</option>
+                </select>
+                <label for="filterByPrice" class="list-inline-item">Filter by price:</label>
+                <select #filterByPrice id="filterByPrice" name="filterByPrice">
+                    <option value="none" selected="selected">No Filter</option>
+                    <option value="free">Free</option>
+                    <option value="$">Less than $25</option>
+                    <option value="$$">$26 - $50</option>
+                    <option value="$$$">$51 - $75</option>
+                    <option value="$$$$">$76 - $100</option>
+                    <option value="$$$$$">More than $100</option>
+                </select>
+        </div>
+
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">   
+                <tr>
+                    <th scope="col">Event Name</th>
+                    <th scope="col">Event Description</th>
+                    <th scope="col">Event Location</th>
+                    <th scope="col">Event Date</th>
+                    <th scope="col">Event Time</th>
+                    <th scope="col">Entry Cost</th>
+                    <th scope="col">Family Friendly?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let event of searchedEvents">
+                    <td>{{ event.name }}</td>
+                    <td>{{ event.description }}</td>
+                    <td>{{ event.locationName }}</td>
+                    <td>{{ event.date }}</td>
+                    <td>{{ event.time }}</td>
+                    <td [hidden]="event.entryCost === '0'">${{ event.entryCost }}</td>
+                    <td [hidden]="event.entryCost !== '0'">Free Entry</td>
+                    <td [hidden]="event.familyFriendly === false">Yes</td>
+                    <td [hidden]="event.familyFriendly === true">No</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <p *ngIf="searchedEvents.length == 0 && (searchTerm.value || filterByFamFriendly.value != 'none' || filterByPrice.value != 'none')">No events match your search... Try searching something else</p>
+        </div>       
+    </div>
+</div>
