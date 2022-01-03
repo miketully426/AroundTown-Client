@@ -5,19 +5,19 @@
         <div class="card-body">
           <h2 class="card-title text-center text-white py-3">{{ title }}</h2>
           <ul class="text-center list-inline py-3">
-            <li routerLink="/login" class = "nav-link">Login</li>
-            <li routerLink="/logout" class = "nav-link">Logout</li>
+            <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/login" class = "nav-link">Login</li>
+            <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/logout" class = "nav-link">Logout</li>
             <li class="list-inline-item">
-              <a routerLink="/events" class="btn btn-info">View All Events</a>
+              <a *ngIf="loginService.isUserLoggedIn()" routerLink="/events" class="btn btn-info">View All Events</a>
             </li>
             <li class="list-inline-item">
-              <a routerLink="/addevent" class="btn btn-info">Create Event</a>
+              <a *ngIf="loginService.isUserLoggedIn()"routerLink="/addevent" class="btn btn-info">Create Event</a>
             </li>
             <li class="list-inline-item">
-              <a routerLink="/searchresults" class="btn btn-info">Search an Event</a>
+              <a *ngIf="loginService.isUserLoggedIn()"routerLink="/searchresults" class="btn btn-info">Search an Event</a>
             </li>
             <li class="list-inline-item">
-              <a routerLink="/adduser" class="btn btn-info">Create Account</a>
+              <a *ngIf="loginService.isUserLoggedIn()" routerLink="/adduser" class="btn btn-info">Create Account</a>
             </li>
             
           </ul>
