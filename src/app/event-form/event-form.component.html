@@ -1,109 +1,197 @@
 <div class="card my-5">
-    <div class="card-body">
-      <form (ngSubmit)="onSubmit()" #eventForm="ngForm">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #eventForm="ngForm">
         <div class="form-group">
           <label for="name">Event Name: </label>
           <input type="text" [(ngModel)]="event.name" 
-            
+
+            class="form-control"
             id="name" 
             name="name" 
             placeholder="Enter Event Name"
             required #name="ngModel">
-        </div>
-
-        <div class="form-group">
+      </div>
+      <div [hidden]="name.pristine || !!name.value" class="alert alert-danger">Event Name is required</div>
+      
+      <div class="form-group">
           <label for="description">Event Description: </label>
           <input type="text" [(ngModel)]="event.description" 
-
+            class="form-control"
             id="description" 
             name="description" 
             placeholder="Enter Event Description"
             required #description="ngModel">
-        </div>
+          <div [hidden]="description.pristine || !!description.value" class="alert alert-danger">Description is required</div>
+      </div>
+
+      <div class="form-group">
+        <label for="locationName">Location Name: </label>
+        <input type="text" [(ngModel)]="event.locationName" 
+          class="form-control"
+          id="locationName" 
+          name="locationName" 
+          placeholder="Enter Name of Location"
+          required #locationName="ngModel">
+        <div [hidden]="locationName.pristine || !!locationName.value" class="alert alert-danger">Name of location is required</div>
+    </div>
 
         <div class="form-group">
-            <label for="locationName">Event Location Name: </label>
-            <input type="text" [(ngModel)]="event.locationName" 
-           
-              id="locationName" 
-              name="locationName" 
-              placeholder="Enter Event Location"
-              required #locationName="ngModel">
-          </div>
+          <label for="address">Event Address </label>
+            <input type="text" [(ngModel)]="event.address" 
+              class="form-control"
+              id="address" 
+              name="address" 
+              placeholder="Enter Street Address"
+              required #address="ngModel">
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="city">City</label>
+            <input type="text" [(ngModel)]="event.city"
+            class="form-control"
+            id="city"
+            name="city"
+            required #city="ngModel">
 
-          <div class="form-group">
-            <label for="city">City: </label>
-            <input type="text" [(ngModel)]="event.city" 
-           
-              id="city" 
-              name="city" 
-              placeholder="Enter Event City"
-              required #city="ngModel">
           </div>
-
-          <div class="form-group">
-            <label for="state">Event Location Name: </label>
-            <input type="text" [(ngModel)]="event.state" 
-           
-              id="state" 
-              name="state" 
-              placeholder="Enter Event State"
+          <div class="form-group col-md-4">
+            <label for="state">State</label>
+            <select id="state" 
+              name="state"
+              class="form-control"
+              [(ngModel)]="event.state"
               required #state="ngModel">
+              <option selected>Choose...</option>
+              <option value="AL">Alabama</option>
+	            <option value="AK">Alaska</option>
+	            <option value="AZ">Arizona</option>
+	            <option value="AR">Arkansas</option>
+	            <option value="CA">California</option>
+	            <option value="CO">Colorado</option>
+	            <option value="CT">Connecticut</option>
+	            <option value="DE">Delaware</option>
+	            <option value="DC">District Of Columbia</option>
+	            <option value="FL">Florida</option>
+	            <option value="GA">Georgia</option>
+	            <option value="HI">Hawaii</option>
+	            <option value="ID">Idaho</option>
+	            <option value="IL">Illinois</option>
+	            <option value="IN">Indiana</option>
+	            <option value="IA">Iowa</option>
+	            <option value="KS">Kansas</option>
+	            <option value="KY">Kentucky</option>
+	            <option value="LA">Louisiana</option>
+	            <option value="ME">Maine</option>
+	            <option value="MD">Maryland</option>
+	            <option value="MA">Massachusetts</option>
+	            <option value="MI">Michigan</option>
+	            <option value="MN">Minnesota</option>
+	            <option value="MS">Mississippi</option>
+	            <option value="MO">Missouri</option>
+	            <option value="MT">Montana</option>
+	            <option value="NE">Nebraska</option>
+	            <option value="NV">Nevada</option>
+	            <option value="NH">New Hampshire</option>
+	            <option value="NJ">New Jersey</option>
+	            <option value="NM">New Mexico</option>
+	            <option value="NY">New York</option>
+	            <option value="NC">North Carolina</option>
+	            <option value="ND">North Dakota</option>
+	            <option value="OH">Ohio</option>
+	            <option value="OK">Oklahoma</option>
+	            <option value="OR">Oregon</option>
+	            <option value="PA">Pennsylvania</option>
+	            <option value="RI">Rhode Island</option>
+	            <option value="SC">South Carolina</option>
+	            <option value="SD">South Dakota</option>
+	            <option value="TN">Tennessee</option>
+	            <option value="TX">Texas</option>
+	            <option value="UT">Utah</option>
+	            <option value="VT">Vermont</option>
+	            <option value="VA">Virginia</option>
+	            <option value="WA">Washington</option>
+	            <option value="WV">West Virginia</option>
+	            <option value="WI">Wisconsin</option>
+	            <option value="WY">Wyoming</option>
+            </select>
           </div>
-
-          <div class="form-group">
-            <label for="zipCode">Event Location Zip: </label>
-            <input type="text" [(ngModel)]="event.zipCode" 
-           
-              id="zipCode" 
-              name="zipCode" 
-              placeholder="Enter Event Location by Zip Code"
+          <div class="form-group col-md-2">
+            <label for="zipCode">Zip</label>
+            <input type="text" 
+              class="form-control" 
+              id="zipCode"
+              name="zipCode"
+              [(ngModel)]="event.zipCode"
               required #zipCode="ngModel">
           </div>
-
-          <div class="form-group">
+        </div>
+          <div class="form-group col-md-4">
             <label for="date">Event Date: </label>
-            <input type="text" [(ngModel)]="event.date" 
-             
+            <input type="date" [(ngModel)]="event.date" 
+              class="form-control"
               id="date" 
               name="date"
               placeholder="Enter Event Date"
               required #date="ngModel">
-          </div>
 
-          <div class="form-group">
+            <div [hidden]="date.pristine || !!date.value" class="alert alert-danger">Date is required</div>
+        </div>
+
+
+          <div class="form-group col-md-4">
             <label for="time">Event Time: </label>
-            <input type="text" [(ngModel)]="event.time" 
-             
+            <input type="time" [(ngModel)]="event.time" 
+              class="form-control"
               id="time" 
               name="time" 
               placeholder="Enter Event Time"
               required #time="ngModel">
-          </div>
+              <div [hidden]="time.pristine || !!time.value" class="alert alert-danger">Time is required</div>
+        </div>
 
-          <div class="form-group">
-            <label for="entryCost">Event Entry Cost: </label>
-            <input type="text" [(ngModel)]="event.entryCost" 
-            
-              id="entryCost" 
+
+        <p>Event Entry Cost:</p>
+        <div class="form-group">
+            <input #entryCost type="radio" 
+              id="entryCost" name="entryCost" 
+              checked="checked"
+              (change)="eventCost = true">
+            <label for="entryCost">Paid Entry</label> 
+        
+            <input #entryCost1="ngModel" [(ngModel)]="eventCostNum"  
+              type="radio"  
+              id="entryCost1" 
               name="entryCost" 
-              placeholder="Enter Event Entry Cost"
-              required #entryCost="ngModel">
-          </div>
+              value="0" 
+              (change)="eventCost = false">
+            <label for="entryCost1">Free Entry</label>
+            
+            <div *ngIf="eventCost">
+              <p>Enter the Entry Cost</p>
+              <label for="costsMoney">$</label>
+              <input type="number" min=1 [(ngModel)]="eventCostNum"
+    
+                id="costsMoney"
+                name="costsMoney"
+                placeholder="Enter a price"
+                required #costsMoney="ngModel">
+                <div [hidden]="costsMoney.pristine || !!costsMoney.value" class="alert alert-danger">Price is required</div>
+            </div>
+        </div>
+   
 
-          <div class="form-group">
-            <label for="familyFriendly">Family Friendly: </label>
-            <input type="checkbox" [(ngModel)]="event.familyFriendly" 
-           
-              id="familyFriendly" 
-              name="familyFriendly" 
-              checked="checked"              
-              #familyFriendly="ngModel">
-          </div>
+        <div class="form-group">
+          <label for="familyFriendly">Family Friendly: </label>
+          <input type="checkbox" [(ngModel)]="event.familyFriendly" 
+         
+            id="familyFriendly" 
+            name="familyFriendly" 
+            checked="checked"              
+            #familyFriendly="ngModel">
+        </div>
 
-        <button type="submit" [disabled]="!eventForm.form.valid" 
-          class="btn btn-info">Submit</button>
-      </form>
-    </div>
+      <button type="submit" [disabled]="!eventForm.form.valid" 
+        class="btn btn-info">Submit</button>
+    </form>
   </div>
-
+</div>

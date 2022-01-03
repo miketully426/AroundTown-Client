@@ -11,5 +11,6 @@ export class Event {
     zipCode: string;  
     city: string;
     state: string;
+    address: string;
 
 }
