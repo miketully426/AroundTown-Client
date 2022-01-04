@@ -65,5 +65,4 @@ export class EventService {
        return this.http.get<Event[]>(`${this.eventsURL}/searchByKeywordFamFriendlyPrice/${searchTerm}/${famFriendly}/${lowPrice}`);
      }
    }
-
 }
