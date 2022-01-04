@@ -3,6 +3,12 @@
     <div class="col-md-12">
       <div class="card bg-dark my-5">
         <div class="card-body">
+          <li>
+            <a routerLink="/login" class = "nav-link">Login</a>
+          </li>
+            <li class="list-inline-item">
+              <a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class = "nav-link">Logout</a>
+            </li>
           <h2 class="card-title text-center text-white py-3">{{ title }}</h2>
           <ul class="text-center list-inline py-3">
            <li class="list-inline-item">
@@ -17,12 +23,7 @@
             <li class="list-inline-item">
               <a *ngIf="loginService.isUserLoggedIn()" routerLink="/adduser" class="btn btn-info">Create Account</a>
             </li>
-            <li class="list-inline-item">
-              <a routerLink="/login" class = "nav-link">Login</a>
-            </li>
-              <li class="list-inline-item">
-                <a *ngIf="!loginService.isUserLoggedIn()" routerLink="/logout" class = "nav-link">Logout</a>
-              </li>
+            
             
           </ul>
         </div>
