@@ -8,7 +8,7 @@ import { EventService } from './service/event-service.service'
 import { UserService } from './service/user-service.service'
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import {HttpClientModule} from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
