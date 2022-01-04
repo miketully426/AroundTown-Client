@@ -25,14 +25,14 @@
       </div>
 
       <div class="form-group">
-        <label for="location">Event Location Name: </label>
-        <input type="text" [(ngModel)]="event.location" 
+        <label for="locationName">Event Location Name: </label>
+        <input type="text" [(ngModel)]="event.locationName" 
           class="form-control"
-          id="location" 
-          name="location" 
+          id="locationName" 
+          name="locationName" 
           placeholder="Enter Name of Location"
           required #locationName="ngModel">
-        <div [hidden]="location.pristine || !!location.value" class="alert alert-danger">Name of location is required</div>
+        <div [hidden]="locationName.pristine || !!locationName.value" class="alert alert-danger">Name of location is required</div>
     </div>
 
         <div class="form-group">
