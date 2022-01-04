@@ -6,12 +6,12 @@
         <table class="table table-bordered table-striped">
             <thead class="thead-dark">      
                 <tr>
-                    <th scope="col">Event Name</th>
-                    <th scope="col">Event Description</th>
-                    <th scope="col">Event Location</th>
-                    <th scope="col">Event Date</th>
-                    <th scope="col">Event Time</th>
-                    <th scope="col">Event Cost</th>
+                    <th scope="col">Event</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Cost</th>
                     <th scope="col">Family Friendly</th>
                 </tr>
             </thead>
@@ -24,8 +24,8 @@
                     <td>{{ event.time }}</td>
                     <td [hidden]="event.entryCost === '0'">${{ event.entryCost }}</td>
                     <td [hidden]="event.entryCost !== '0'">Free Entry!</td>
-                    <td [hidden]="event.familyFriendly === false">Yes</td>
-                    <td [hidden]="event.familyFriendly === true">No</td>
+                    <td [hidden]="event.familyFriendly === false"><fa-icon [icon]="faThumbsUp" [styles]="{'color': 'green'}"></fa-icon></td>
+                    <td [hidden]="event.familyFriendly === true"><fa-icon [icon]="faThumbsDown" [styles]="{'color': 'red'}"></fa-icon></td>
                 </tr>
             </tbody>
         </table>
