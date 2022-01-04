@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from '../service/authentication.service';
+import { AuthenticationService } from './service/authentication.service';
 
 
 @Component({
@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
     this.title = 'AroundTown';
   }
 
-  ngOnInit(): {
+  ngOnInit() {
       
   }
 }
