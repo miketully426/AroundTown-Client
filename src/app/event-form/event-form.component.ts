@@ -49,12 +49,16 @@ export class EventFormComponent implements OnInit {
     } else{
         this.event.entryCost = this.eventCostNum.toFixed(2);
     }
+    if(this.eventTime.minute == 0){
+      this.event.date = `${this.eventDate.month}/${this.eventDate.day}/${this.eventDate.year}`
+      this.event.time = `${this.eventTime.hour}:00`
+    } else {
       this.event.date = `${this.eventDate.month}/${this.eventDate.day}/${this.eventDate.year}`
       this.event.time = `${this.eventTime.hour}:${this.eventTime.minute}`
-
+    }
       this.eventService.save(this.event).subscribe(result => this.gotoEventList());
      
-
+    
    }
   
   ngOnInit() {
