@@ -28,14 +28,14 @@
             <thead class="thead-dark">   
                 <tr>
                     <th scope="col">Event Name</th>
-                    <th scope="col">Event Description</th>
-                    <th scope="col">Event Location</th>
-                    <th scope="col">Event Address</th>
-                    <th scope="col">Event City</th>
-                    <th scope="col">Event State</th>
-                    <th scope="col">Event Zip Code</th>
-                    <th scope="col">Event Date</th>
-                    <th scope="col">Event Time</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">City</th>
+                    <th scope="col">State</th>
+                    <th scope="col">Zip Code</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
                     <th scope="col">Entry Cost</th>
                     <th scope="col">Family Friendly?</th>
                 </tr>
@@ -45,10 +45,10 @@
                     <td>{{ event.name }}</td>
                     <td>{{ event.description }}</td>
                     <td>{{ event.locationName }}</td>
-                    <td>{{event.address}}</td>
-                    <td>{{event.city}}</td>
-                    <td>{{event.state}}</td>
-                    <td>{{event.zipCode}}</td>
+                    <td>{{ event.address }}</td>
+                    <td>{{ event.city }}</td>
+                    <td>{{ event.state }}</td>
+                    <td>{{ event.zipCode }}</td>
                     <td>{{ event.date }}</td>
                     <td>{{ event.time }}</td>
                     <td [hidden]="event.entryCost === '0'">${{ event.entryCost }}</td>
