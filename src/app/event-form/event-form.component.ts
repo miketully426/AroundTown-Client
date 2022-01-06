@@ -16,12 +16,12 @@ export class EventFormComponent implements OnInit {
   eventCost: boolean = true;
   eventCostNum: number;
   model: NgbDateStruct;
-  // date: {year:number, month: number};
-  // time: {hour:number, minute:number, second:number};
+  eventDate: {year:number, month: number, day: number};
+  eventTime: {hour:number, minute:number};
   meridian = true;
   minuteStep = 15;
-  eventDate: Object;
-  eventTime: Object;
+  // eventDate: Object;
+  // eventTime: Object;
   //not sure if this needs to be true or false
   @ViewChild('dp', {static: false}) dp: NgbDatepicker;
 
