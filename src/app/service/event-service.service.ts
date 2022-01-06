@@ -65,4 +65,11 @@ export class EventService {
        return this.http.get<Event[]>(`${this.eventsURL}/searchByKeywordFamFriendlyPrice/${searchTerm}/${famFriendly}/${lowPrice}`);
      }
    }
+
+   delete(id) {
+    return this.http.delete<Event>(`${this.eventsURL}/delete/${id}`);
+  }
+
+
+
 }
