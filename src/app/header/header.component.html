@@ -3,10 +3,10 @@
     <div><a routerLink="events" class="navbar-brand">AroundTown</a></div>
 
     <ul class="navbar-nav">
-      <li><a  routerLink="/searchresults" class="nav-link">Search For an Event</a></li>
-      <li><a  routerLink="/events" class="nav-link">View All Events</a></li>
-      <li><a  routerLink="/login" class="nav-link" >Log-In</a></li>
-      <li><a  routerLink="/logout" class="nav-link" >Logout</a></li>
+      <li><a  *ngIf="loginService.isUserLoggedIn()" routerLink="/searchresults" class="nav-link">Search For an Event</a></li>
+      <li><a  *ngIf="loginService.isUserLoggedIn()" routerLink="/events" class="nav-link">View All Events</a></li>
+      <li><a  *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link" >Log-In</a></li>
+      <li><a  *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link" >Logout</a></li>
     </ul>
     
     </nav>
