@@ -66,7 +66,7 @@ export class EventService {
      }
    }
 
-   deleteEvent(eventId) {
+  public deleteEvent(eventId: any) {
     return this.http.delete<Event>(`${this.eventsURL}/delete/${eventId}`);
   }
 
