@@ -9,14 +9,15 @@
                     <th scope="col">Event</th>
                     <th scope="col">Description</th>
                     <th scope="col">Location Name</th>
-                    <th scope="col">Zip Code</th>
                     <th scope="col">Date</th>
                     <th scope="col">Time</th>
-                    <th scope="col">Cost</th>
-                    <th scope="col">Family Friendly</th>
+                    <th scope="col">Zip Code</th>
                     <th scope="col">City</th>
                     <th scope="col">State</th>
                     <th scope="col">Address</th>
+                    <th scope="col">Cost</th>
+                    <th scope="col">Family Friendly</th>
+                    <th scope="col">Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,25 +25,23 @@
                     <td>{{ event.name }}</td>
                     <td>{{ event.description }}</td>
                     <td>{{ event.locationName}}</td>
-                    <td>{{ event.zipCode }}</td>
                     <td>{{ event.date }}</td>
                     <td>{{ event.time }}</td>
-                    <td>{{ event.entryCost }}</td>
-                    <td>{{ event.familyFriendly }}</td>
-                    <td>{{event.city}}</td>
-                    <td>{{event.state}}</td>
-                    <td>{{event.address}}</td>                    
+                    <td>{{ event.zipCode }}</td>
+                    <td>{{ event.city }}</td>
+                    <td>{{ event.state }}</td>
+                    <td>{{ event.address }}</td>    
                     <td [hidden]="event.entryCost === '0'">${{ event.entryCost }}</td>
                     <td [hidden]="event.entryCost !== '0'">Free Entry!</td>
                     <td [hidden]="event.familyFriendly === false"><fa-icon [icon]="faThumbsUp" [styles]="{'color': 'green'}"></fa-icon></td>
-                    <td [hidden]="event.familyFriendly === true"><fa-icon [icon]="faThumbsDown" [styles]="{'color': 'red'}"></fa-icon></td>
-
+                    <td [hidden]="event.familyFriendly === true"><fa-icon [icon]="faThumbsDown" [styles]="{'color': 'red'}"></fa-icon></td>     
                     <button class="badge badge-danger mr-2" (click)="deleteEvent()">
                         Delete
-                      </button>
-
+                      </button>           
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
+
+
