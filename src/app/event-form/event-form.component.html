@@ -125,30 +125,35 @@
               required #zipCode="ngModel">
           </div>
         </div>
+        <div class="form-row">
           <div class="form-group col-md-4">
             <label for="date">Event Date: </label>
-            <input type="date" [(ngModel)]="event.date" 
-              class="form-control"
+            <ngb-datepicker [(ngModel)]="eventDate" 
               id="date" 
               name="date"
               placeholder="Enter Event Date"
               required #date="ngModel">
-
+            </ngb-datepicker>
+            <!-- <button class="btn btn-sm btn-outline-primary mr-2" (click)="selectToday()">Select Today</button>
+            <button class="btn btn-sm btn-outline-primary mr-2" (click)="setCurrent()">To current month</button> -->
             <div [hidden]="date.pristine || !!date.value" class="alert alert-danger">Date is required</div>
         </div>
 
 
-          <div class="form-group col-md-4">
-            <label for="time">Event Time: </label>
-            <input type="time" [(ngModel)]="event.time" 
-              class="form-control"
-              id="time" 
-              name="time" 
-              placeholder="Enter Event Time"
-              required #time="ngModel">
-              <div [hidden]="time.pristine || !!time.value" class="alert alert-danger">Time is required</div>
+        <div class="form-group col-md-4">
+          <label for="time">Event Time: </label>
+          <ngb-timepicker [(ngModel)]="eventTime" 
+            id="time" 
+            name="time" 
+            placeholder="Enter Event Time"
+            required #time="ngModel"
+            [meridian]="meridian"
+            [minuteStep]="minuteStep">
+            <div [hidden]="time.pristine || !!time.value" class="alert alert-danger">Time is required</div>
+          </ngb-timepicker>
+          </div>
         </div>
-
+        <hr/>
 
         <p>Event Entry Cost:</p>
         <div class="form-group">
