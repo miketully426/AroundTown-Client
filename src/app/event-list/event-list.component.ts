@@ -30,6 +30,7 @@ export class EventListComponent implements OnInit {
   }
 
   deleteEvent(eventId: number) {
+    if(confirm("Are you sure to want to delete?")) {
     this.eventService.deleteEvent(eventId)
       .subscribe(
         data => {
@@ -37,5 +38,6 @@ export class EventListComponent implements OnInit {
         },
         error => console.log(error));
   }
+}
 
 }
