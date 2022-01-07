@@ -3,6 +3,7 @@ import { Event } from '../model/event';
 import { EventService } from '../service/event-service.service';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
+import { Observable } from "rxjs";
 
 import { ActivatedRoute, Router } from '@angular/router';
 
