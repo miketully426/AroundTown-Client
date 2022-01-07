@@ -29,8 +29,8 @@ export class EventListComponent implements OnInit {
     });
   }
 
-  deleteEvent() {
-    this.eventService.delete(this.currentEvent.eventId)
+  delete() {
+    this.eventService.deleteEvent(this.currentEvent.eventId)
       .subscribe(
         response => {
           console.log(response);

@@ -35,7 +35,7 @@
                     <td [hidden]="event.entryCost !== '0'">Free Entry!</td>
                     <td [hidden]="event.familyFriendly === false"><fa-icon [icon]="faThumbsUp" [styles]="{'color': 'green'}"></fa-icon></td>
                     <td [hidden]="event.familyFriendly === true"><fa-icon [icon]="faThumbsDown" [styles]="{'color': 'red'}"></fa-icon></td>     
-                    <button class="badge badge-danger mr-2" (click)="deleteEvent()">
+                    <button class="badge badge-danger mr-2" (click)="delete()">
                         Delete
                       </button>           
                 </tr>
