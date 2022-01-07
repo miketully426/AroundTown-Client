@@ -27,9 +27,9 @@
                     <td>{{ event.date }}</td>
                     <td>{{ event.time }}</td>
                     <td>{{ event.zipCode }}</td>
-                    <td>{{event.city}}</td>
-                    <td>{{event.state}}</td>
-                    <td>{{event.address}}</td>    
+                    <td>{{ event.city }}</td>
+                    <td>{{ event.state }}</td>
+                    <td>{{ event.address }}</td>    
                     <td [hidden]="event.entryCost === '0'">${{ event.entryCost }}</td>
                     <td [hidden]="event.entryCost !== '0'">Free Entry!</td>
                     <td [hidden]="event.familyFriendly === false"><fa-icon [icon]="faThumbsUp" [styles]="{'color': 'green'}"></fa-icon></td>
