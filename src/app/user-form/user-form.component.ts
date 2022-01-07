@@ -10,6 +10,8 @@ import { User } from '../model/user';
 })
 export class UserFormComponent implements OnInit {
   user: User;
+  // when I tried this I got the correct id and user logged to the console a few times
+  // users: User[];
   users: User[] = [];
 
   constructor(
@@ -21,7 +23,9 @@ export class UserFormComponent implements OnInit {
 
    goToProfile() {
     this.userService.findAll().subscribe(data => {
-      this.users = data;})
+      this.users = data;});
+      // console.log(this.users.length);
+      // console.log(this.users[this.users.length-1]);
     this.router.navigate([`/userprofile/${this.users[this.users.length-1].id}`]);
   }
    onSubmit(password: String, confirmPassword: String) {
