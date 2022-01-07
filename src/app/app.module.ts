@@ -8,7 +8,8 @@ import { EventService } from './service/event-service.service'
 import { UserService } from './service/user-service.service'
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import {HttpClientModule} from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import {HttpClientModule} from "@angular/common/http";
     EventListComponent,
     EventFormComponent,
     UserFormComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

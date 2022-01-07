@@ -3,8 +3,8 @@ table {
     color: #ddd;
 }
 
-thead {
+th {
     color: #ff66c4;
-    font-weight: bold;
     font-size: large;
+    font-weight: 300;
 }
