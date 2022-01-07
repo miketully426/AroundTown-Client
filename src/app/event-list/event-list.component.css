@@ -1,3 +1,7 @@
+body {
+    background-color: black;
+}
+
 table {
     font-family: 'Quicksand', sans-serif;
     color: #ddd;
