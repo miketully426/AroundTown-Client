@@ -29,16 +29,25 @@ export class EventListComponent implements OnInit {
     });
   }
 
-  delete() {
-    this.eventService.deleteEvent(this.currentEvent.eventId)
+  // delete() {
+  //   this.eventService.deleteEvent(this.currentEvent.eventId)
+  //     .subscribe(
+  //       response => {
+  //         console.log(response);
+  //         this.router.navigate(['/events']);
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       });
+  // }
+
+  deleteEvent(eventId: number) {
+    this.eventService.deleteEvent(eventId)
       .subscribe(
-        response => {
-          console.log(response);
-          this.router.navigate(['/events']);
+        data => {
+          console.log(data);
         },
-        error => {
-          console.log(error);
-        });
+        error => console.log(error));
   }
 
 }
