@@ -29,7 +29,8 @@ export class EventFormComponent implements OnInit {
     } else{
         this.event.entryCost = this.eventCostNum.toFixed(2);
     }
-     this.eventService.save(this.event).subscribe(result => this.gotoEventList());
+     this.eventService.save(this.event).subscribe(result => this.gotoEventList());     
+    
    }
   
   ngOnInit() {

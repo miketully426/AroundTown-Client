@@ -1,6 +1,8 @@
 import { Component, OnInit, ɵɵsetComponentScope } from '@angular/core';
 import { Event } from '../model/event'
 import { EventService } from '../service/event-service.service';
+import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-search-results',
@@ -13,6 +15,8 @@ export class SearchResultsComponent implements OnInit {
   famFriendly: boolean;
   lowPrice: number;
   highPrice: number;
+  faThumbsUp = faThumbsUp;
+  faThumbsDown = faThumbsDown;
 
   constructor(private eventService: EventService) { }
 
