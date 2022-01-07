@@ -5,7 +5,6 @@ import { EventListComponent } from './event-list/event-list.component'
 import { EventFormComponent } from './event-form/event-form.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 
-
 const routes: Routes = [
   { path: 'events', component: EventListComponent },
   { path: 'addevent', component: EventFormComponent },

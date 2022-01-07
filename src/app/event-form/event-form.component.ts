@@ -5,6 +5,7 @@ import { Event } from '../model/event';
 import { NgbCalendar, NgbDateStruct, NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
 
 
+
 @Component({
   selector: 'app-event-form',
   templateUrl: './event-form.component.html',
@@ -63,6 +64,4 @@ export class EventFormComponent implements OnInit {
   
   ngOnInit() {
   }
-
-
 }
