@@ -11,12 +11,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from "@angular/common/http";
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
     AppComponent,
     EventListComponent,
     EventFormComponent,
+    SearchResultsComponent,
     UserFormComponent,
     HeaderComponent,
     FooterComponent,
@@ -26,6 +29,7 @@ import { FooterComponent } from './footer/footer.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [EventService, UserService],
 

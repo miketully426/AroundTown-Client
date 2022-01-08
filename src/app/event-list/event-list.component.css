@@ -5,6 +5,7 @@ body {
 table {
     font-family: 'Quicksand', sans-serif;
     color: #ddd;
+    text-align: center;
 }
 
 th {
