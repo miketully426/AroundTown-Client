@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵɵsetComponentScope } from '@angular/core';
 import { Event } from '../model/event'
 import { EventService } from '../service/event-service.service';
 
@@ -9,33 +9,75 @@ import { EventService } from '../service/event-service.service';
 })
 export class SearchResultsComponent implements OnInit {
 
-  events: Event[] = [];
-  alphabetizedByName: Event[];
   searchedEvents: Event[] = [];
+  famFriendly: boolean;
+  lowPrice: number;
+  highPrice: number;
 
   constructor(private eventService: EventService) { }
 
   ngOnInit() {
-    this.eventService.findAll().subscribe(data => {
-      this.events = data;
-      this.alphabetizedByName = this.events.sort(function(a, b) {return a.name.localeCompare(b.name)});
-    });
+
   }
 
-  search(searchTerm: string) {
-    let matchingEvents: Event[] = [];
-    searchTerm = searchTerm.toLowerCase();
-    for(let i=0; i < this.events.length; i++) {
-      if(this.events[i].name.toString().toLowerCase().includes(searchTerm) 
-        || this.events[i].description.toString().toLowerCase().includes(searchTerm)
-        || this.events[i].locationName.toString().toLowerCase().includes(searchTerm)) {
-           matchingEvents.push(this.events[i]);
-      }  
+
+  onSearch(searchTerm: string, familyFriendlyFilter: String, priceFilter: string) {
+    if(familyFriendlyFilter == "familyFriendly") {
+      this.famFriendly = true;
+    } else {
+      this.famFriendly = false;
     }
-    this.searchedEvents = matchingEvents;
+     
+    if(priceFilter == "free") {
+      this.lowPrice = 0;
+    } else if(priceFilter == "$") {
+      this.lowPrice = 1;
+      this.highPrice = 26;
+    } else if(priceFilter == "$$") {
+      this.lowPrice = 26;
+      this.highPrice = 51;
+    } else if(priceFilter == "$$$") {
+      this.lowPrice = 51;
+      this.highPrice = 76;
+    } else if(priceFilter == "$$$$") {
+      this.lowPrice = 76;
+      this.highPrice = 101;
+    }else if(priceFilter == "$$$$$") {
+      this.lowPrice = 100;
+    }   
+
+  
+    if(!searchTerm) {
+        if(priceFilter == "none" && familyFriendlyFilter == "none") {
+          this.eventService.findAll().subscribe(allEvents => 
+            {this.searchedEvents = allEvents});
+        } else if (priceFilter == "none") {
+          this.eventService.viewAllFamFriendly(this.famFriendly).subscribe(famFriendly => 
+            {this.searchedEvents = famFriendly});
+        } else if(familyFriendlyFilter == "none") {
+            this.eventService.viewAllByPrice(this.lowPrice, this.highPrice).subscribe(allEventCost => {this.searchedEvents = allEventCost});  
+        } else {
+          this.eventService.viewAllByFamFriendlyAndPrice(this.famFriendly, this.lowPrice, this.highPrice).subscribe(famFriendCost => 
+            {this.searchedEvents = famFriendCost});
+        }
+    }
+
+    if(searchTerm) {
+      if(priceFilter == "none" && familyFriendlyFilter == "none") {
+        this.eventService.searchByKeywordNoFilter(searchTerm).subscribe(matchingEvents => 
+          {this.searchedEvents = matchingEvents});
+      } else if(priceFilter == "none") {
+        this.eventService.searchByKeywordFamFriendly(searchTerm, this.famFriendly).subscribe(matchingEvents => 
+          {this.searchedEvents = matchingEvents});
+      } else if(familyFriendlyFilter == "none") {
+        this.eventService.searchByKeywordPrice(searchTerm, this.lowPrice, this.highPrice).subscribe(matchingEvents => 
+          {this.searchedEvents = matchingEvents});
+      } else {
+        this.eventService.searchByKeywordFamFriendlyPrice(searchTerm, this.famFriendly, this.lowPrice, this.highPrice).subscribe(matchingEvents => 
+          {this.searchedEvents = matchingEvents});
+      }
+    }  
+    this.highPrice = null;
+
   }
-
 }
-
-
-
