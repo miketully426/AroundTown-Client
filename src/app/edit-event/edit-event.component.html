@@ -145,19 +145,6 @@
               required #time="ngModel">
           </div>
 
-          <!-- <div class="form-group">
-            <label for="eventCost">Event Cost: </label>
-            <label for="eventCost">$</label>
-            <input type="number" [(ngModel)]="eventCostNum" 
-             
-              id="eventCost" 
-              name="eventCost" 
-              placeholder="{{ entryCostNum }}"
-              required #eventCost="ngModel">
-          </div>  -->
-          
-
-
           <p>Event Entry Cost:</p>
           <div *ngIf="currentEvent.entryCost != '0'; else elseBlock" class="form-group">
             
