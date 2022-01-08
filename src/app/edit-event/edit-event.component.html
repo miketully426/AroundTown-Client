@@ -147,6 +147,7 @@
 
           <!-- <div class="form-group">
             <label for="eventCost">Event Cost: </label>
+            <label for="eventCost">$</label>
             <input type="number" [(ngModel)]="eventCostNum" 
              
               id="eventCost" 
@@ -158,11 +159,11 @@
 
 
           <p>Event Entry Cost:</p>
-        <div *ngIf="currentEvent.entryCost != '0'; else elseBlock" class="form-group">
+          <div *ngIf="currentEvent.entryCost != '0'; else elseBlock" class="form-group">
             
             <input #entryCost type="radio" 
               id="entryCost" name="entryCost" 
-              checked="checked"
+              [checked]="eventCost"
               (change)="eventCost = true">
             <label for="entryCost">Paid Entry</label> 
         
@@ -177,7 +178,7 @@
             <div *ngIf="eventCost">
               <p>Enter the Entry Cost</p>
               <label for="costsMoney">$</label>
-              <input type="number" min=1 [(ngModel)]="eventCostNum"
+              <input type="number" min="1" [(ngModel)]="eventCostNum"
     
                 id="costsMoney"
                 name="costsMoney"
@@ -188,28 +189,28 @@
           <div>
 
             <ng-template #elseBlock>
-                <input #entryCost type="radio" 
-                id="entryCost" name="entryCost" 
-                (change)="eventCost = false" autocomplete="off">
-              <label for="entryCost">Paid Entry</label> 
+              <input #entryCost2 type="radio" 
+                id="entryCost2" name="entryCost5" 
+                (change)="eventCost = false">
+              <label for="entryCost2">Paid Entry</label> 
           
-              <input #entryCost1="ngModel" [(ngModel)]="eventCostNum"  
+              <input #entryCost3="ngModel" [(ngModel)]="eventCostNum"  
                 type="radio"  
-                id="entryCost1" 
-                name="entryCost" 
-                value="0" 
-                (change)="eventCost = true" checked="checked">
-              <label for="entryCost1">Free Entry</label>
+                id="entryCost3" 
+                name="entryCost5" 
+                [value]="0" 
+                (change)="eventCost = true" [checked]="eventCost">
+              <label for="entryCost3">Free Entry</label>
               
               <div *ngIf="!eventCost">
                 <p>Enter the Entry Cost</p>
                 <label for="costsMoney">$</label>
-                <input type="number" min=1 [(ngModel)]="eventCostNum"
+                <input type="number" min="1" [(ngModel)]="eventCostNum"
       
-                  id="costsMoney"
-                  name="costsMoney"
+                  id="costsMone1y"
+                  name="costsMoney1"
                   placeholder="Enter an entry cost."
-                  required #costsMoney="ngModel">
+                  required #costsMone1y="ngModel">
               </div>
             </ng-template>
         </div>
