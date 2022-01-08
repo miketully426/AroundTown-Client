@@ -30,14 +30,15 @@ export class EventListComponent implements OnInit {
   }
 
   deleteEvent(eventId: number) {
-    if(confirm("Are you sure to want to delete?")) {
+    if(confirm(`WARNING!\nLAST CHANCE!\nARE YOU SURE YOU WANT TO DELETE?`)) {
     this.eventService.deleteEvent(eventId)
       .subscribe(
         data => {
           console.log(data);
         },
         error => console.log(error));
-  }
+  } 
+
 }
 
 }
