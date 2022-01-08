@@ -12,6 +12,7 @@ import { AuthGaurdService } from './service/auth-gaurd.service';
 
 const routes: Routes = [
   // { path: 'events', component: EventListComponent },
+  //for routes: only use "CanActivate" code if we only want logged in users to access that
   { path: 'events', component: EventListComponent,canActivate:[AuthGaurdService] },
   { path: 'addevent', component: EventFormComponent,canActivate:[AuthGaurdService] },
   { path: 'searchresults', component: SearchResultsComponent,canActivate:[AuthGaurdService]},
