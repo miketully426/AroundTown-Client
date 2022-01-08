@@ -12,6 +12,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
@@ -29,6 +31,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    NgbModule
     FontAwesomeModule
   ],
   providers: [EventService, UserService],

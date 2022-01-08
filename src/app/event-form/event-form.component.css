@@ -11,4 +11,11 @@ h1, h2 {
     font-family: 'Quicksand', sans-serif;
     color: #ddd;
     padding-left: 20px;
+
+label {
+    margin-right: 10px;
+}
+
+ngb-timepicker {
+    float: right;
 }
