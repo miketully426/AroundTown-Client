@@ -25,19 +25,15 @@ export class UserFormComponent implements OnInit {
   }
 
    onSubmit(password: String, confirmPassword: String) {
-
-    
-    if(password === confirmPassword) {
-      this.userService.save(this.user).subscribe((result) => this.goHome());
-      
-    }
-  
+      if(password === confirmPassword) {
+        this.userService.save(this.user).subscribe((result) => this.goHome());
+      }
    }
 
   confirmEmail(email: String) {
-    if(email != '') {
-      this.userService.sendEmail(email).subscribe(result => this.emailAvailable = result);
-    }
+      if(email != '') {
+        this.userService.sendEmail(email).subscribe(result => this.emailAvailable = result);
+      }
   }
 
 

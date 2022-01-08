@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Event } from '../model/event';
 import { EventService } from '../service/event-service.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from "rxjs";
@@ -20,8 +21,7 @@ export class EventListComponent implements OnInit {
   faThumbsUp = faThumbsUp;
   faThumbsDown = faThumbsDown;
 
-  constructor(private eventService: EventService, private route: ActivatedRoute,
-    private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, private eventService: EventService) { }
 
   ngOnInit() {
     this.eventService.findAll().subscribe(data => {
@@ -30,7 +30,7 @@ export class EventListComponent implements OnInit {
     });
   }
 
-  deleteEvent(eventId: number) {
+  public deleteEvent(eventId: number) {
     if(confirm(`WARNING!\nLAST CHANCE!\nARE YOU SURE YOU WANT TO DELETE?`)) {
     this.eventService.deleteEvent(eventId)
       .subscribe(
@@ -40,7 +40,10 @@ export class EventListComponent implements OnInit {
         },
         error => console.log(error));
   } 
-
 }
 
+  public onEdit(eventID: number) {
+    this.router.navigate([`edit-events/${eventID}`]);
+  }
+  
 }

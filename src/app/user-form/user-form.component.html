@@ -79,5 +79,14 @@
         <div class="container signin">
             <p>Already have an account? <a href="#">Sign in</a>.</p>
         </div>
+
+        <div>
+            <ul *ngFor="let user of users">
+                <li>{{ user.id }}</li>
+                <li>{{user.name}}</li>
+            </ul>
+        </div>
+
+
     </div>
 </div>

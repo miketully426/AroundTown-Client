@@ -4,7 +4,6 @@
         <div class="form-group">
           <label for="name">Event Name: </label>
           <input type="text" [(ngModel)]="event.name" 
-
             class="form-control"
             id="name" 
             name="name" 
@@ -43,7 +42,10 @@
               name="address" 
               placeholder="Enter Street Address"
               required #address="ngModel">
+
+            <div [hidden]="address.pristine || !!address.value" class="alert alert-danger">Address is required</div>
         </div>
+      
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="city">City</label>
@@ -53,7 +55,10 @@
             name="city"
             required #city="ngModel">
 
+          <div [hidden]="city.pristine || !!city.value" class="alert alert-danger">City is required</div>
           </div>
+        </div>
+
           <div class="form-group col-md-4">
             <label for="state">State</label>
             <select id="state" 
@@ -115,6 +120,7 @@
 	            <option ng-value="wyoming">Wyoming</option>
             </select>
           </div>
+      
           <div class="form-group col-md-2">
             <label for="zipCode">Zip</label>
             <input type="text" 
@@ -125,30 +131,36 @@
               required #zipCode="ngModel">
           </div>
         </div>
+    
+        <div class="form-row">
           <div class="form-group col-md-4">
             <label for="date">Event Date: </label>
-            <input type="date" [(ngModel)]="event.date" 
-              class="form-control"
+            <ngb-datepicker [(ngModel)]="eventDate" 
               id="date" 
               name="date"
               placeholder="Enter Event Date"
               required #date="ngModel">
-
+            </ngb-datepicker>
+            <!-- <button class="btn btn-sm btn-outline-primary mr-2" (click)="selectToday()">Select Today</button>
+            <button class="btn btn-sm btn-outline-primary mr-2" (click)="setCurrent()">To current month</button> -->
             <div [hidden]="date.pristine || !!date.value" class="alert alert-danger">Date is required</div>
         </div>
 
 
-          <div class="form-group col-md-4">
-            <label for="time">Event Time: </label>
-            <input type="time" [(ngModel)]="event.time" 
-              class="form-control"
-              id="time" 
-              name="time" 
-              placeholder="Enter Event Time"
-              required #time="ngModel">
-              <div [hidden]="time.pristine || !!time.value" class="alert alert-danger">Time is required</div>
+        <div class="form-group col-md-4">
+          <label for="time">Event Time: </label>
+          <ngb-timepicker [(ngModel)]="eventTime" 
+            id="time" 
+            name="time" 
+            placeholder="Enter Event Time"
+            required #time="ngModel"
+            [meridian]="meridian"
+            [minuteStep]="minuteStep">
+            <div [hidden]="time.pristine || !!time.value" class="alert alert-danger">Time is required</div>
+          </ngb-timepicker>
+          </div>
         </div>
-
+        <hr/>
 
         <p>Event Entry Cost:</p>
         <div class="form-group">
@@ -178,7 +190,6 @@
                 <div [hidden]="costsMoney.pristine || !!costsMoney.value" class="alert alert-danger">Price is required</div>
             </div>
         </div>
-   
 
         <div class="form-group">
           <label for="familyFriendly">Family Friendly: </label>
