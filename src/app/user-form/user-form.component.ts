@@ -19,14 +19,15 @@ export class UserFormComponent implements OnInit {
     private router: Router, 
     private userService: UserService) {
     this.user = new User();
+    this.users = [];
    }
 
    goToProfile() {
     this.userService.findAll().subscribe(data => {
       this.users = data;});
-      // console.log(this.users.length);
-      // console.log(this.users[this.users.length-1]);
     this.router.navigate([`/userprofile/${this.users[this.users.length-1].id}`]);
+    ///userprofile/username - this only works when unique username validation is in play.
+    //can pull info from username if they are unique. It will be saved in the this.user.username vs id.
   }
    onSubmit(password: String, confirmPassword: String) {
      //add password confirmation validation here in an if statement
@@ -41,8 +42,8 @@ export class UserFormComponent implements OnInit {
 
    
   ngOnInit() {
-    // this.userService.findAll().subscribe(data => {
-    //   this.users = data;})
+    this.userService.findAll().subscribe(data => {
+      this.users = data;})
   }
 
 

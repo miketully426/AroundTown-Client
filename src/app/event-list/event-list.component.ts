@@ -10,13 +10,14 @@ import { EventService } from '../service/event-service.service';
 export class EventListComponent implements OnInit {
 
   events: Event[];
+  alphabetizedByName: Event[];
 
   constructor(private eventService: EventService) { }
 
   ngOnInit() {
     this.eventService.findAll().subscribe(data => {
       this.events = data;
+      this.alphabetizedByName = this.events.sort(function(a, b) {return a.name.localeCompare(b.name)});
     });
   }
-
 }
