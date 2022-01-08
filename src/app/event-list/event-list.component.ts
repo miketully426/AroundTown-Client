@@ -14,6 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EventListComponent implements OnInit {
 
+
   events: Event[];
   alphabetizedByName: Event[];
   faThumbsUp = faThumbsUp;
@@ -35,6 +36,7 @@ export class EventListComponent implements OnInit {
       .subscribe(
         data => {
           console.log(data);
+          location.reload();
         },
         error => console.log(error));
   } 
