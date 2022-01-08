@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Event } from '../model/event';
 import { EventService } from '../service/event-service.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 
@@ -16,7 +17,7 @@ export class EventListComponent implements OnInit {
   faThumbsUp = faThumbsUp;
   faThumbsDown = faThumbsDown;
 
-  constructor(private eventService: EventService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private eventService: EventService) { }
 
   ngOnInit() {
     this.eventService.findAll().subscribe(data => {
@@ -24,4 +25,9 @@ export class EventListComponent implements OnInit {
       this.alphabetizedByName = this.events.sort(function(a, b) {return a.name.localeCompare(b.name)});
     });
   }
+
+  public onEdit(eventID: number) {
+    this.router.navigate([`edit-events/${eventID}`]);
+  }
+
 }

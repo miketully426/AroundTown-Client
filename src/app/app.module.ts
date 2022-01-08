@@ -10,9 +10,11 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from "@angular/common/http";
 import { SearchResultsComponent } from './search-results/search-results.component';
+import { EditEventComponent } from './edit-event/edit-event.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 @NgModule({
   declarations: [
@@ -21,6 +23,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     EventFormComponent,
     SearchResultsComponent,
     UserFormComponent,
+    EditEventComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NgbModule
+    NgbModule,
     FontAwesomeModule
   ],
   providers: [EventService, UserService],

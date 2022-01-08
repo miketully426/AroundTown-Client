@@ -22,6 +22,20 @@ export class EventService {
      return this.http.post<Event>(this.eventsURL, event);
    }
 
+
+   public findEventById(eventId: number): Observable<Event> {
+      return this.http.get<Event>(`${this.eventsURL}/${eventId}`);
+   }
+
+   public getPriceById(eventId: number): Observable<Number> {
+      return this.http.get<Number>(`${this.eventsURL}/getPriceById/${eventId}`);
+      //this will not be needed when we can save the price as a number here and a double on the back.
+   }
+
+   public updateEvent(eventId: any, data: Event): Observable<Event> {
+     return this.http.put<Event>(`${this.eventsURL}/${eventId}`, data);
+   }
+
    public viewAllFamFriendly(famFriendly: boolean) {
      return this.http.get<Event[]>(`${this.eventsURL}/filterAllFamFriendly/${famFriendly}`);
    }
@@ -65,4 +79,5 @@ export class EventService {
        return this.http.get<Event[]>(`${this.eventsURL}/searchByKeywordFamFriendlyPrice/${searchTerm}/${famFriendly}/${lowPrice}`);
      }
    }
+
 }
