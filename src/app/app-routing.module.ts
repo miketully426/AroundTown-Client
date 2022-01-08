@@ -6,18 +6,20 @@ import { EventFormComponent } from './event-form/event-form.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { AuthGaurdService } from './service/auth-gaurd.service';
 
 
 
 const routes: Routes = [
-  { path: 'events', component: EventListComponent },
-  { path: 'addevent', component: EventFormComponent },
-  { path: 'searchresults', component: SearchResultsComponent},
-  { path: 'adduser', component: UserFormComponent },
+  // { path: 'events', component: EventListComponent },
+  { path: 'events', component: EventListComponent,canActivate:[AuthGaurdService] },
+  { path: 'addevent', component: EventFormComponent,canActivate:[AuthGaurdService] },
+  { path: 'searchresults', component: SearchResultsComponent,canActivate:[AuthGaurdService]},
+  { path: 'adduser', component: UserFormComponent,canActivate:[AuthGaurdService] },
   { path: 'login', component: LoginComponent },
-  { path: 'logout', component: LogoutComponent },
-    
-];
+  { path: 'logout', component: LogoutComponent,canActivate:[AuthGaurdService] },
+  
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
