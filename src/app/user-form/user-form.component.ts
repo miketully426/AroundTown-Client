@@ -44,7 +44,6 @@ export class UserFormComponent implements OnInit {
       }
   }
 
-
   confirmUsername(username: String) {
     if(username != '') {
       this.userService.sendUsername(username).subscribe(result => this.usernameAvailable = result);
@@ -52,7 +51,8 @@ export class UserFormComponent implements OnInit {
   }
    
   ngOnInit() {
-    
+    this.userService.findAll().subscribe(data => {
+      this.users = data;})
   }
 
 }
