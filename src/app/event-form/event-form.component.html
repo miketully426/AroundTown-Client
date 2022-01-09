@@ -6,7 +6,7 @@
        
       <div class="form-row align-items-center">
         <div class="col-sm-6">
-          <label for="name">Event Name: </label>
+          <label for="name">Name Your Event! </label>
           <input type="text" [(ngModel)]="event.name" 
             class="form-control"
             id="name" 
@@ -14,21 +14,21 @@
             placeholder="Enter Event Name"
             required #name="ngModel">
         </div>
-        
+          <div [hidden]="name.pristine || !!name.value" class="alert alert-danger">Event Name is required</div>
         <div class="col-sm-6">
-          <label for="location">Event Location: </label>
+          <label for="locationName">Where is it happening? (ex. St Louis Zoo) </label>
           <input type="text" [(ngModel)]="event.locationName" 
             class="form-control"
-            id="location" 
-            name="location" 
-            placeholder="Enter Event Location"
+            id="locationName" 
+            name="locationName" 
+            placeholder="Enter Name of Location"
             required #locationName="ngModel">
+          <div [hidden]="locationName.pristine || !!locationName.value" class="alert alert-danger">Name of location is required</div>
         </div>
       </div>
-      <div [hidden]="name.pristine || !!name.value" class="alert alert-danger">Event Name is required</div>
       
       <div class="form-group">
-          <label for="description">Event Description: </label>
+          <label for="description">What are we going to do there? </label>
           <input type="text" [(ngModel)]="event.description" 
             class="form-control"
             id="description" 
@@ -37,43 +37,28 @@
             required #description="ngModel">
           <div [hidden]="description.pristine || !!description.value" class="alert alert-danger">Description is required</div>
       </div>
-
+      
       <div class="form-group">
-        <label for="locationName">Event Location Name: </label>
-        <input type="text" [(ngModel)]="event.locationName" 
-          class="form-control"
-          id="locationName" 
-          name="locationName" 
-          placeholder="Enter Name of Location"
-          required #locationName="ngModel">
-        <div [hidden]="locationName.pristine || !!locationName.value" class="alert alert-danger">Name of location is required</div>
-    </div>
-
-        <div class="form-group">
-          <label for="address">Event Address </label>
+          <label for="address">Street Address </label>
             <input type="text" [(ngModel)]="event.address" 
               class="form-control"
               id="address" 
               name="address" 
               placeholder="Enter Street Address"
               required #address="ngModel">
-
             <div [hidden]="address.pristine || !!address.value" class="alert alert-danger">Address is required</div>
         </div>
       
         <div class="form-row">
-          <div class="form-group col-md-6">
+          <div class="form-group col-md-4">
             <label for="city">City</label>
             <input type="text" [(ngModel)]="event.city"
             class="form-control"
             id="city"
             name="city"
             required #city="ngModel">
-
           <div [hidden]="city.pristine || !!city.value" class="alert alert-danger">City is required</div>
           </div>
-        </div>
-
           <div class="form-group col-md-4">
             <label for="state">State</label>
             <select id="state" 
@@ -135,7 +120,6 @@
 	            <option ng-value="wyoming">Wyoming</option>
             </select>
           </div>
-
           <div class="form-group col-md-2">
             <label for="zipCode">Zip</label>
             <input type="text" 
@@ -145,7 +129,8 @@
               [(ngModel)]="event.zipCode"
               required #zipCode="ngModel">
           </div>
-
+        </div>
+          
         <div class="form-row">
           <div class="form-group col-md-4">
             <label for="date">Event Date: </label>
@@ -159,7 +144,6 @@
             <button class="btn btn-sm btn-outline-primary mr-2" (click)="setCurrent()">To current month</button> -->
             <div [hidden]="date.pristine || !!date.value" class="alert alert-danger">Date is required</div>
         </div>
-
         <div class="form-group col-md-4">
           <label for="time">Event Time: </label>
           <ngb-timepicker [(ngModel)]="eventTime" 
@@ -195,7 +179,6 @@
               <p>Enter the Entry Cost</p>
               <label for="costsMoney">$</label>
               <input type="number" min=1 [(ngModel)]="eventCostNum"
-    
                 id="costsMoney"
                 name="costsMoney"
                 placeholder="Enter a price"
