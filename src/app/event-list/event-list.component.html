@@ -25,8 +25,8 @@
                     <td>{{ event.name }}</td>
                     <td>{{ event.description }}</td>
                     <td>{{ event.locationName}}</td>
-                    <td>{{ event.date }}</td>
-                    <td>{{ event.time }}</td>
+                    <td>{{ event.date.month }}/{{ event.date.day }}/{{ event.date.year }}</td>
+                    <td>{{ event.time.hour }}:{{ event.time.minute }}</td>
                     <td>{{ event.zipCode }}</td>
                     <td>{{ event.city }}</td>
                     <td>{{ event.state }}</td>
@@ -34,9 +34,9 @@
                     <td [hidden]="event.entryCost === '0'">${{ event.entryCost }}</td>
                     <td [hidden]="event.entryCost !== '0'">Free Entry!</td>
                     <td [hidden]="event.familyFriendly === false"><fa-icon [icon]="faThumbsUp" [styles]="{'color': 'green'}"></fa-icon></td>
-                    <td [hidden]="event.familyFriendly === true"><fa-icon [icon]="faThumbsDown" [styles]="{'color': 'red'}"></fa-icon></td>  
-                    <td><button routerLink="/edit-events/{{event.eventId}}" routerLinkActive="active">Edit</button>
-                      <button class="badge badge-danger mr-2" (click)="deleteEvent(event.eventId)">Delete</button></td>                  
+                    <td [hidden]="event.familyFriendly === true"><fa-icon [icon]="faThumbsDown" [styles]="{'color': 'red'}"></fa-icon></td> 
+                    <td><button class="badge badge-danger mr-2" routerLink="/edit-events/{{event.eventId}}" routerLinkActive="active">Edit</button><br>
+                        <button class="badge badge-danger mr-2" (click)="deleteEvent(event.eventId)">Delete</button></td>               
                 </tr>
             </tbody>
         </table>

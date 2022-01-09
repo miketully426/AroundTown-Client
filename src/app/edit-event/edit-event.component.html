@@ -59,58 +59,58 @@
                 class="form-control"
                 [(ngModel)]="currentEvent.state"
                 required #state="ngModel">
-                <option value="currentEvent.state" selected>{{ currentEvent.state }}</option>
-                  <option ng-value="alabama">Alabama</option>
-                  <option ng-value="alaska">Alaska</option>
-                  <option ng-value="arizona">Arizona</option>
-                  <option ng-value="arkansas">Arkansas</option>
-                  <option ng-value="california">California</option>
-                  <option ng-value="colorado">Colorado</option>
-                  <option ng-value="connecticut">Connecticut</option>
-                  <option ng-value="delaware">Delaware</option>
-                  <option ng-value="dc">District Of Columbia</option>
-                  <option ng-value="florida">Florida</option>
-                  <option ng-value="georgia">Georgia</option>
-                  <option ng-value="hawaii">Hawaii</option>
-                  <option ng-value="idaho">Idaho</option>
-                  <option ng-value="illinois">Illinois</option>
-                  <option ng-value="indiana">Indiana</option>
-                  <option ng-value="iowa">Iowa</option>
-                  <option ng-value="kansas">Kansas</option>
-                  <option ng-value="kentucky">Kentucky</option>
-                  <option ng-value="louisiana">Louisiana</option>
-                  <option ng-value="maine">Maine</option>
-                  <option ng-value="maryland">Maryland</option>
-                  <option ng-value="massachusetts">Massachusetts</option>
-                  <option ng-value="michigan">Michigan</option>
-                  <option ng-value="minnesota">Minnesota</option>
-                  <option ng-value="mississippi">Mississippi</option>
-                  <option ng-value="missouri">Missouri</option>
-                  <option ng-value="montana">Montana</option>
-                  <option ng-value="nebraska">Nebraska</option>
-                  <option ng-value="nevada">Nevada</option>
-                  <option ng-value="new hampshire">New Hampshire</option>
-                  <option ng-value="new jersey">New Jersey</option>
-                  <option ng-value="new mexico">New Mexico</option>
-                  <option ng-value="new york">New York</option>
-                  <option ng-value="north carolina">North Carolina</option>
-                  <option ng-value="north dakota">North Dakota</option>
-                  <option ng-value="ohio">Ohio</option>
-                  <option ng-value="oklahoma">Oklahoma</option>
-                  <option ng-value="oregan">Oregon</option>
-                  <option ng-value="pennsylvania">Pennsylvania</option>
-                  <option ng-value="rhode island">Rhode Island</option>
-                  <option ng-value="south carolina">South Carolina</option>
-                  <option ng-value="south dakota">South Dakota</option>
-                  <option ng-value="tennesee">Tennessee</option>
-                  <option ng-value="texas">Texas</option>
-                  <option ng-value="utah">Utah</option>
-                  <option ng-value="vermont">Vermont</option>
-                  <option ng-value="virginia">Virginia</option>
-                  <option ng-value="washington">Washington</option>
-                  <option ng-value="west virginia">West Virginia</option>
-                  <option ng-value="wisconsin">Wisconsin</option>
-                  <option ng-value="wyoming">Wyoming</option>
+                <option ng-value="currentEvent.state" selected>{{ currentEvent.state }}</option>
+                <option ng-value="alabama">Alabama</option>
+                <option ng-value="alaska">Alaska</option>
+                <option ng-value="arizona">Arizona</option>
+                <option ng-value="arkansas">Arkansas</option>
+                <option ng-value="california">California</option>
+                <option ng-value="colorado">Colorado</option>
+                <option ng-value="connecticut">Connecticut</option>
+                <option ng-value="delaware">Delaware</option>
+                <option ng-value="dc">District Of Columbia</option>
+                <option ng-value="florida">Florida</option>
+                <option ng-value="georgia">Georgia</option>
+                <option ng-value="hawaii">Hawaii</option>
+                <option ng-value="idaho">Idaho</option>
+                <option ng-value="illinois">Illinois</option>
+                <option ng-value="indiana">Indiana</option>
+                <option ng-value="iowa">Iowa</option>
+                <option ng-value="kansas">Kansas</option>
+                <option ng-value="kentucky">Kentucky</option>
+                <option ng-value="louisiana">Louisiana</option>
+                <option ng-value="maine">Maine</option>
+                <option ng-value="maryland">Maryland</option>
+                <option ng-value="massachusetts">Massachusetts</option>
+                <option ng-value="michigan">Michigan</option>
+                <option ng-value="minnesota">Minnesota</option>
+                <option ng-value="mississippi">Mississippi</option>
+                <option ng-value="missouri">Missouri</option>
+                <option ng-value="montana">Montana</option>
+                <option ng-value="nebraska">Nebraska</option>
+                <option ng-value="nevada">Nevada</option>
+                <option ng-value="new hampshire">New Hampshire</option>
+                <option ng-value="new jersey">New Jersey</option>
+                <option ng-value="new mexico">New Mexico</option>
+                <option ng-value="new york">New York</option>
+                <option ng-value="north carolina">North Carolina</option>
+                <option ng-value="north dakota">North Dakota</option>
+                <option ng-value="ohio">Ohio</option>
+                <option ng-value="oklahoma">Oklahoma</option>
+                <option ng-value="oregan">Oregon</option>
+                <option ng-value="pennsylvania">Pennsylvania</option>
+                <option ng-value="rhode island">Rhode Island</option>
+                <option ng-value="south carolina">South Carolina</option>
+                <option ng-value="south dakota">South Dakota</option>
+                <option ng-value="tennesee">Tennessee</option>
+                <option ng-value="texas">Texas</option>
+                <option ng-value="utah">Utah</option>
+                <option ng-value="vermont">Vermont</option>
+                <option ng-value="virginia">Virginia</option>
+                <option ng-value="washington">Washington</option>
+                <option ng-value="west virginia">West Virginia</option>
+                <option ng-value="wisconsin">Wisconsin</option>
+                <option ng-value="wyoming">Wyoming</option>
               </select>
             </div>
           </div>
@@ -125,25 +125,31 @@
               required #zipCode="ngModel">
           </div>
 
-          <div class="form-group">
-            <label for="date">Event Date: </label>
-            <input type="date" [(ngModel)]="currentEvent.date" 
-              class="form-control"
-              id="date" 
-              name="date"
-              placeholder="{{currentEvent.date}}"
-              required #date="ngModel">
-          </div>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="date">Event Date: </label>
+              <ngb-datepicker [(ngModel)]="eventDate" 
+                id="date" 
+                name="date"
+                placeholder="eventDate"
+                required #date="ngModel">
+              </ngb-datepicker>
+            </div>
 
-          <div class="form-group">
-            <label for="time">Event Time: </label>
-            <input type="time" [(ngModel)]="currentEvent.time" 
-             
-              id="time" 
-              name="time" 
-              placeholder="{{ currentEvent.time }}"
-              required #time="ngModel">
+            <div class="form-group col-md-4">
+              <label for="time">Event Time: </label>
+              <ngb-timepicker [(ngModel)]="eventTime" 
+                id="time" 
+                name="time" 
+                placeholder="eventTime"
+                required #time="ngModel"
+                [meridian]="meridian"
+                [minuteStep]="minuteStep">
+                <div [hidden]="time.pristine || !!time.value" class="alert alert-danger">Time is required</div>
+              </ngb-timepicker>
+            </div>
           </div>
+          <hr/>
 
           <p>Event Entry Cost:</p>
           <div *ngIf="currentEvent.entryCost != '0'; else elseBlock" class="form-group">
@@ -158,7 +164,7 @@
               type="radio"  
               id="entryCost1" 
               name="entryCost" 
-              value="0" 
+              [value]="0" 
               (change)="eventCost = false">
             <label for="entryCost1">Free Entry</label>
             

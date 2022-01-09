@@ -32,7 +32,7 @@ export class UserService {
    }
 
    public findUserById(id: number): Observable<User> {
-    return this.http.get<User>(`${this.userURL}/${id}`);
+    return this.http.get<User>(`${this.userURL}/id/${id}`);
   }
 
   public findUserByUsername(username: String): Observable<User> {

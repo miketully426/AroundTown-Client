@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../model/user';
 import { UserService } from '../service/user-service.service';
 import { UserProfileService } from '../service/user-profile.service';
+
 import { faHandPeace } from '@fortawesome/free-solid-svg-icons';
 
 @Component({

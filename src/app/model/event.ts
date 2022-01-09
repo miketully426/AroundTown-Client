@@ -4,8 +4,8 @@ export class Event {
     name: string;
     description: string;
     locationName: string;
-    date: string;
-    time: string;
+    date: Object;
+    time: Object;
     entryCost: string;
     familyFriendly: boolean;  
     zipCode: string;  
