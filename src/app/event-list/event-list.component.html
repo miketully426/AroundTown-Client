@@ -35,9 +35,12 @@
                     <td [hidden]="event.entryCost !== '0'">Free Entry!</td>
                     <td [hidden]="event.familyFriendly === false"><fa-icon [icon]="faThumbsUp" [styles]="{'color': 'green'}"></fa-icon></td>
                     <td [hidden]="event.familyFriendly === true"><fa-icon [icon]="faThumbsDown" [styles]="{'color': 'red'}"></fa-icon></td> 
-                    <td><button routerLink="/edit-events/{{event.eventId}}" routerLinkActive="active">Edit</button></td>               
+                    <td><button routerLink="/edit-events/{{event.eventId}}" routerLinkActive="active">Edit</button>
+                        <button class="badge badge-danger mr-2" (click)="deleteEvent(event.eventId)">Delete</button></td>               
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
+
+
