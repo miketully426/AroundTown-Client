@@ -80,4 +80,8 @@ export class EventService {
      }
    }
 
+  public deleteEvent(eventId: number) {
+    return this.http.delete<Event>(`${this.eventsURL}/delete/${eventId}`);
+  }
+
 }
