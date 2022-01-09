@@ -9,6 +9,8 @@ import { UserService } from './service/user-service.service'
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from "@angular/common/http";
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,6 +25,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     EventFormComponent,
     SearchResultsComponent,
     UserFormComponent,
+    HeaderComponent,
+    FooterComponent,
     EditEventComponent,
   ],
   imports: [
@@ -34,6 +38,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NgbModule,
     FontAwesomeModule
   ],
+
   providers: [EventService, UserService],
 
   bootstrap: [AppComponent]

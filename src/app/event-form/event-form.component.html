@@ -1,7 +1,11 @@
-<div class="card my-5">
-  <div class="card-body">
+<div>
+    <h1>Create Your Event!</h1>
+    <h2>Enter your event information below to be featured AroundTown!</h2>
+</div>
     <form (ngSubmit)="onSubmit()" #eventForm="ngForm">
-        <div class="form-group">
+       
+      <div class="form-row align-items-center">
+        <div class="col-sm-6">
           <label for="name">Event Name: </label>
           <input type="text" [(ngModel)]="event.name" 
             class="form-control"
@@ -9,6 +13,17 @@
             name="name" 
             placeholder="Enter Event Name"
             required #name="ngModel">
+        </div>
+        
+        <div class="col-sm-6">
+          <label for="location">Event Location: </label>
+          <input type="text" [(ngModel)]="event.locationName" 
+            class="form-control"
+            id="location" 
+            name="location" 
+            placeholder="Enter Event Location"
+            required #locationName="ngModel">
+        </div>
       </div>
       <div [hidden]="name.pristine || !!name.value" class="alert alert-danger">Event Name is required</div>
       
@@ -120,7 +135,7 @@
 	            <option ng-value="wyoming">Wyoming</option>
             </select>
           </div>
-      
+
           <div class="form-group col-md-2">
             <label for="zipCode">Zip</label>
             <input type="text" 
@@ -131,7 +146,7 @@
               required #zipCode="ngModel">
           </div>
         </div>
-    
+
         <div class="form-row">
           <div class="form-group col-md-4">
             <label for="date">Event Date: </label>
@@ -145,7 +160,6 @@
             <button class="btn btn-sm btn-outline-primary mr-2" (click)="setCurrent()">To current month</button> -->
             <div [hidden]="date.pristine || !!date.value" class="alert alert-danger">Date is required</div>
         </div>
-
 
         <div class="form-group col-md-4">
           <label for="time">Event Time: </label>
@@ -193,17 +207,14 @@
 
         <div class="form-group">
           <label for="familyFriendly">Family Friendly: </label>
-          <input type="checkbox" [(ngModel)]="event.familyFriendly" 
-         
+          <input style="margin-left:10px" type="checkbox" [(ngModel)]="event.familyFriendly" 
             id="familyFriendly" 
             name="familyFriendly" 
             checked="checked"              
             #familyFriendly="ngModel">
         </div>
-
-      <button type="submit" [disabled]="!eventForm.form.valid" 
+        <button type="submit" [disabled]="!eventForm.form.valid" 
         class="btn btn-info">Submit</button>
     </form>
-  </div>
-</div>
+
 
