@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../model/user';
 import { UserService } from '../service/user-service.service';
 import { UserProfileService } from '../service/user-profile.service';
+import { faHandPeace } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-user-profile',
@@ -11,6 +12,7 @@ import { UserProfileService } from '../service/user-profile.service';
 })
 export class UserProfileComponent implements OnInit {
   currentUser: User;
+  faHandPeace = faHandPeace;
 
   constructor(
     private route: ActivatedRoute, 
@@ -22,11 +24,11 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit():void {
     this.currentUser = new User;
-    this.getUser(this.route.snapshot.params.id);
+    this.getUser(this.route.snapshot.params.username);
   }
 
-  public getUser(id: number): void {
-    this.userService.findUserById(id)
+  public getUser(username: String): void {
+    this.userService.findUserByUsername(username)
     .subscribe(data => this.currentUser = data);
   }
 
