@@ -16,6 +16,7 @@ import { EditEventComponent } from './edit-event/edit-event.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HeaderComponent,
     FooterComponent,
     EditEventComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div class="card">
+  <h1>User Profile</h1>
+  <fa-icon [icon] = "faHandPeace" [styles]="{'color': '#ff66c4'}"></fa-icon>
+  <section>   
+      <h1>{{ currentUser.name }}</h1>
+      <h2>{{ currentUser.username }}</h2>
+      <h2>{{ currentUser.email }}</h2>
+  </section>
+    <!-- In case we want to add social links -->
+    <!-- <a href="#"><i class="fa fa-twitter"></i></a>
+    <a href="#"><i class="fa fa-linkedin"></i></a>
+    <a href="#"><i class="fa fa-facebook"></i></a> -->
+
+    <!-- would be cool to have list of their created events here -->
+  <p><button href="#">Log Out</button></p>
+</div>

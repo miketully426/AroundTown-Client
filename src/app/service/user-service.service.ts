@@ -31,4 +31,12 @@ export class UserService {
      return this.http.get<boolean>(`${this.userURL}/confirm/username/${username}`);
    }
 
+   public findUserById(id: number): Observable<User> {
+    return this.http.get<User>(`${this.userURL}/${id}`);
+  }
+
+  public findUserByUsername(username: String): Observable<User> {
+    return this.http.get<User>(`${this.userURL}/username/${username}`);
+  }
+
 }
