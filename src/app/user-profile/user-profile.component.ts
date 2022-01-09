@@ -21,11 +21,12 @@ export class UserProfileComponent implements OnInit {
     }
 
   ngOnInit():void {
-    this.getUser(this.route.snapshot.params.id);
+    this.currentUser = new User;
+    this.getUser(this.route.snapshot.params.username);
   }
 
-  public getUser(id: number): void {
-    this.userService.findUserById(id)
+  public getUser(username: String): void {
+    this.userService.findUserByUsername(username)
     .subscribe(data => this.currentUser = data);
   }
 
