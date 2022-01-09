@@ -14,32 +14,35 @@ export class UserFormComponent implements OnInit {
   user: User;
   emailAvailable: boolean = true;
   usernameAvailable: boolean = true;  
+  users: User[] = [];
 
   constructor(private route: ActivatedRoute, 
-    private router: Router, private userService: UserService,) {
+    private router: Router, 
+    private userService: UserService,) {
     this.user = new User();
+    this.users = [];
    }
 
-   goHome() {
-    this.router.navigate(['']);
+   goToProfile() {
+    this.userService.findAll().subscribe(data => {
+      this.users = data;});
+      console.log(this.user.username);
+    this.router.navigate([`/userprofile/${this.user.username}`]);
+    ///userprofile/username - this only works when unique username validation is in play.
+    //can pull info from username if they are unique. It will be saved in the this.user.username vs id.
   }
 
    onSubmit(password: String, confirmPassword: String) {
-
-    
-    if(password === confirmPassword) {
-      this.userService.save(this.user).subscribe((result) => this.goHome());
-      
-    }
-  
+      if(password === confirmPassword) {
+        this.userService.save(this.user).subscribe((result) => this.goToProfile());
+      }
    }
 
   confirmEmail(email: String) {
-    if(email != '') {
-      this.userService.sendEmail(email).subscribe(result => this.emailAvailable = result);
-    }
+      if(email != '') {
+        this.userService.sendEmail(email).subscribe(result => this.emailAvailable = result);
+      }
   }
-
 
   confirmUsername(username: String) {
     if(username != '') {
@@ -48,7 +51,8 @@ export class UserFormComponent implements OnInit {
   }
    
   ngOnInit() {
-    
+    this.userService.findAll().subscribe(data => {
+      this.users = data;})
   }
 
 }

@@ -1,12 +1,12 @@
-<div class="card my-5">
-    <div class="card-body">
-        <div >
+<div>
+    <div>
+        <div>
             <p *ngIf="alphabetizedByName == 0">No events to display.</p>
         </div>
-        <table class="table table-bordered table-striped">
-            <thead class="thead-dark">      
+        <table class="table table-striped table-dark">
+            <thead>   
                 <tr>
-                    <th scope="col">Event</th>
+                    <th scope="col">Event Name</th>
                     <th scope="col">Description</th>
                     <th scope="col">Location Name</th>
                     <th scope="col">Date</th>
@@ -17,6 +17,7 @@
                     <th scope="col">Address</th>
                     <th scope="col">Cost</th>
                     <th scope="col">Family Friendly</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,9 +34,13 @@
                     <td [hidden]="event.entryCost === '0'">${{ event.entryCost }}</td>
                     <td [hidden]="event.entryCost !== '0'">Free Entry!</td>
                     <td [hidden]="event.familyFriendly === false"><fa-icon [icon]="faThumbsUp" [styles]="{'color': 'green'}"></fa-icon></td>
-                    <td [hidden]="event.familyFriendly === true"><fa-icon [icon]="faThumbsDown" [styles]="{'color': 'red'}"></fa-icon></td>                
+                    <td [hidden]="event.familyFriendly === true"><fa-icon [icon]="faThumbsDown" [styles]="{'color': 'red'}"></fa-icon></td>  
+                    <td><button routerLink="/edit-events/{{event.eventId}}" routerLinkActive="active">Edit</button>
+                      <button class="badge badge-danger mr-2" (click)="deleteEvent(event.eventId)">Delete</button></td>                  
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
+
+

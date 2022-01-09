@@ -1,7 +1,15 @@
-.table {
+body {
+    background-color: black;
+}
+
+table {
+    font-family: 'Quicksand', sans-serif;
+    color: #ddd;
     text-align: center;
 }
 
-.faThumbsUp {
-    color: green;
+th {
+    color: #ff66c4;
+    font-size: large;
+    font-weight: 300;
 }
