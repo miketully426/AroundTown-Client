@@ -4,6 +4,8 @@ import { EventService } from '../service/event-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
+import { Observable } from "rxjs";
+
 
 @Component({
   selector: 'app-event-list',
@@ -11,6 +13,7 @@ import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./event-list.component.css']
 })
 export class EventListComponent implements OnInit {
+
 
   events: Event[];
   alphabetizedByName: Event[];
@@ -26,8 +29,20 @@ export class EventListComponent implements OnInit {
     });
   }
 
+  public deleteEvent(eventId: number) {
+    if(confirm(`WARNING!\nLAST CHANCE!\nARE YOU SURE YOU WANT TO DELETE?`)) {
+    this.eventService.deleteEvent(eventId)
+      .subscribe(
+        data => {
+          console.log(data);
+          location.reload();
+        },
+        error => console.log(error));
+  } 
+}
+
   public onEdit(eventID: number) {
     this.router.navigate([`edit-events/${eventID}`]);
   }
-
+  
 }
