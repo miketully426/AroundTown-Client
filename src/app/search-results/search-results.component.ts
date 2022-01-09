@@ -20,6 +20,7 @@ export class SearchResultsComponent implements OnInit {
 
   }
 
+
   onSearch(searchTerm: string, familyFriendlyFilter: String, priceFilter: string) {
     if(familyFriendlyFilter == "familyFriendly") {
       this.famFriendly = true;
@@ -79,5 +80,4 @@ export class SearchResultsComponent implements OnInit {
     this.highPrice = null;
 
   }
-
 }

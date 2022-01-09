@@ -44,23 +44,23 @@ export class EventFormComponent implements OnInit {
     this.router.navigate(['/events']);
   }
    onSubmit() {
-     this.eventCostNum = Number(this.eventCostNum);
-    if(this.eventCostNum == 0){
-        this.event.entryCost = String(this.eventCostNum);
-    } else{
-        this.event.entryCost = this.eventCostNum.toFixed(2);
-    }
-    if(this.eventTime.minute == 0){
-      this.event.date = `${this.eventDate.month}/${this.eventDate.day}/${this.eventDate.year}`
-      this.event.time = `${this.eventTime.hour}:00`
-    } else {
-      this.event.date = `${this.eventDate.month}/${this.eventDate.day}/${this.eventDate.year}`
-      this.event.time = `${this.eventTime.hour}:${this.eventTime.minute}`
-    }
+      this.eventCostNum = Number(this.eventCostNum);
+      if(this.eventCostNum == 0){
+          this.event.entryCost = String(this.eventCostNum);
+      } else{
+           this.event.entryCost = this.eventCostNum.toFixed(2);
+      }
+
+      if(this.eventTime.minute == 0){
+           this.event.date = `${this.eventDate.month}/${this.eventDate.day}/${this.eventDate.year}`
+           this.event.time = `${this.eventTime.hour}:00`
+      } else {
+          this.event.date = `${this.eventDate.month}/${this.eventDate.day}/${this.eventDate.year}`
+          this.event.time = `${this.eventTime.hour}:${this.eventTime.minute}`
+      }
       this.eventService.save(this.event).subscribe(result => this.gotoEventList());
-     
-    
    }
+  
   
   ngOnInit() {
   }

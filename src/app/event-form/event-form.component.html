@@ -57,7 +57,10 @@
               name="address" 
               placeholder="Enter Street Address"
               required #address="ngModel">
+
+            <div [hidden]="address.pristine || !!address.value" class="alert alert-danger">Address is required</div>
         </div>
+      
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="city">City</label>
@@ -67,7 +70,10 @@
             name="city"
             required #city="ngModel">
 
+          <div [hidden]="city.pristine || !!city.value" class="alert alert-danger">City is required</div>
           </div>
+        </div>
+
           <div class="form-group col-md-4">
             <label for="state">State</label>
             <select id="state" 
@@ -129,7 +135,7 @@
 	            <option ng-value="wyoming">Wyoming</option>
             </select>
           </div>
-          
+
           <div class="form-group col-md-2">
             <label for="zipCode">Zip</label>
             <input type="text" 
@@ -140,7 +146,7 @@
               required #zipCode="ngModel">
           </div>
         </div>
-      
+
         <div class="form-row">
           <div class="form-group col-md-4">
             <label for="date">Event Date: </label>
