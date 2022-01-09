@@ -24,7 +24,6 @@ export class UserFormComponent implements OnInit {
    }
 
    goToProfile() {
-      
     this.router.navigate([`/userprofile/${this.user.username}`]);
     ///userprofile/username - this only works when unique username validation is in play.
     //can pull info from username if they are unique. It will be saved in the this.user.username vs id.

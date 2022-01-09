@@ -10,10 +10,10 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 const routes: Routes = [
   { path: 'events', component: EventListComponent },
   { path: 'addevent', component: EventFormComponent },
-  { path: 'searchresults', component: SearchResultsComponent},
-  {path: 'adduser', component: UserFormComponent},
-  {path: 'edit-events/:id', component: EditEventComponent},  
-  {path: 'userprofile/:username', component: UserProfileComponent}
+  { path: 'searchresults', component: SearchResultsComponent },
+  { path: 'adduser', component: UserFormComponent },
+  { path: 'edit-events/:id', component: EditEventComponent },
+  { path: 'userprofile/:username', component: UserProfileComponent }  
 ];
 
 @NgModule({
