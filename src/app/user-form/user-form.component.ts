@@ -26,8 +26,8 @@ export class UserFormComponent implements OnInit {
    goToProfile() {
     this.userService.findAll().subscribe(data => {
       this.users = data;});
-      console.log(this.users[this.users.length-1].id);
-    this.router.navigate([`/userprofile/${this.users[this.users.length-1].id}`]);
+      console.log((this.users[this.users.length].id)-1);
+    this.router.navigate([`/userprofile/${this.users[this.users.length].id}`]);
     ///userprofile/username - this only works when unique username validation is in play.
     //can pull info from username if they are unique. It will be saved in the this.user.username vs id.
   }
