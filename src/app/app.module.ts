@@ -32,9 +32,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NgbModule
+    NgbModule,
     FontAwesomeModule
   ],
+
   providers: [EventService, UserService],
 
   bootstrap: [AppComponent]
