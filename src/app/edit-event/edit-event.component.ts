@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { EventService } from '../service/event-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Event } from '../model/event';
+import { NgbCalendar, NgbDateStruct, NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-edit-event',
@@ -12,8 +13,16 @@ export class EditEventComponent implements OnInit {
     currentEvent: Event = new Event;
     eventCost: boolean = true;
     eventCostNum: Number;
+    model: NgbDateStruct;
+    eventDate: {year:number, month: number, day: number};
+    eventTime: {hour:number, minute:number};
+    meridian = true;
+    minuteStep = 15;
+  //not sure if this needs to be true or false
+  @ViewChild('dp', {static: false}) dp: NgbDatepicker;
 
-  constructor( private eventService: EventService, private route: ActivatedRoute, private router: Router) { }
+  constructor( private eventService: EventService, private route: ActivatedRoute, 
+    private router: Router, private calendar: NgbCalendar) { }
 
   ngOnInit(): void {
     this.getEvent(this.route.snapshot.params.id);
@@ -21,7 +30,9 @@ export class EditEventComponent implements OnInit {
 
   public getEvent(id: number): void {
     this.eventService.findEventById(id).subscribe(data => {this.currentEvent = data});
-    this.eventService.getPriceById(id).subscribe(price => this.eventCostNum = price)
+    this.eventService.getPriceById(id).subscribe(price => {this.eventCostNum = price});
+    this.eventService.getDateById(id).subscribe(date => {this.eventDate = date});
+    this.eventService.getTimeById(id).subscribe(time => {this.eventTime = time});
 
   }
 
@@ -31,6 +42,9 @@ export class EditEventComponent implements OnInit {
     } else {
       this.currentEvent.entryCost = this.eventCostNum.toFixed(2);
     }
+    this.currentEvent.date = this.eventDate;
+    this.currentEvent.time = this.eventTime;
+
     this.eventService.updateEvent(this.currentEvent.eventId, this.currentEvent).subscribe((result) => this.goToEvents());
   }
 

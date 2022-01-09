@@ -125,25 +125,31 @@
               required #zipCode="ngModel">
           </div>
 
-          <div class="form-group">
-            <label for="date">Event Date: </label>
-            <input type="date" [(ngModel)]="currentEvent.date" 
-              class="form-control"
-              id="date" 
-              name="date"
-              placeholder="{{currentEvent.date}}"
-              required #date="ngModel">
-          </div>
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="date">Event Date: </label>
+              <ngb-datepicker [(ngModel)]="eventDate" 
+                id="date" 
+                name="date"
+                placeholder="eventDate"
+                required #date="ngModel">
+              </ngb-datepicker>
+            </div>
 
-          <div class="form-group">
-            <label for="time">Event Time: </label>
-            <input type="time" [(ngModel)]="currentEvent.time" 
-             
-              id="time" 
-              name="time" 
-              placeholder="{{ currentEvent.time }}"
-              required #time="ngModel">
+            <div class="form-group col-md-4">
+              <label for="time">Event Time: </label>
+              <ngb-timepicker [(ngModel)]="eventTime" 
+                id="time" 
+                name="time" 
+                placeholder="eventTime"
+                required #time="ngModel"
+                [meridian]="meridian"
+                [minuteStep]="minuteStep">
+                <div [hidden]="time.pristine || !!time.value" class="alert alert-danger">Time is required</div>
+              </ngb-timepicker>
+            </div>
           </div>
+          <hr/>
 
           <p>Event Entry Cost:</p>
           <div *ngIf="currentEvent.entryCost != '0'; else elseBlock" class="form-group">
@@ -158,7 +164,7 @@
               type="radio"  
               id="entryCost1" 
               name="entryCost" 
-              value="0" 
+              [value]="0" 
               (change)="eventCost = false">
             <label for="entryCost1">Free Entry</label>
             
