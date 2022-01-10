@@ -11,7 +11,7 @@ import {User} from '../model/user';
 export class LoginComponent implements OnInit {
 
   username = 'javainuse'
-  pwhash = ''
+  password = ''
   invalidLogin = false
   // pwhash: any;
 
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   }
 
   checkLogin() {
-    if (this.loginservice.authenticate(this.username, this.pwhash)
+    if (this.loginservice.authenticate(this.username, this.password)
     ) {
       this.router.navigate(['events'])
       this.invalidLogin = false

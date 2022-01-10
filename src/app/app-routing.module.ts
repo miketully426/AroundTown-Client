@@ -7,6 +7,8 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AuthGaurdService } from './service/auth-gaurd.service';
+import { BasicAuthHtppInterceptorService } from './service/basic-auth-htpp-interceptor.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 
@@ -22,8 +24,12 @@ const routes: Routes = [
   ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes),],
+  exports: [RouterModule],
+
+  providers: [ {  
+    provide:HTTP_INTERCEPTORS, useClass:BasicAuthHtppInterceptorService, multi:true 
+  }]
 })
 export class AppRoutingModule {
 }
