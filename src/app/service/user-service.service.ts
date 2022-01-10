@@ -39,8 +39,6 @@ export class UserService {
     return this.http.get<User>(`${this.userURL}/username/${username}`);
   }
 
-  public deleteUser(username: string) {
-    return this.http.delete<User>(`${this.userURL}/delete/${username}`);
-  }
+ 
 
 }
