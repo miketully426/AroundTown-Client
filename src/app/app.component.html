@@ -8,17 +8,23 @@
           <ul class="text-center list-inline py-3">
            <li class="list-inline-item">
               <a *ngIf="loginService.isUserLoggedIn()" routerLink="/events" class="btn btn-info">View All Events</a>
+              <!--code below would make it so any one on the site could use this feature!-->
+              <!-- <a routerLink="/events" class="btn btn-info">View All Events</a> -->
             </li>
             <li class="list-inline-item">
+              <!--code below here makes it so that user has to log in to create an event-->
               <a *ngIf="loginService.isUserLoggedIn()"routerLink="/addevent" class="btn btn-info">Create Event</a>
             </li>
             <li class="list-inline-item">
               <a *ngIf="loginService.isUserLoggedIn()"routerLink="/searchresults" class="btn btn-info">Search an Event</a>
+              <!--code below makes it so user does not have to be logged in to search for an event-->
+              <!-- <a routerLink="/searchresults" class="btn btn-info">Search an Event</a> -->
             </li>
             <li class="list-inline-item">
               <a *ngIf="loginService.isUserLoggedIn()" routerLink="/adduser" class="btn btn-info">Create Account</a>
-            </li>
-            
+              <!--code below makes it so user does not have to be logged in to create an account-->
+              <!-- <a routerLink="/adduser" class="btn btn-info">Create Account</a> -->
+            </li>           
             
           </ul>
         </div>
