@@ -33,4 +33,23 @@ export class UserProfileComponent implements OnInit {
     .subscribe(data => this.currentUser = data);
   }
 
+  deleteUser(username: string) {
+    if(confirm(`Are you sure you want to delete this user?  This cannot be undone.`)) {
+    this.userService.deleteUser(username)
+      .subscribe(
+        data => {
+          console.log(data);
+          location.reload();
+        },
+        error => console.log(error));
+    } 
+  }
+
 }
+
+
+
+
+
+
+
