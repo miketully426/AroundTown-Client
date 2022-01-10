@@ -1,0 +1,22 @@
+form {
+    background-color: black;
+    font-family: 'Quicksand', sans-serif;
+    color: #ddd;
+    padding: 20px;
+}
+
+h1, h2 { 
+    margin-bottom: 0;
+    background-color: black;
+    font-family: 'Quicksand', sans-serif;
+    color: #ddd;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.signin {
+    background-color: black;
+    font-family: 'Quicksand', sans-serif;
+    color: #ddd;
+    padding: 20px;
+}

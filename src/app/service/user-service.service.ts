@@ -23,4 +23,20 @@ export class UserService {
      return this.http.post<User>(this.userURL, user);
    }
 
+   public sendEmail(email: String) {
+     return this.http.get<boolean>(`${this.userURL}/confirm/email/${email}`);
+   }
+
+   public sendUsername(username: String) {
+     return this.http.get<boolean>(`${this.userURL}/confirm/username/${username}`);
+   }
+
+   public findUserById(id: number): Observable<User> {
+    return this.http.get<User>(`${this.userURL}/id/${id}`);
+  }
+
+  public findUserByUsername(username: String): Observable<User> {
+    return this.http.get<User>(`${this.userURL}/username/${username}`);
+  }
+
 }

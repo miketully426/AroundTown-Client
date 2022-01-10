@@ -1,12 +1,16 @@
 export class Event {
 
-    id: number;
+    eventId: number;
     name: string;
     description: string;
-    location: string;
-    date: string;
-    time: string;
+    locationName: string;
+    date: Object;
+    time: Object;
     entryCost: string;
-    familyFriendly: boolean;    
+    familyFriendly: boolean;  
+    zipCode: string;  
+    city: string;
+    state: string;
+    address: string;
 
 }

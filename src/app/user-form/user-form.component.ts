@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../service/user-service.service';
 import { User } from '../model/user';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { isNull } from 'util';
 
 @Component({
   selector: 'app-user-form',
@@ -10,26 +12,44 @@ import { User } from '../model/user';
 })
 export class UserFormComponent implements OnInit {
   user: User;
+  emailAvailable: boolean = true;
+  usernameAvailable: boolean = true;  
+  users: User[] = [];
 
-  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) {
+  constructor(private route: ActivatedRoute, 
+    private router: Router, 
+    private userService: UserService,) {
     this.user = new User();
+    this.users = [];
    }
 
-   goHome() {
-    this.router.navigate(['']);
+   goToProfile() {
+    this.router.navigate([`/userprofile/${this.user.username}`]);
+    ///userprofile/username - this only works when unique username validation is in play.
+    //can pull info from username if they are unique. It will be saved in the this.user.username vs id.
   }
+
    onSubmit(password: String, confirmPassword: String) {
-     //add password confirmation validation here in an if statement
-    if(password === confirmPassword) {
-      
-      this.userService.save(this.user).subscribe((result) => this.goHome());
-      
-    }
-  
+      if(password === confirmPassword) {
+        this.userService.save(this.user).subscribe((result) => this.goToProfile());
+      }
    }
 
+  confirmEmail(email: String) {
+      if(email != '') {
+        this.userService.sendEmail(email).subscribe(result => this.emailAvailable = result);
+      }
+  }
+
+  confirmUsername(username: String) {
+    if(username != '') {
+      this.userService.sendUsername(username).subscribe(result => this.usernameAvailable = result);
+    }
+  }
    
   ngOnInit() {
+    this.userService.findAll().subscribe(data => {
+      this.users = data;})
   }
 
 }

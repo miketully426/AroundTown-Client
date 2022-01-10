@@ -1,10 +1,15 @@
-<div class="card my-5">
-    <div class="card-body">
-      <form (ngSubmit)="onSubmit()" #eventForm="ngForm">
 
-        <div class="form-group">
-          <label for="name">Event Name: </label>
+<div>
+    <h1>Create Your Event!</h1>
+    <h2>Enter your event information below to be featured AroundTown!</h2>
+</div>
+    <form (ngSubmit)="onSubmit()" #eventForm="ngForm">
+       
+      <div class="form-row align-items-center">
+        <div class="col-sm-6">
+          <label for="name">Name Your Event! </label>
           <input type="text" [(ngModel)]="event.name" 
+            class="form-control"
             id="name" 
             name="name" 
             placeholder="Enter Event Name"
@@ -19,10 +24,30 @@
           Event name field must have at least one character.
           </div>
         </div>
-        
-        <div class="form-group">
-          <label for="description">Event Description: </label>
+        <div class="col-sm-6">
+          <label for="locationName">Where is it happening? (ex. St Louis Zoo) </label>
+          <input type="text" [(ngModel)]="event.locationName" 
+            class="form-control"
+            id="locationName" 
+            name="locationName" 
+            placeholder="Enter Name of Location"
+            required #locationName="ngModel"
+            required minlength="1"
+            required maxlength="100">
+          <div [hidden]="locationName.pristine || !!locationName.value" class="alert alert-danger">Name of location is required</div>
+          <div [hidden]="!locationName.errors?.minlength" class="alert alert-danger">
+              Event location must have at least one character.
+           </div>
+          <div [hidden]="!locationName.errors?.maxlength" class="alert alert-danger">
+              Event location cannot be more than 100 characters long.
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+          <label for="description">What are we going to do there? </label>
           <input type="text" [(ngModel)]="event.description" 
+            class="form-control"
             id="description" 
             name="description" 
             placeholder="Enter Event Description"
@@ -38,91 +63,182 @@
             Event description cannot be more than 500 characters long.
           </div>
         </div>
-
-        <div class="form-group">
-            <label for="location">Event Location: </label>
-            <input type="text" [(ngModel)]="event.location" 
-           
-              id="location" 
-              name="location" 
-              placeholder="Enter Event Location"
-              required #location="ngModel"
-              required minlength="1"
-              required maxlength="100">
-            <div [hidden]="location.pristine || !!location.value" class="alert alert-danger">Location is required</div>
-            <div [hidden]="!location.errors?.minlength" class="alert alert-danger">
-              Event location must have at least one character.
-            </div>
-            <div [hidden]="!location.errors?.maxlength" class="alert alert-danger">
-              Event location cannot be more than 100 characters long.
-            </div>
+      
+      <div class="form-group">
+          <label for="address">Street Address </label>
+            <input type="text" [(ngModel)]="event.address" 
+              class="form-control"
+              id="address" 
+              name="address" 
+              placeholder="Enter Street Address"
+              required #address="ngModel">
+            <div [hidden]="address.pristine || !!address.value" class="alert alert-danger">Address is required</div>
+        </div>
+      
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="city">City</label>
+            <input type="text" [(ngModel)]="event.city"
+            class="form-control"
+            id="city"
+            name="city"
+            required #city="ngModel">
+          <div [hidden]="city.pristine || !!city.value" class="alert alert-danger">City is required</div>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="state">State</label>
+            <select id="state" 
+              name="state"
+              class="form-control"
+              [(ngModel)]="event.state"
+              required #state="ngModel">
+              <option selected>Choose...</option>
+              <option ng-value="alabama">Alabama</option>
+	            <option ng-value="alaska">Alaska</option>
+	            <option ng-value="arizona">Arizona</option>
+	            <option ng-value="arkansas">Arkansas</option>
+	            <option ng-value="california">California</option>
+	            <option ng-value="colorado">Colorado</option>
+	            <option ng-value="connecticut">Connecticut</option>
+	            <option ng-value="delaware">Delaware</option>
+	            <option ng-value="dc">District Of Columbia</option>
+	            <option ng-value="florida">Florida</option>
+	            <option ng-value="georgia">Georgia</option>
+	            <option ng-value="hawaii">Hawaii</option>
+	            <option ng-value="idaho">Idaho</option>
+	            <option ng-value="illinois">Illinois</option>
+	            <option ng-value="indiana">Indiana</option>
+	            <option ng-value="iowa">Iowa</option>
+	            <option ng-value="kansas">Kansas</option>
+	            <option ng-value="kentucky">Kentucky</option>
+	            <option ng-value="louisiana">Louisiana</option>
+	            <option ng-value="maine">Maine</option>
+	            <option ng-value="maryland">Maryland</option>
+	            <option ng-value="massachusetts">Massachusetts</option>
+	            <option ng-value="michigan">Michigan</option>
+	            <option ng-value="minnesota">Minnesota</option>
+	            <option ng-value="mississippi">Mississippi</option>
+	            <option ng-value="missouri">Missouri</option>
+	            <option ng-value="montana">Montana</option>
+	            <option ng-value="nebraska">Nebraska</option>
+	            <option ng-value="nevada">Nevada</option>
+	            <option ng-value="new hampshire">New Hampshire</option>
+	            <option ng-value="new jersey">New Jersey</option>
+	            <option ng-value="new mexico">New Mexico</option>
+	            <option ng-value="new york">New York</option>
+	            <option ng-value="north carolina">North Carolina</option>
+	            <option ng-value="north dakota">North Dakota</option>
+	            <option ng-value="ohio">Ohio</option>
+	            <option ng-value="oklahoma">Oklahoma</option>
+	            <option ng-value="oregan">Oregon</option>
+	            <option ng-value="pennsylvania">Pennsylvania</option>
+	            <option ng-value="rhode island">Rhode Island</option>
+	            <option ng-value="south carolina">South Carolina</option>
+	            <option ng-value="south dakota">South Dakota</option>
+	            <option ng-value="tennesee">Tennessee</option>
+	            <option ng-value="texas">Texas</option>
+	            <option ng-value="utah">Utah</option>
+	            <option ng-value="vermont">Vermont</option>
+	            <option ng-value="virginia">Virginia</option>
+	            <option ng-value="washington">Washington</option>
+	            <option ng-value="west virginia">West Virginia</option>
+	            <option ng-value="wisconsin">Wisconsin</option>
+	            <option ng-value="wyoming">Wyoming</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="zipCode">Zip</label>
+            <input type="text" 
+              class="form-control" 
+              id="zipCode"
+              name="zipCode"
+              [(ngModel)]="event.zipCode"
+              required #zipCode="ngModel">
+          </div>
         </div>
 
-          <div class="form-group">
+        <div class="form-row">
+          <div class="form-group col-md-4">
             <label for="date">Event Date: </label>
-            <input type="text" [(ngModel)]="event.date" 
-             
+            <ngb-datepicker [(ngModel)]="eventDate" 
               id="date" 
               name="date"
               placeholder="Enter Event Date"
               required #date="ngModel">
+               </ngb-datepicker>
+              <!-- <button class="btn btn-sm btn-outline-primary mr-2" (click)="selectToday()">Select Today</button>
+              <button class="btn btn-sm btn-outline-primary mr-2" (click)="setCurrent()">To current month</button> -->
               <div [hidden]="date.pristine || !!date.value" class="alert alert-danger">Date is required</div>
           </div>
 
-          <div class="form-group">
+          <div class="form-group col-md-4">
             <label for="time">Event Time: </label>
-            <input type="text" [(ngModel)]="event.time" 
-             
+            <ngb-timepicker [(ngModel)]="eventTime" 
               id="time" 
               name="time" 
               placeholder="Enter Event Time"
               required #time="ngModel"
-              required maxlength="8"
-              required minlength="4">
-              <div [hidden]="time.pristine || !!time.value" class="alert alert-danger">Time is required
-              </div>
+              [meridian]="meridian"
+              [minuteStep]="minuteStep">
+              <div [hidden]="time.pristine || !!time.value" class="alert alert-danger">Time is required</div>
               <div [hidden]="!time.errors?.maxlength" class="alert alert-danger">
                 Time cannot be more than 8 characters long.
               </div>
               <div [hidden]="!time.errors?.minlength" class="alert alert-danger">
                 Time must have at least 4 characters.
               </div>
-          </div>
+            </ngb-timepicker>
+          </div>      
+        </div>
+       <hr/>
 
-
-          <div class="form-group">
-            <label for="entryCost">Event Entry Cost: </label>
-            <input type="text" [(ngModel)]="event.entryCost" 
-            
-              id="entryCost" 
+        <p>Event Entry Cost:</p>
+        <div class="form-group">
+            <input #entryCost type="radio" 
+              id="entryCost" name="entryCost" 
+              checked="checked"
+              (change)="eventCost = true">
+            <label for="entryCost">Paid Entry</label> 
+        
+            <input #entryCost1="ngModel" [(ngModel)]="eventCostNum"  
+              type="radio"  
+              id="entryCost1" 
               name="entryCost" 
-              placeholder="Enter Event Entry Cost"
-              required #entryCost="ngModel"
-              required minlength="1"
-              required maxlength="8">
-              <div [hidden]="entryCost.pristine || !!entryCost.value" class="alert alert-danger">Entry Cost is required
-              </div>
-              <div [hidden]="!entryCost.errors?.maxlength" class="alert alert-danger">
-                Cost cannot be more than 8 characters long.
-              </div>
-              <div [hidden]="!entryCost.errors?.minlength" class="alert alert-danger">
-                Cost must have at least 1 character.
+              value="0" 
+              (change)="eventCost = false">
+            <label for="entryCost1">Free Entry</label>
+            
+            <div *ngIf="eventCost">
+              <p>Enter the Entry Cost</p>
+              <label for="costsMoney">$</label>
+              <input type="number" min=1 [(ngModel)]="eventCostNum"
+                id="costsMoney"
+                name="costsMoney"
+                placeholder="Enter a price"
+                required #costsMoney="ngModel"
+                required minlength="1"
+                required maxlength="8">
+                <div [hidden]="costsMoney.pristine || !!costsMoney.value" class="alert alert-danger">Price is required</div>
+                <div [hidden]="!entryCost.errors?.maxlength" class="alert alert-danger">
+                  Cost cannot be more than 8 characters long.
+                </div>
+                <div [hidden]="!entryCost.errors?.minlength" class="alert alert-danger">
+                  Cost must have at least 1 character.
+                </div>  
               </div>
           </div>
 
-          <div class="form-group">
-            <label for="familyFriendly">Family Friendly: </label>
-            <input type="checkbox" [(ngModel)]="event.familyFriendly" 
-          
-              id="familyFriendly" 
-              name="familyFriendly" 
-              checked="checked"              
-              #familyFriendly="ngModel">
-          </div>
-
+        <div class="form-group">
+          <label for="familyFriendly">Family Friendly: </label>
+          <input style="margin-left:10px" type="checkbox" [(ngModel)]="event.familyFriendly" 
+            id="familyFriendly" 
+            name="familyFriendly" 
+            checked="checked"              
+            #familyFriendly="ngModel">
+        </div>
         <button type="submit" [disabled]="!eventForm.form.valid" 
-          class="btn btn-info">Submit</button>
-      </form>
-    </div>
-  </div>
+        class="btn btn-info">Submit</button>
+    </form>
+
+
 
