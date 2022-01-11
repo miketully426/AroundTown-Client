@@ -1,9 +1,10 @@
-<app-header></app-header>
+<app-header *ngIf="showHeader"></app-header>
   <head>
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;700&display=swap" rel="stylesheet">
   </head>
+<app-navbar *ngIf="showNav"></app-navbar>
 <router-outlet></router-outlet>
 <app-footer></app-footer>
 
