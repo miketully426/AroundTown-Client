@@ -39,6 +39,4 @@ export class UserService {
     return this.http.get<User>(`${this.userURL}/username/${username}`);
   }
 
- 
-
 }
