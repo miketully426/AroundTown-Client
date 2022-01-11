@@ -5,7 +5,7 @@
                 id="searchTerm"
                 placeholder="Search here"/>
             <button #searchButton type="submit" (click)="onSearch(searchTerm.value, filterByFamFriendly.value, filterByPrice.value)">Search</button>   
-            <label for="filterBy" class="list-inline-item" class="filter">&nbsp;&nbsp;Filter by Family Friendliness:&nbsp;</label>
+            <label for="filterBy" class="list-inline-item" >&nbsp;&nbsp;Filter by Family Friendliness:&nbsp;</label>
             <select #filterByFamFriendly id="filterByFamFriendly" name="filterByFamFriendly">
                 <option value="none" selected="selected">No Filter</option>
                 <option value="familyFriendly">Family Friendly</option>
