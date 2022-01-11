@@ -1,12 +1,11 @@
-<div class="card my-5">
-    <div class="card-body">
-        <div class="search-form">
+
+        <div class="search-form" class="search-bar">
                 <input #searchTerm (keyup.enter)="onSearch(searchTerm.value, filterByFamFriendly.value, filterByPrice.value)" 
                     type="text" 
                     id="searchTerm"
                     placeholder="Search here"/>
-                <button #searchButton type="submit" (click)="onSearch(searchTerm.value, filterByFamFriendly.value, filterByPrice.value)" class="list-inline-item">Search</button>
-                <label for="filterBy" class="list-inline-item">Filter by Family Friendliness:</label>
+                <button #searchButton type="submit" (click)="onSearch(searchTerm.value, filterByFamFriendly.value, filterByPrice.value)">Search</button>   
+                <label for="filterBy" class="list-inline-item" class="filter">Filter by Family Friendliness:</label>
                 <select #filterByFamFriendly id="filterByFamFriendly" name="filterByFamFriendly">
                     <option value="none" selected="selected">No Filter</option>
                     <option value="familyFriendly">Family Friendly</option>
@@ -24,8 +23,8 @@
                 </select>
         </div>
 
-        <table class="table table-bordered table-striped">
-            <thead class="thead-dark">   
+        <table class="table table-striped table-dark">
+            <thead>   
                 <tr>
                     <th scope="col">Event Name</th>
                     <th scope="col">Description</th>
@@ -61,5 +60,4 @@
         <div>
             <p *ngIf="searchedEvents.length == 0 && (searchTerm.value || filterByFamFriendly.value != 'none' || filterByPrice.value != 'none')">No events match your search... Try searching something else</p>
         </div>       
-    </div>
-</div>
+
