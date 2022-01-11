@@ -34,7 +34,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   deleteUser(id: number) {
-    if(confirm(`Are you sure you want to delete this user?  This cannot be undone.`)) {
+    if(confirm(`Are you sure you want to delete this account?  This cannot be undone.`)) {
     this.userProfileService.deleteUser(id)
       .subscribe(
         data => {
@@ -45,8 +45,6 @@ export class UserProfileComponent implements OnInit {
   }
 
 }
-
-
 
 
 
