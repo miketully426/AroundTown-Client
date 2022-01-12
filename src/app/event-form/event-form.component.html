@@ -1,3 +1,4 @@
+
 <div>
     <h1>Create Your Event!</h1>
     <h2>Enter your event information below to be featured AroundTown!</h2>
@@ -12,9 +13,17 @@
             id="name" 
             name="name" 
             placeholder="Enter Event Name"
-            required #name="ngModel">
-        </div>
+            required #name="ngModel"
+            maxlength="100"
+            minlength="1">
           <div [hidden]="name.pristine || !!name.value" class="alert alert-danger">Event Name is required</div>
+          <div [hidden]="!name.errors?.maxlength" class="alert alert-danger">
+          Event name cannot be more than 100 characters long.
+          </div>
+          <div [hidden]="!name.errors?.minlength" class="alert alert-danger">
+          Event name field must have at least one character.
+          </div>
+        </div>
         <div class="col-sm-6">
           <label for="locationName">Where is it happening? (ex. St Louis Zoo) </label>
           <input type="text" [(ngModel)]="event.locationName" 
@@ -22,8 +31,16 @@
             id="locationName" 
             name="locationName" 
             placeholder="Enter Name of Location"
-            required #locationName="ngModel">
+            required #locationName="ngModel"
+            required minlength="1"
+            required maxlength="100">
           <div [hidden]="locationName.pristine || !!locationName.value" class="alert alert-danger">Name of location is required</div>
+          <div [hidden]="!locationName.errors?.minlength" class="alert alert-danger">
+              Event location must have at least one character.
+           </div>
+          <div [hidden]="!locationName.errors?.maxlength" class="alert alert-danger">
+              Event location cannot be more than 100 characters long.
+          </div>
         </div>
       </div>
       
@@ -34,9 +51,18 @@
             id="description" 
             name="description" 
             placeholder="Enter Event Description"
-            required #description="ngModel">
-          <div [hidden]="description.pristine || !!description.value" class="alert alert-danger">Description is required</div>
-      </div>
+            required #description="ngModel"
+            required minlength="1"
+            required maxlenght="500">
+          <div [hidden]="description.pristine || !!description.value" class="alert alert-danger">Description is required
+          </div>
+          <div [hidden]="!description.errors?.minlength" class="alert alert-danger">
+            Event description field must have at least one character.
+          </div>
+          <div [hidden]="!description.errors?.maxlength" class="alert alert-danger">
+            Event description cannot be more than 500 characters long.
+          </div>
+        </div>
       
       <div class="form-group">
           <label for="address">Street Address </label>
@@ -139,25 +165,32 @@
               name="date"
               placeholder="Enter Event Date"
               required #date="ngModel">
-            </ngb-datepicker>
-            <!-- <button class="btn btn-sm btn-outline-primary mr-2" (click)="selectToday()">Select Today</button>
-            <button class="btn btn-sm btn-outline-primary mr-2" (click)="setCurrent()">To current month</button> -->
-            <div [hidden]="date.pristine || !!date.value" class="alert alert-danger">Date is required</div>
-        </div>
-        <div class="form-group col-md-4">
-          <label for="time">Event Time: </label>
-          <ngb-timepicker [(ngModel)]="eventTime" 
-            id="time" 
-            name="time" 
-            placeholder="Enter Event Time"
-            required #time="ngModel"
-            [meridian]="meridian"
-            [minuteStep]="minuteStep">
-            <div [hidden]="time.pristine || !!time.value" class="alert alert-danger">Time is required</div>
-          </ngb-timepicker>
+               </ngb-datepicker>
+              <!-- <button class="btn btn-sm btn-outline-primary mr-2" (click)="selectToday()">Select Today</button>
+              <button class="btn btn-sm btn-outline-primary mr-2" (click)="setCurrent()">To current month</button> -->
+              <div [hidden]="date.pristine || !!date.value" class="alert alert-danger">Date is required</div>
           </div>
+
+          <div class="form-group col-md-4">
+            <label for="time">Event Time: </label>
+            <ngb-timepicker [(ngModel)]="eventTime" 
+              id="time" 
+              name="time" 
+              placeholder="Enter Event Time"
+              required #time="ngModel"
+              [meridian]="meridian"
+              [minuteStep]="minuteStep">
+              <div [hidden]="time.pristine || !!time.value" class="alert alert-danger">Time is required</div>
+              <div [hidden]="!time.errors?.maxlength" class="alert alert-danger">
+                Time cannot be more than 8 characters long.
+              </div>
+              <div [hidden]="!time.errors?.minlength" class="alert alert-danger">
+                Time must have at least 4 characters.
+              </div>
+            </ngb-timepicker>
+          </div>      
         </div>
-        <hr/>
+       <hr/>
 
         <p>Event Entry Cost:</p>
         <div class="form-group">
@@ -182,10 +215,18 @@
                 id="costsMoney"
                 name="costsMoney"
                 placeholder="Enter a price"
-                required #costsMoney="ngModel">
+                required #costsMoney="ngModel"
+                required minlength="1"
+                required maxlength="8">
                 <div [hidden]="costsMoney.pristine || !!costsMoney.value" class="alert alert-danger">Price is required</div>
-            </div>
-        </div>
+                <div [hidden]="!entryCost.errors?.maxlength" class="alert alert-danger">
+                  Cost cannot be more than 8 characters long.
+                </div>
+                <div [hidden]="!entryCost.errors?.minlength" class="alert alert-danger">
+                  Cost must have at least 1 character.
+                </div>  
+              </div>
+          </div>
 
         <div class="form-group">
           <label for="familyFriendly">Family Friendly: </label>
