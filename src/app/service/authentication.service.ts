@@ -12,12 +12,12 @@ export class User{
   
 }
 
-export class JwtResponse{
-  constructor(
-    public jwttoken:string,
-     ) {}
+// export class JwtResponse{
+//   constructor(
+//     public jwttoken:string,
+//      ) {}
   
-}
+// }
 
 @Injectable({
   providedIn: 'root'
@@ -30,26 +30,10 @@ export class AuthenticationService {
     private httpClient:HttpClient
   ) { }
 
-     authenticate(username, password): Observable<object> {
-     return this.httpClient.post("http://localhost:8080/authenticate", {'username': username,'pwhash': password })
-   
-   
-   
-    //  .success(function(response) {$scope.usersData = response.users;$scope.message = response.message;});
-
-
-      // return this.httpClient.post<any>('http://localhost:8080/authenticate',{username,password}).pipe(
-      //  map(
-      //    userData => {
-
-      //     sessionStorage.setItem('username',username);
-      //     sessionStorage.setItem('token', tokenStr);
-      //     return userData;
-      //    }
-      //  )
-  
-     // );
-    }
+     authenticate(username, password): any {
+     return this.httpClient.post("http://localhost:8080/api/authenticate", {'username': username,'pwhash': password })
+     }
+    
   
 
   isUserLoggedIn() {

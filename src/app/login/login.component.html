@@ -3,7 +3,7 @@
       User Name : <input type="text" name="username" [(ngModel)]="username">
       Password : <input type="password" name="pwhash" [(ngModel)]="pwhash">
     </div>
-    <button (click)=checkLogin() class="btn btn-success">
+    <button (click)='checkLogin(username, pwhash)' class="btn btn-success">
       Login
     </button>
 
