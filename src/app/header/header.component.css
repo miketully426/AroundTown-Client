@@ -65,6 +65,11 @@ img {
     font-family: 'Quicksand', sans serif;
   }
 
+  .topnav-left {
+    float:left;
+    font-family: 'Quicksand', sans serif;
+  }
+
   @keyframes flicker {
     0%, 18%, 22%, 25%, 53%, 57%, 100% {
       text-shadow:

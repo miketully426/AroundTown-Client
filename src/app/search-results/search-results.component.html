@@ -58,5 +58,5 @@
 </tbody>
 </table>
 <div>
-<p *ngIf="searchedEvents.length == 0 && (searchTerm.value || filterByFamFriendly.value != 'none' || filterByPrice.value != 'none')">No events match your search... Try searching something else</p>
+<p class="alert-message" *ngIf="searchedEvents.length == 0 && (searchTerm.value || filterByFamFriendly.value != 'none' || filterByPrice.value != 'none')">No events match your search... Try searching something else</p>
 </div>       
