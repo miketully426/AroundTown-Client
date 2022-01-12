@@ -11,7 +11,7 @@ import {User} from '../model/user';
 export class LoginComponent implements OnInit {
 
   username = 'javainuse'
-  password = ''
+  pwhash = ''
   invalidLogin = false
   // pwhash: any;
 
@@ -24,12 +24,22 @@ export class LoginComponent implements OnInit {
   }
 
   checkLogin() {
-    if (this.loginservice.authenticate(this.username, this.password)
-    ) {
-      this.router.navigate(['events'])
-      this.invalidLogin = false
-    } else
-      this.invalidLogin = true
+     
+     this.loginservice.authenticate(this.username, this.pwhash).subscribe({
+      next: c => {
+        this.router.navigate(['events'])
+        this.invalidLogin = false
+      },
+      error: error => {
+        this.invalidLogin = true
+      }
+    })
+
+    //   if (this.loginservice.authenticate(this.username, this.pwhash)) {
+    //   this.router.navigate(['events'])
+    //   this.invalidLogin = false
+    // } else
+    //   this.invalidLogin = true
   }
 
 }
