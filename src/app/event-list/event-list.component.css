@@ -14,3 +14,10 @@ th {
     font-weight: 300;
 }
 
+h1 {
+    font-family: 'Quicksand', sans-serif;
+    color: #ddd;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
