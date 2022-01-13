@@ -15,29 +15,27 @@
         </div>
 </header>
 
-<ngb-carousel>
-    <ng-template ngbSlide>
-      <div class="picsum-img-wrapper">
-        <img class="slideshow" [src]="images[0]" alt="Random first slide">
-      </div>
-      <div class="carousel-caption">
-        <h3>Find Interesting Events Happening Near You</h3>
-      </div>
-    </ng-template>
-    <ng-template ngbSlide>
-      <div class="picsum-img-wrapper">
-        <img class="slideshow" [src]="images[1]" alt="Random second slide">
-      </div>
-      <div class="carousel-caption">
-        <h3>Create Events You Want to Stand Out</h3>
-      </div>
-    </ng-template>
-    <ng-template ngbSlide>
-      <div class="picsum-img-wrapper">
-        <img class="slideshow" [src]="images[2]" alt="Random third slide">
-      </div>
-      <div class="carousel-caption">
-        <h3>Third slide label</h3>
-      </div>
-    </ng-template>
-  </ngb-carousel>
+  <div class='container-fluid'>  
+    <div class='col-12'>  
+        <ngb-carousel>  
+            <ng-template ngbSlide>  
+                <img [src]="images[0]" class="slideshow" alt="Delhi Metro">  
+                <div class="carousel-caption">  
+                    <h3>See What is Going On AroundTown</h3>  
+                </div>  
+            </ng-template>  
+            <ng-template ngbSlide>  
+                <img [src]="images[1]" class="slideshow" alt="Bangalore Metro">  
+                <div class="carousel-caption">  
+                    <h3>Find Interesting Events Happening Near You</h3>  
+                </div>  
+            </ng-template>  
+            <ng-template ngbSlide>  
+                <img [src]="images[2]" class="slideshow" alt="Channai Metro">  
+                <div class="carousel-caption">  
+                    <h3>Crete Events To Stand Out</h3>  
+                </div>  
+            </ng-template> 
+        </ngb-carousel>  
+    </div>  
+  </div>  

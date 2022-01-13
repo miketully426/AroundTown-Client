@@ -91,7 +91,7 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  max-width: 250px;
+  width: 1024px;
   height: auto;
 }
 

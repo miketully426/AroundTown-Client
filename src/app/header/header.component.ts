@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap'; 
 
 @Component({
   selector: 'app-header',
@@ -13,7 +14,12 @@ export class HeaderComponent implements OnInit {
 
   images = [this.image1, this.image2, this.image3];
   
-  constructor() { }
+  constructor(config: NgbCarouselConfig) {  
+    config.interval = 4000;  
+    config.wrap = true;  
+    config.keyboard = false;  
+    config.pauseOnHover = false;  
+  } 
 
   ngOnInit() {
   }
