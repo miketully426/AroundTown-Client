@@ -5,16 +5,9 @@ import { Observable } from 'rxjs';
 
 // is exporting the user class here the right thing?
 
-export class User{
-  constructor(
-    public status:string,
-     ) {}
-  
-}
-
-// export class JwtResponse{
+// export class User{
 //   constructor(
-//     public jwttoken:string,
+//     public status:string,
 //      ) {}
   
 // }
@@ -30,24 +23,25 @@ export class AuthenticationService {
     private httpClient:HttpClient
   ) { }
 
-     authenticate(username, password): any {
-     return this.httpClient.post("http://localhost:8080/api/authenticate", {'username': username,'pwhash': password })
-     }
-    
-  
+     authenticate(username, password): Observable<any> {
 
-  isUserLoggedIn() {
+    return this.httpClient.post("http://localhost:8080/api/authenticate", {'username': username,'pwhash': password });
+     }
+     
+    
+    isUserLoggedIn() {
     let user = sessionStorage.getItem('username')
     //console.log(!(user === null))
     return !(user === null)
   }
 
-  logOut() {
+    logOut() {
     sessionStorage.removeItem('username')
   }
 }
 
-interface LoginResponse {
-  success: String
-  statusCode: number
-}
+// interface LoginResponse {
+//   success: String
+//   statusCode: number
+// }
+
