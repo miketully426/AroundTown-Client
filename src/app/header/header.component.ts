@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   images = [this.image1, this.image2, this.image3];
   
   constructor(config: NgbCarouselConfig) {  
-    config.interval = 8000;  
+    config.interval = 6000;  
     config.wrap = true;  
     config.keyboard = false;  
     config.pauseOnHover = false;  
