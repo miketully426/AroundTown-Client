@@ -12,6 +12,11 @@ body {
     overflow: hidden;
 }
 
+#logo {
+    max-width: 250px;
+    height: auto;
+    align-items: center;
+}
 
 .topnav a {
     float: left;

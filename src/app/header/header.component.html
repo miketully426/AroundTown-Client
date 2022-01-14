@@ -1,6 +1,6 @@
 <header>
     <div class="header">
-        <a routerLink=""><img src="assets/images/AroundTownLogo.png"></a>
+        <a routerLink=""><img id="logo" src="assets/images/AroundTownLogo.png"></a>
     </div>
         <div class="topnav" id="topnav">
             <div class= "topnav-left">
@@ -15,7 +15,7 @@
         </div>
 </header>
 
-<div class="slideshow">
+<!-- <div >
     <ngb-carousel *ngIf="images">
         <ng-template ngbSlide>
         <img [src]="images[0]" alt="Random first slide">
@@ -27,4 +27,23 @@
         <img [src]="images[2]" alt="Random third slide">
         </ng-template>
     </ngb-carousel>
-</div>
+</div> -->
+
+<ngb-carousel #carousel *ngIf="images" wrap="true" >
+    <ng-template ngbSlide id="id1">
+      <div  class="picsum-img-wrapper">
+        <img [src]="images[0]" width="100%" alt="Random first slide">
+      </div>
+    </ng-template>
+    <ng-template ngbSlide id="id2">
+      <div class="picsum-img-wrapper">
+        <img [src]="images[1]" width="100%" alt="Random second slide">
+      </div>
+    </ng-template>
+    <ng-template ngbSlide id="id3">
+      <div class="picsum-img-wrapper">
+        <img [src]="images[2]" width="100%" alt="Random third slide">
+      </div>
+    </ng-template>
+  </ngb-carousel>
+  
