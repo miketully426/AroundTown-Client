@@ -15,20 +15,6 @@
         </div>
 </header>
 
-<!-- <div >
-    <ngb-carousel *ngIf="images">
-        <ng-template ngbSlide>
-        <img [src]="images[0]" alt="Random first slide">
-        </ng-template>
-        <ng-template ngbSlide>
-        <img [src]="images[1]" alt="Random second slide">    
-        </ng-template>
-        <ng-template ngbSlide>
-        <img [src]="images[2]" alt="Random third slide">
-        </ng-template>
-    </ngb-carousel>
-</div> -->
-
 <ngb-carousel #carousel *ngIf="images" wrap="true" >
     <ng-template ngbSlide id="id1">
       <div  class="picsum-img-wrapper">
