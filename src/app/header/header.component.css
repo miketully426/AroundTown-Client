@@ -98,7 +98,9 @@ img {
 
 h3 {
   font-family: 'Quicksand', sans serif;
-  color: black;
+  font-weight: 200;
+  color: #f2f2f2;
+  padding-bottom: 50px;
 }
 
 
