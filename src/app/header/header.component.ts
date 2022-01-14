@@ -8,8 +8,8 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 })
 export class HeaderComponent implements OnInit {
   
-  image1= "assets/images/AT-slideshow-party.jpg";
-  image2 = "assets/images/AT-slideshow-gate.jpg";
+  image1 = "assets/images/AT-slideshow-gate.jpg";
+  image2= "assets/images/AT-slideshow-party.jpg";
   image3 = "assets/images/AT-slideshow-bye.jpg";
 
   images = [this.image1, this.image2, this.image3];

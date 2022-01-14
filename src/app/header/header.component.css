@@ -51,7 +51,8 @@ body {
   display: block;
   max-width: max-content;
   height: auto;
-  position: relative;
+  position: absolute;
+  overflow: hidden;
 }
 
 
