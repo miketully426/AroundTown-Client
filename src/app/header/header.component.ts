@@ -20,7 +20,8 @@ export class HeaderComponent implements OnInit {
     config.wrap = true;  
     config.keyboard = false;  
     config.pauseOnHover = false;  
-  } 
+    config.showNavigationArrows = true;
+  }
 
   ngOnInit() {
   }

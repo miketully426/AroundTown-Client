@@ -15,27 +15,16 @@
         </div>
 </header>
 
-  <div class='container-fluid' >  
-    <div class='col-12'>  
-        <ngb-carousel>  
-            <ng-template ngbSlide>  
-                <img [src]="images[0]" class="slideshow" alt="Delhi Metro">  
-                <div class="carousel-caption">  
-                    <h3></h3>  
-                </div>  
-            </ng-template>  
-            <ng-template ngbSlide>  
-                <img [src]="images[1]" class="slideshow" alt="Bangalore Metro">  
-                <div class="carousel-caption">  
-                    <h3></h3>  
-                </div>  
-            </ng-template>  
-            <ng-template ngbSlide>  
-                <img [src]="images[2]" class="slideshow" alt="Channai Metro">  
-                <div class="carousel-caption">  
-                    <h3></h3>  
-                </div>  
-            </ng-template> 
-        </ngb-carousel>  
-    </div>  
-</div>  
+<div class="slideshow">
+    <ngb-carousel *ngIf="images">
+        <ng-template ngbSlide>
+        <img [src]="images[0]" alt="Random first slide">
+        </ng-template>
+        <ng-template ngbSlide>
+        <img [src]="images[1]" alt="Random second slide">    
+        </ng-template>
+        <ng-template ngbSlide>
+        <img [src]="images[2]" alt="Random third slide">
+        </ng-template>
+    </ngb-carousel>
+</div>
