@@ -18,16 +18,10 @@ export class EventFormComponent implements OnInit {
   eventCost: boolean = true;
   eventCostNum: number;
   model: NgbDateStruct;
-  //Use ngbDate/Time for rendering date objects (kind of?), would need to switch event object type to Date
-  // eventDate: NgbDate;
-  // eventTime: NgbTime;
   eventDate: {year:number, month: number, day: number};
   eventTime: {hour:number, minute:number};
   meridian = true;
   minuteStep = 15;
-  // eventDate: Object;
-  // eventTime: Object;
-  //not sure if this needs to be true or false
   @ViewChild('dp', {static: false}) dp: NgbDatepicker;
 
   constructor(private route: ActivatedRoute, private router: Router, 
@@ -44,8 +38,8 @@ export class EventFormComponent implements OnInit {
   //   this.dp.navigateTo()
   // }
 
-   gotoEventList() {
-    this.router.navigate(['/events']);
+   gotoSingleEvent(id:number) {
+    this.router.navigate([`eventConfirm/${id}`]);
   }
    onSubmit() {
       this.eventCostNum = Number(this.eventCostNum);
@@ -66,7 +60,7 @@ export class EventFormComponent implements OnInit {
       //     this.event.date = `${this.eventDate.month}/${this.eventDate.day}/${this.eventDate.year}`
       //     this.event.time = `${this.eventTime.hour}:${this.eventTime.minute}`
       // }
-      this.eventService.save(this.event).subscribe(result => this.gotoEventList());
+      this.eventService.save(this.event).subscribe(result => this.gotoSingleEvent(result.eventId));
    }
   
   

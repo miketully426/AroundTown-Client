@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Event } from '../model/event';
 import { Observable } from 'rxjs';
+import { EventFormComponent } from '../event-form/event-form.component';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,8 @@ export class EventService {
       return this.http.get<Event[]>(this.eventsURL);
    }
 
-   public save(event: Event) {
-     return this.http.post<Event>(this.eventsURL, event);
+   public save(event: Event): Observable<Event> {
+     return this.http.post<Event>(`${this.eventsURL}/saveEvent`, event);
    }
 
 
@@ -43,7 +44,7 @@ export class EventService {
  }
 
    public updateEvent(eventId: any, data: Event): Observable<Event> {
-     return this.http.put<Event>(`${this.eventsURL}/${eventId}`, data);
+     return this.http.put<Event>(`${this.eventsURL}/edit/${eventId}`, data);
    }
 
    public viewAllFamFriendly(famFriendly: boolean) {

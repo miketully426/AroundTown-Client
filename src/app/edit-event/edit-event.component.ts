@@ -45,11 +45,11 @@ export class EditEventComponent implements OnInit {
     this.currentEvent.date = this.eventDate;
     this.currentEvent.time = this.eventTime;
 
-    this.eventService.updateEvent(this.currentEvent.eventId, this.currentEvent).subscribe((result) => this.goToEvents());
+    this.eventService.updateEvent(this.currentEvent.eventId, this.currentEvent).subscribe((result) => this.goToSingleEvent(this.currentEvent.eventId));
   }
 
-  public goToEvents() {
-    this.router.navigate(['/events']);
+  goToSingleEvent(id:number) {
+    this.router.navigate([`eventConfirm/${id}`]);
   }
 
   //I'd like to create a new page that allows you to view your event after editing, then choose between re-editing and going back to all events.
