@@ -6,6 +6,7 @@ import { EventFormComponent } from './event-form/event-form.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { AuthenticationService } from '../service/authentication.service';
 
 const routes: Routes = [
   { path: 'events', component: EventListComponent },
