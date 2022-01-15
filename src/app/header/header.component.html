@@ -7,6 +7,10 @@
             <a routerLink="/addevent">Create Event</a>
             <a routerLink="/adduser">Create Account</a>
         </div>
+        <div class ="topnav-left">
+          <a  *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link" >Log-In</a></li>
+          <a  *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link" >Logout</a></li>
+        </div>
         </div>
         <div class="hero-image">
             <div class="hero-text font-effect-neon">
