@@ -1,17 +1,20 @@
-<div class="container">
-  <div class = login>
-    User Name : <input type="text" id="username" name="username" #username="ngModel" [(ngModel)]="user.username">
-    Password : <input type="password" id="pwhash" name="pwhash" #pwhash="ngModel" [(ngModel)]="user.pwHash">
+<h3>Login</h3>
+<form class="form-group">
+  <div class="col-sm-3">
+    <label for="email">Username :</label>
+    <input type="text" class="form-control" id="username" #username="ngModel" [(ngModel)]="user.username" placeholder="Enter User Name"
+      name="username">
   </div>
-  <button (click)="checkLogin()" class="btn btn-success">
-    Login
-  </button>
+  <div class="col-sm-3">
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control" [(ngModel)]="user.pwHash" #pwhash="ngModel" id="pwHash" placeholder="Enter password"
+      name="pwHash">
+  </div>
+  <div  class="login-button">
+    <button (click)=checkLogin() class="btn btn-info">Login</button>
+   </div>
+</form>
 
-<div class = signup>
-<p>Don't have an account? <a routerLink="/adduser">Sign up!</a>.</p>
+<div class="container signin" >
+  <p>No account? <a routerLink="/adduser">Register here</a>.</p>
 </div>
-
-</div>
-
-
-<!-- //changed input type from password to text -->

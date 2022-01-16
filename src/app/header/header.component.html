@@ -10,6 +10,7 @@
         <div class ="topnav-left">
           <a  *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link" >Log-In</a>
           <a  *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link" >Logout</a>
+          <a  *ngIf="loginService.isUserLoggedIn()" routerLink="userprofile/:username" class="nav-link">Profile</a>
         </div>
         </div>
         <div class="hero-image">
