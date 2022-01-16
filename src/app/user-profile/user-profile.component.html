@@ -15,4 +15,9 @@
 
     <!-- would be cool to have list of their created events here -->
   <p><button href="#">Log Out</button></p>
+  <p><button routerLink="/events" routerLinkActive="active"
+    class="badge badge-danger mr-2" (click)="deleteUser(currentUser.id)">
+    Delete Account?
+  </button></p>
+
 </div>

@@ -4,8 +4,6 @@ import { User } from '../model/user';
 import { UserService } from '../service/user-service.service';
 import { UserProfileService } from '../service/user-profile.service';
 
-import { faHandPeace } from '@fortawesome/free-solid-svg-icons';
-
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -13,7 +11,6 @@ import { faHandPeace } from '@fortawesome/free-solid-svg-icons';
 })
 export class UserProfileComponent implements OnInit {
   currentUser: User;
-  faHandPeace = faHandPeace;
 
   constructor(
     private route: ActivatedRoute, 
@@ -31,6 +28,17 @@ export class UserProfileComponent implements OnInit {
   public getUser(username: String): void {
     this.userService.findUserByUsername(username)
     .subscribe(data => this.currentUser = data);
+  }
+
+  deleteUser(id: number) {
+    if(confirm(`Are you sure you want to delete this account?  This cannot be undone.`)) {
+    this.userProfileService.deleteUser(id)
+      .subscribe(
+        data => {
+          console.log(data);
+        },
+        error => console.log(error));
+    } 
   }
 
 }
