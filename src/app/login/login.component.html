@@ -1,9 +1,9 @@
 <div class="container">
   <div>
-    User Name : <input type="text" name="username" [(ngModel)]="username">
-    Password : <input type="text" name="pwhash" [(ngModel)]="pwhash">
+    User Name : <input type="text" id="username" name="username" #username="ngModel" [(ngModel)]="user.username">
+    Password : <input type="password" id="pwhash" name="pwhash" #pwhash="ngModel" [(ngModel)]="user.pwHash">
   </div>
-  <button (click)='checkLogin(username, pwhash)' class="btn btn-success">
+  <button (click)="checkLogin()" class="btn btn-success">
     Login
   </button>
 
@@ -12,5 +12,6 @@
 </div>
 
 </div>
+
 
 <!-- //changed input type from password to text -->

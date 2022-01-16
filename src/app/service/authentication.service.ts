@@ -23,8 +23,8 @@ export class AuthenticationService {
     private httpClient:HttpClient
   ) { }
 
-     authenticate(username, password) {
-      return this.httpClient.post("http://localhost:8080/api/authenticate", {'username': username,'pwhash': password });
+     authenticate(user) {
+      return this.httpClient.post("http://localhost:8080/api/authenticate", user);
      }
      
     
