@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AuthenticationService } from '../service/authentication.service';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-header',
@@ -7,6 +8,11 @@ import { AuthenticationService } from '../service/authentication.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  @Input() title: String;
+  isCollapsed = true;
+  toggleCollapsed(): void {
+    this.isCollapsed = !this.isCollapsed;
+  }
 
   constructor(private loginService:AuthenticationService) { }
 

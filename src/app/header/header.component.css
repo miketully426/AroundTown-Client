@@ -25,6 +25,10 @@ body {
     text-align: center;
 }
 
+.navbar-toggler-icon {
+  color: whitesmoke
+}
+
 .topnav {
     background-color: #333;
     overflow: hidden;

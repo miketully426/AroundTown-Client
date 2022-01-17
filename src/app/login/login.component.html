@@ -1,20 +1,22 @@
-<h3>Login</h3>
-<form class="form-group">
-  <div class="col-sm-3">
+<div class="card mx-auto">
+<div class="card-header">Login</div>
+<form class="form-group card-body">
+  <div class="card-body">
     <label for="email">Username :</label>
     <input type="text" class="form-control" id="username" #username="ngModel" [(ngModel)]="user.username" placeholder="Enter User Name"
       name="username">
   </div>
-  <div class="col-sm-3">
+  <div class="card-body">
     <label for="pwd">Password:</label>
     <input type="password" class="form-control" [(ngModel)]="user.pwHash" #pwhash="ngModel" id="pwHash" placeholder="Enter password"
       name="pwHash">
   </div>
-  <div  class="login-button">
-    <button (click)=checkLogin() class="btn btn-info">Login</button>
+  <div class="login-button">
+    <button (click)=checkLogin() class="btn btn-info card-link">Login</button>
    </div>
 </form>
 
 <div class="container signin" >
   <p>No account? <a routerLink="/adduser">Register here</a>.</p>
+</div>
 </div>
