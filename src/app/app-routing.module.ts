@@ -6,8 +6,10 @@ import { EventFormComponent } from './event-form/event-form.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { EditEventComponent } from './edit-event/edit-event.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 const routes: Routes = [
+  { path: '', component: HomePageComponent},
   { path: 'events', component: EventListComponent },
   { path: 'addevent', component: EventFormComponent },
   { path: 'searchresults', component: SearchResultsComponent },
