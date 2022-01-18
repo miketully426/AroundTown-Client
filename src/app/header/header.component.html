@@ -5,7 +5,7 @@
             <a routerLink="searchresults">Find Your Event</a>
             <a routerLink="/events">All Events</a>
             <a *ngIf="loginService.isUserLoggedIn()" routerLink="/addevent">Create Event</a>
-            <a routerLink="/adduser">Create Account</a>
+            <a *ngIf="!loginService.isUserLoggedIn()" routerLink="/adduser">Create Account</a>
         </div>
         <div class ="topnav-left">
           <a  *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link" >Log-In</a>
