@@ -13,13 +13,12 @@ export class HeaderComponent implements OnInit {
   image2= "assets/images/AT-slideshow-party.jpg";
   image3 = "assets/images/AT-slideshow-bye.jpg";
 
+  images = [this.image1, this.image2, this.image3]; 
 
-  constructor(private loginService:AuthenticationService) { }
-  images = [this.image1, this.image2, this.image3];
   
-  constructor(config: NgbCarouselConfig) {  
-    config.interval = 6000;
-    }
+  constructor(private loginService:AuthenticationService, config: NgbCarouselConfig) { 
+  config.interval = 6000;
+  }
 
   ngOnInit() {
   }
