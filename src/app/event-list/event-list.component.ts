@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from "rxjs";
+import { AuthenticationService } from '../service/authentication.service';
+
 
 
 @Component({
@@ -20,7 +22,7 @@ export class EventListComponent implements OnInit {
   faThumbsUp = faThumbsUp;
   faThumbsDown = faThumbsDown;
 
-  constructor(private route: ActivatedRoute, private router: Router, private eventService: EventService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private eventService: EventService, private loginservice: AuthenticationService) { }
 
   ngOnInit() {
     this.eventService.findAll().subscribe(data => {
@@ -39,6 +41,12 @@ export class EventListComponent implements OnInit {
         },
         error => console.log(error));
   } 
+}
+
+isUserLoggedIn() {
+  let user = sessionStorage.getItem('username')
+  //console.log(!(user === null))
+  return !(user === null)
 }
 
   public onEdit(eventID: number) {

@@ -17,8 +17,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 import { HomePageComponent } from './home-page/home-page.component';
-
 
 
 @NgModule({
@@ -32,6 +33,8 @@ import { HomePageComponent } from './home-page/home-page.component';
     FooterComponent,
     EditEventComponent,
     UserProfileComponent,
+    LoginComponent,
+    LogoutComponent,
     HomePageComponent,
   ],
   imports: [

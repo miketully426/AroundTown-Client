@@ -1,0 +1,37 @@
+label {
+    font-family: 'Quicksand', sans-serif;
+    color: #ddd;
+}
+
+input {
+    font-family: 'Quicksand', sans-serif;
+    color: #ddd;
+    padding-right: 250px;
+}
+
+body {
+    background-color: black;
+}
+
+p {
+    font-family: 'Quicksand', sans-serif;
+    color: #ddd;
+}
+
+.form-group {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+h3 {
+    font-family: 'Quicksand', sans-serif;
+    color: #ddd;
+    padding-left: 15px;
+}
+
+.login-button {
+    padding-top: 10px;
+    padding-left: 250px;
+}
+
+
