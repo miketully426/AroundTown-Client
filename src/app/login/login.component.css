@@ -10,6 +10,11 @@
     color: #ddd;
 }
 
+.card-body input {
+    color: black;
+    
+}
+
 label {
     font-family: 'Quicksand', sans-serif;
     color: #ddd;
