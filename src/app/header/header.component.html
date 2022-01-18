@@ -23,12 +23,28 @@
         <div class ="navbar-brand topnav-left">
           <a  *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link" (click)="openPopup()">Log-In</a>
           <a  *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link" >Logout</a>
-          <a  *ngIf="loginService.isUserLoggedIn()" routerLink="userprofile/:username" class="nav-link">Profile</a>
+          <!--Add link to profile once we have the route path figured out-->
+          <!-- <a  *ngIf="loginService.isUserLoggedIn()" routerLink="userprofile/:username" class="nav-link">Profile</a> -->
         </div>
         </nav>  
-        <div class="hero-image">
-            <div class="hero-text font-effect-neon">
-                <h1>Let's find your next event AroundTown!</h1>
-            </div>
-        </div>
 </header>
+
+<ngb-carousel #carousel *ngIf="images" wrap="true" >
+    <ng-template ngbSlide id="id1">
+      <div  class="picsum-img-wrapper">
+        <img [src]="images[0]" width="100%" alt="Random first slide">
+      </div>
+    </ng-template>
+    <ng-template ngbSlide id="id2">
+      <div class="picsum-img-wrapper">
+        <img [src]="images[1]" width="100%" alt="Random second slide">
+      </div>
+    </ng-template>
+    <ng-template ngbSlide id="id3">
+      <div class="picsum-img-wrapper">
+        <img [src]="images[2]" width="100%" alt="Random third slide">
+      </div>
+    </ng-template>
+ </ngb-carousel>
+  
+

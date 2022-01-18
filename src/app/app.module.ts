@@ -19,6 +19,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { LogoutComponent } from './logout/logout.component';
     UserProfileComponent,
     LoginComponent,
     LogoutComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,

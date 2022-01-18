@@ -8,8 +8,10 @@ import { EditEventComponent } from './edit-event/edit-event.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 const routes: Routes = [
+  { path: '', component: HomePageComponent},
   { path: 'events', component: EventListComponent },
   { path: 'addevent', component: EventFormComponent },
   { path: 'searchresults', component: SearchResultsComponent },

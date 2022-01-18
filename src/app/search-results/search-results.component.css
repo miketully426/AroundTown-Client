@@ -22,3 +22,7 @@ th {
     background-color: #333;
     color: #f2f2f2;
 }
+
+.alert-message {
+    color: #ddd;
+}
