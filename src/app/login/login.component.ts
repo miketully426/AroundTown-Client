@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
       console.log(results)
       if(results.status === "success") {
         sessionStorage.setItem("username", this.username);
-        this.router.navigate(['events']);
+        this.router.navigate([`userprofile/${this.user.username}`]);
       } else {
         console.log("failure")
       }
