@@ -26,3 +26,7 @@ th {
 .alert-message {
     color: #ddd;
 }
+
+#searchButton {
+    margin-left: 10px;
+}
