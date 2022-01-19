@@ -1,3 +1,20 @@
+.card {
+    background-color: #36454F;
+    max-width: 60%;
+    padding-top: 20px;
+}
+
+.card-header {
+    font-family: 'Quicksand', sans-serif;
+    font-size: larger;
+    color: #ddd;
+}
+
+.card-body input {
+    color: black;
+    
+}
+
 label {
     font-family: 'Quicksand', sans-serif;
     color: #ddd;
@@ -31,7 +48,8 @@ h3 {
 
 .login-button {
     padding-top: 10px;
-    padding-left: 250px;
+    padding-left: 20px;
+    align-items: left;
 }
 
 
