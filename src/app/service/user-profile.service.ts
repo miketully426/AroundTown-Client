@@ -30,4 +30,6 @@ export class UserProfileService {
     return this.http.delete<User>(`${this.userprofileURL}/delete/${id}`);
   }
 
+  public 
+
 }

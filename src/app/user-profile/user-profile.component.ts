@@ -41,4 +41,10 @@ export class UserProfileComponent implements OnInit {
     } 
   }
 
+  // profileCreationLogin() {
+  //   let user = sessionStorage.getItem('username')
+  //   return user;
+  //   console.log(user);
+  // } 
+
 }
