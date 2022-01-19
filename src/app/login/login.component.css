@@ -1,0 +1,55 @@
+.card {
+    background-color: #36454F;
+    max-width: 60%;
+    padding-top: 20px;
+}
+
+.card-header {
+    font-family: 'Quicksand', sans-serif;
+    font-size: larger;
+    color: #ddd;
+}
+
+.card-body input {
+    color: black;
+    
+}
+
+label {
+    font-family: 'Quicksand', sans-serif;
+    color: #ddd;
+}
+
+input {
+    font-family: 'Quicksand', sans-serif;
+    color: #ddd;
+    padding-right: 250px;
+}
+
+body {
+    background-color: black;
+}
+
+p {
+    font-family: 'Quicksand', sans-serif;
+    color: #ddd;
+}
+
+.form-group {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+h3 {
+    font-family: 'Quicksand', sans-serif;
+    color: #ddd;
+    padding-left: 15px;
+}
+
+.login-button {
+    padding-top: 10px;
+    padding-left: 20px;
+    align-items: left;
+}
+
+
