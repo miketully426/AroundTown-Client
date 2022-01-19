@@ -46,6 +46,9 @@ export class ViewSingleEventComponent implements OnInit {
     if(time.hour > 12 && time.hour != 24) {
       this.timeStr += (time.hour - 12).toString();
       this.amPm = "PM";
+    } else if (time.hour == 0) {
+      this.timeStr += (time.hour + 12).toString();
+      this.amPm  = "AM"; 
     } else if (time.hour == 24) {
       this.timeStr += (time.hour - 12).toString();
       this.amPm  = "AM";
