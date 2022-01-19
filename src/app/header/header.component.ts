@@ -23,6 +23,7 @@ export class HeaderComponent implements OnInit {
   
   constructor(private loginService:AuthenticationService, config: NgbCarouselConfig) {  
     config.interval = 6000;
+    config.showNavigationIndicators = false;
     }
 
   ngOnInit() {
