@@ -14,7 +14,11 @@
   </div>
   <div class="login-button">
     <button (click)=checkLogin() class="btn btn-info card-link">Login</button>
-  </div>
+    </div>
+    <!-- <div [hidden] class="alert alert-danger" role="alert" *ngIf="!isLoggedInFail">
+      Sorry! That e-mail and password combination is invalid.
+    </div> -->
+  
 </form>
 
 <div class="container signin" >

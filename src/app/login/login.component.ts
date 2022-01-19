@@ -12,6 +12,8 @@ export class LoginComponent implements OnInit {
   username = '';
   pwhash = '';
   user: User;
+  isLoggedInFail = false;
+  msg:string;
   
 
   constructor(private router: Router,
@@ -34,8 +36,11 @@ export class LoginComponent implements OnInit {
     checkLogin() {
       this.loginservice.authenticate(this.user).subscribe((result)=> {
             this.loginFailSuccess(result);
+            // this.isLoggedInFail = false;
           },
           error => {
+            this.msg='Invalid Username or Password entered!';
+             return this.msg;
             console.log("Authentication Error");
         })
     }
