@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+    height: 100vh;
+    background: #1e7e34;
+    font-family: 'Poppins', sans-serif
+}
+
+.card {
+    max-width: 400px;
+    border: none;
+    border-radius: 10px
+}
+
+img {
+    width: 62px;
+    height: 60px
+}
+
+.users img {
+    border-radius: 50%;
+    border: none;
+    margin-right: -15px;
+    width: 35px;
+    height: 32px
+}
+
+.text-success {
+    background-color: #D7FCDD;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 16px;
+    border-radius: 20px;
+    margin-right: 11px
+}
+
+p {
+    font-size: 14px;
+    color: #A9A9A9 !important
+}
+
+
+.btn {
+    border-radius: 22px;
+    border: none;
+    height: 40px;
+    width: 100%
+}
+
+.btn:focus {
+    border: none;
+    box-shadow: none
+}
+
+.btn span {
+    font-size: 14px;
+    font-weight: 500
+}
+
+.btn-dark span {
+    color: #E0DFE7
+}
+
+.btn.info {
+    background: #E4E4E4
+}
+
+.btn.info span {
+    color: #26252B !important
+}
+
+.btn.info:hover {
+    background: #CDCED0 !important
+}
+
+@media screen and (max-width: 384px) {
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center
+    }
+
+    .row {
+        text-align: center;
+        line-height: 3;
+        display: flex;
+        justify-content: center
+    }
+
+    .ml-auto {
+        margin-left: 20px !important;
+    }
+}

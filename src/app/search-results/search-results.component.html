@@ -11,6 +11,7 @@
         <option value="notFamilyFriendly">Not Family Friendly</option>
     </select>
 
+
     <label for="filterByPrice" class="list-inline-item">&nbsp;&nbsp;Filter by price:&nbsp;</label>
     <select #filterByPrice (input)="onSearch(searchTerm.value, filterByFamFriendly.value, filterByPrice.value)"
     id="filterByPrice" name="filterByPrice">

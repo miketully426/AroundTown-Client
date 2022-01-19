@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="card px-4 pt-4 pb-4 mx-auto mt-5">
+        <div class="row"> <img src="assets/images/AroundTownLogo.png">
+            <h5 class="align-self-center ml-2">AroundTown</h5>
+            <div class="ml-auto"><span class="text-success">Confirm Event Info</span></div>
+        </div>
+        <br>
+        <h5>{{ currentEvent.name }}</h5>
+        <p class="mb-4">{{ currentEvent.description }}</p>
+        <h6>Where?</h6>
+        <p class="mb-1">{{ currentEvent.locationName }}</p>
+        <p class="mb-4">{{ currentEvent.address }}, {{ currentEvent.city }}, {{ currentEvent.state }} {{ currentEvent.zipCode }}</p>
+        <h6>When?</h6>
+        <p class="mb-4">{{ currentEvent.date.month }}/{{ currentEvent.date.day }}/{{ currentEvent.date.year }} @ {{ currentEvent.time.hour }}:{{ currentEvent.time.minute }}</p>
+        <h6>How much?</h6>
+        <p class="mb-4" *ngIf="currentEvent.entryCost != '0'; else priceElseBlock">${{ currentEvent.entryCost }}</p>
+        <ng-template #priceElseBlock><p class="mb-4">Free!</p></ng-template>
+        <h6>Is it family friendly?</h6>
+        <p class="mb-2" *ngIf="!currentEvent.familyFriendly; else elseBlock">No</p>
+        <ng-template #elseBlock><p class="mb-4">Yes</p></ng-template>
+        <button class="btn btn-dark mb-2" (click)="onConfirm()"><span>Confirm Event</span></button> 
+        <button class="btn info" (click)="onEdit(currentEvent.eventId)"><span>Edit Event</span></button>
+    </div>
+</div>
+
+
