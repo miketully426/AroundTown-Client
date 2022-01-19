@@ -3,7 +3,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../model/user';
 import { UserService } from '../service/user-service.service';
 import { UserProfileService } from '../service/user-profile.service';
-
 import { faHandPeace } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -32,5 +31,23 @@ export class UserProfileComponent implements OnInit {
     this.userService.findUserByUsername(username)
     .subscribe(data => this.currentUser = data);
   }
+
+  deleteUser(id: number) {
+    if(confirm(`Are you sure you want to delete this account?  This cannot be undone.`)) {
+    this.userProfileService.deleteUser(id)
+      .subscribe(
+        data => {
+          console.log(data);
+        },
+        error => console.log(error));
+    } 
+  }
+
+  //this is for future use in being able to access user profile differently
+  // profileCreationLogin() {
+  //   let user = sessionStorage.getItem('username')
+  //   return user;
+  //   console.log(user);
+  // } 
 
 }

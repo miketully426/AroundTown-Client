@@ -13,3 +13,12 @@ th {
     font-size: large;
     font-weight: 300;
 }
+
+h1, h2 {
+    font-family: 'Quicksand', sans-serif;
+    color: #ddd;
+    margin: 0;
+    padding-left: 20px;
+    padding-bottom: 10px;
+}
+

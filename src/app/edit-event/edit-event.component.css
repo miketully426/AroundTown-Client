@@ -1,8 +1,22 @@
-body {
+form{
     background-color: black;
-}
-
-form {
     font-family: 'Quicksand', sans-serif;
     color: #ddd;
+    padding: 20px;
+}
+
+h1, h2 {
+    margin: 0;
+    background-color: black;
+    font-family: 'Quicksand', sans-serif;
+    color: #ddd;
+    padding-left: 20px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+ngb-datepicker {
+    background-color: white;
 }

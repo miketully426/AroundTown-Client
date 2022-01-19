@@ -1,3 +1,8 @@
+<app-header></app-header>
+<div>
+    <h1>View All Events</h1>
+    <h2>Search For Events <a routerLink="/searchresults" >Here</a></h2>
+</div>
 <div>
     <div>
         <div>
@@ -9,15 +14,13 @@
                     <th scope="col">Event Name</th>
                     <th scope="col">Description</th>
                     <th scope="col">Location Name</th>
+                    <th scope="col">Address</th>
                     <th scope="col">Date</th>
                     <th scope="col">Time</th>
-                    <th scope="col">Zip Code</th>
-                    <th scope="col">City</th>
-                    <th scope="col">State</th>
-                    <th scope="col">Address</th>
                     <th scope="col">Cost</th>
                     <th scope="col">Family Friendly</th>
-                    <th scope="col">Action</th>
+                    <th *ngIf="isUserLoggedIn()" scope="col">Action</th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -25,18 +28,16 @@
                     <td>{{ event.name }}</td>
                     <td>{{ event.description }}</td>
                     <td>{{ event.locationName}}</td>
+                    <td>{{ event.address }} {{ event.city }}, {{ event.state }} {{ event.zipCode }}</td>
                     <td>{{ event.date.month }}/{{ event.date.day }}/{{ event.date.year }}</td>
-                    <td>{{ event.time.hour }}:{{ event.time.minute }}</td>
-                    <td>{{ event.zipCode }}</td>
-                    <td>{{ event.city }}</td>
-                    <td>{{ event.state }}</td>
-                    <td>{{ event.address }}</td>    
+                    <td>{{ event.time.hour }}:{{ event.time.minute }}</td>    
                     <td [hidden]="event.entryCost === '0'">${{ event.entryCost }}</td>
                     <td [hidden]="event.entryCost !== '0'">Free Entry!</td>
                     <td [hidden]="event.familyFriendly === false"><fa-icon [icon]="faThumbsUp" [styles]="{'color': 'green'}"></fa-icon></td>
                     <td [hidden]="event.familyFriendly === true"><fa-icon [icon]="faThumbsDown" [styles]="{'color': 'red'}"></fa-icon></td> 
-                    <td><button class="badge badge-danger mr-2" routerLink="/edit-events/{{event.eventId}}" routerLinkActive="active">Edit</button><br>
-                        <button class="badge badge-danger mr-2" (click)="deleteEvent(event.eventId)">Delete</button></td>               
+                    <td>
+                        <button class="badge badge-success mr-2" *ngIf="isUserLoggedIn()" routerLink="/edit-events/{{event.eventId}}" routerLinkActive="active">Edit</button><br>
+                        <button class="badge badge-danger mr-2" *ngIf="isUserLoggedIn()" (click)="deleteEvent(event.eventId)">Delete</button></td>               
                 </tr>
             </tbody>
         </table>

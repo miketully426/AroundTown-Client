@@ -25,4 +25,11 @@ export class UserProfileService {
    public findUserById(id: number): Observable<User> {
     return this.http.get<User>(`${this.userprofileURL}/${id}`);
   }
+
+  public deleteUser(id: number) {
+    return this.http.delete<User>(`${this.userprofileURL}/delete/${id}`);
+  }
+
+  public 
+
 }

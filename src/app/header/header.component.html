@@ -1,16 +1,51 @@
 <header>
-    <div class="header"><img src="assets/images/AroundTownLogo.png"></div>
-        <div class="topnav" id="topnav">
-        <div class="topnav-right">
-            <a routerLink="searchresults">Find Your Event</a>
-            <a routerLink="/events">List Events</a>
-            <a routerLink="/addevent">Create Event</a>
-            <a routerLink="/adduser">Create Account</a>
+    <div class="header"><a routerLink='' ><img id="logo" src="assets/images/AroundTownLogo.png"></a></div>
+        <nav class="navbar navbar-expand-lg navbar-dark topnav" id="topnav">
+            <button class="navbar-toggler" type="button" (click)="toggleCollapsed()" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+        <div class="topnav-right collapse navbar-collapse" id="navbarToggler" [ngbCollapse]="isCollapsed">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/searchresults">Find Your Event</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/events">All Events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" *ngIf="loginService.isUserLoggedIn()" routerLink="/addevent">Create Event</a>
+                </li>
+                <li class="nav-item">
+                    <a *ngIf="!loginService.isUserLoggedIn()" class="nav-link" routerLink="/adduser">Create Account</a>
+                </li>
+            </ul>
         </div>
+        <div class ="navbar-brand topnav-left">
+          <a class="nav-link" routerLink="">Home</a>
+          <a  *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link" (click)="openPopup()">Log-In</a>
+          <a  *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link" >Logout</a>
+          <!--Add link to profile once we have the route path figured out-->
+          <!-- <a  *ngIf="loginService.isUserLoggedIn()" routerLink="userprofile/:username" class="nav-link">Profile</a> -->
         </div>
-        <div class="hero-image">
-            <div class="hero-text font-effect-neon">
-                <h1>Let's find your next event AroundTown!</h1>
-            </div>
-        </div>  
+        </nav>  
 </header>
+
+<ngb-carousel #carousel *ngIf="images" wrap="true" >
+    <ng-template ngbSlide id="id1">
+      <div  class="picsum-img-wrapper">
+        <img [src]="images[0]" width="100%" alt="Random first slide">
+      </div>
+    </ng-template>
+    <ng-template ngbSlide id="id2">
+      <div class="picsum-img-wrapper">
+        <img [src]="images[1]" width="100%" alt="Random second slide">
+      </div>
+    </ng-template>
+    <ng-template ngbSlide id="id3">
+      <div class="picsum-img-wrapper">
+        <img [src]="images[2]" width="100%" alt="Random third slide">
+      </div>
+    </ng-template>
+ </ngb-carousel>
+  
+
