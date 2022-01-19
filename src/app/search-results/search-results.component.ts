@@ -150,4 +150,10 @@ export class SearchResultsComponent implements OnInit {
   public clearDate() {
     this.filterDate = null;
   }
+
+  public clearSearchButton() {
+    this.clearDate();
+    this.resetValues();
+    this.onSearch(" ", "No Filter", "No Filter");
+  }
 }

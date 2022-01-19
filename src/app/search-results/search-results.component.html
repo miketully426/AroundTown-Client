@@ -40,6 +40,7 @@
     (closed)="datepicker.close();"
     (ngModelChange)="onSearch(searchTerm.value, filterByFamFriendly.value, filterByPrice.value)"
     placeholder="yyyy-mm-dd"><button class="list-inline-item" id="clear-date-button" (click)="clearDate()">Clear Date</button>
+    <button (click)="clearSearchButton()">Clear All</button>
 </div>
 
 <table class="table table-striped table-dark">
