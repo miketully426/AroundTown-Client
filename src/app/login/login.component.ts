@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   username = '';
   pwhash = '';
   user: User;
-  success: boolean=true;
+  
 
   constructor(private router: Router,
     private loginservice: AuthenticationService) {
@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
             this.loginFailSuccess(result);
           },
           error => {
-            this.success = false;
             console.log("Authentication Error");
         })
     }
