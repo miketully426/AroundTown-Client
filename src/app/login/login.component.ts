@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
             
           },
           error => {
-            this.errorFetch = true;
+            this.errorFetch = false;
             console.log("Authentication Error");
         })
     }
