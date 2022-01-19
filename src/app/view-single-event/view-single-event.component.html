@@ -8,6 +8,7 @@
         <h5>{{ currentEvent.name }}</h5>
         <p class="mb-4">{{ currentEvent.description }}</p>
         <h6>Where?</h6>
+        <p class="mb-1">{{ currentEvent.locationName }}</p>
         <p class="mb-4">{{ currentEvent.address }}, {{ currentEvent.city }}, {{ currentEvent.state }} {{ currentEvent.zipCode }}</p>
         <h6>When?</h6>
         <p class="mb-4">{{ currentEvent.date.month }}/{{ currentEvent.date.day }}/{{ currentEvent.date.year }} @ {{ currentEvent.time.hour }}:{{ currentEvent.time.minute }}</p>
@@ -23,31 +24,3 @@
 </div>
 
 
-
-
-
-<!-- <h1>Confirm your event</h1>
-    <h2>Event Name:</h2>
-        <p>{{ currentEvent.name }}</p>
-    <h2>Description of Event:</h2>
-        <p>{{ currentEvent.description }}</p>
-    <h2>Location:</h2>
-        <p>{{ currentEvent.locationName }}</p>
-    <h2>Address</h2>
-        <p>{{ currentEvent.address }} {{ currentEvent.city }}, {{ currentEvent.state }} {{ currentEvent.zipCode }}</p>
-    <h2>Date:</h2>
-        <p>{{ currentEvent.date.month }}/{{ currentEvent.date.day }}/{{ currentEvent.date.year }}</p>
-    <h2>Time:</h2>
-        <p>{{ currentEvent.time.hour }}:{{ currentEvent.time.minute }}</p>
-    <h2>Entry Cost:</h2>
-        <p>{{ currentEvent.entryCost }}</p> -->
-        <!-- <p [hidden]="currentEvent.entryCost == '0'">${{ event.entryCost }}</p>
-        <p [hidden]="currentEvent.entryCost != '0'">Free Entry!</p> -->
-    <!-- <h2>Is it family friendly?</h2>
-            <p>{{ currentEvent.familyFriendly }}</p> -->
-        <!-- <p [hidden]="event.familyFriendly === false">Yes</p>
-        <p [hidden]="event.familyFriendly === true">No</p>  -->
-
-    <!-- <button (click)="onEdit(currentEvent.eventId)">Edit</button>
-    <button class='in-line' (click)="onConfirm()">Confirm</button> -->
-    <button (click)="printEvent(currentEvent)">print</button>
