@@ -1,17 +1,17 @@
 <app-header></app-header>
 <div class="search-form" class="search-bar">
-    <input #searchTerm (keyup.enter)="onSearch(searchTerm.value, filterByFamFriendly.value, filterByPrice.value)" 
+    <input #searchTerm (keyup)="onSearch(searchTerm.value, filterByFamFriendly.value, filterByPrice.value)" 
         type="text" 
         id="searchTerm"
         placeholder="Search here"/> 
     <label for="filterBy" class="list-inline-item" >&nbsp;&nbsp;Filter by Family Friendliness:&nbsp;</label>
-    <select #filterByFamFriendly id="filterByFamFriendly" name="filterByFamFriendly">
+    <select #filterByFamFriendly (input)="onSearch(searchTerm.value, filterByFamFriendly.value, filterByPrice.value)" id="filterByFamFriendly" name="filterByFamFriendly">
         <option value="none" selected="selected">No Filter</option>
         <option value="familyFriendly">Family Friendly</option>
         <option value="notFamilyFriendly">Not Family Friendly</option>
     </select>
     <label for="filterByPrice" class="list-inline-item">&nbsp;&nbsp;Filter by price:</label>
-    <select #filterByPrice id="filterByPrice" name="filterByPrice">
+    <select #filterByPrice (input)="onSearch(searchTerm.value, filterByFamFriendly.value, filterByPrice.value)" id="filterByPrice" name="filterByPrice">
         <option value="none" selected="selected">No Filter</option>
         <option value="free">Free</option>
         <option value="$">Less than $25</option>
