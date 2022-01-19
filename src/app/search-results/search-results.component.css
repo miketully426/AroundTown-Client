@@ -29,4 +29,17 @@ th {
 
 #searchButton {
     margin-left: 10px;
+
 }
+
+#date-picker {
+    float: right;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+}
+
+#clear-date-button {
+    margin-left: 10px;
+}
+

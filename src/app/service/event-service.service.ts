@@ -58,11 +58,36 @@ export class EventService {
      }
    }
 
+   public viewAllByDate(date: any) {
+     //could maybe send strings year, month, day in get url and put in hashmap on back if this doesn't work.
+     return this.http.post<Event[]>(`${this.eventsURL}/filterAllDate`, date);
+   }
+
    public viewAllByFamFriendlyAndPrice(famFriendly: boolean, lowPrice: number, highPrice: number) {
      if(highPrice){
       return this.http.get<Event[]>(`${this.eventsURL}/filterAllFamFriendlyEntryCost/${famFriendly}/${lowPrice}/${highPrice}`)
      } else {
       return this.http.get<Event[]>(`${this.eventsURL}/filterAllFamFriendlyEntryCost/${famFriendly}/${lowPrice}`)
+     }
+   }
+
+   public viewAllByFamFriendlyAndDate(famFriendly: boolean, date: any) {
+      return this.http.post<Event[]>(`${this.eventsURL}/filterAllFamFriendDate/${famFriendly}`, date);
+   }
+
+   public viewAllByPriceAndDate(date: any, lowPrice: number, highPrice: number) {
+    if(highPrice){
+      return this.http.post<Event[]>(`${this.eventsURL}/filterAllPriceDate/${lowPrice}/${highPrice}`, date);
+     } else {
+      return this.http.post<Event[]>(`${this.eventsURL}/filterAllPriceDate/${lowPrice}`, date);
+     }
+   }
+
+   public viewAllByFamFriendPriceAndDate(date: any, lowPrice: number, highPrice: number, famFriendly: boolean) {
+    if(highPrice){
+      return this.http.post<Event[]>(`${this.eventsURL}/filterAllFamFriendlyPriceDate/${famFriendly}/${lowPrice}/${highPrice}`, date);
+     } else {
+      return this.http.post<Event[]>(`${this.eventsURL}/filterAllFamFriendlyPriceDate/${famFriendly}/${lowPrice}`, date);
      }
    }
 
@@ -82,12 +107,37 @@ export class EventService {
     }
    }
 
+   public searchByKeywordDate(date: any, searchTerm: String) {
+     return this.http.post<Event[]>(`${this.eventsURL}/searchKeywordDate/${searchTerm}`, date);
+   }
+
+   public searchByKeywordDateFamFriendly(date: any, searchTerm: String, famFriendly: boolean) {
+     return this.http.post<Event[]>(`${this.eventsURL}/searchKeywordDateFamFriendly/${searchTerm}/${famFriendly}`, date);
+   }
+
+   public searchByKeywordDatePrice(date: any, searchTerm: String, lowPrice: number, highPrice: number ) {
+    if(highPrice){ 
+      return this.http.post<Event[]>(`${this.eventsURL}/searchByKeywordDatePrice/${searchTerm}/${lowPrice}/${highPrice}`, date);
+    } else {
+      return this.http.post<Event[]>(`${this.eventsURL}/searchByKeywordDatePrice/${searchTerm}/${lowPrice}`, date);
+    }
+   }
+
+
    public searchByKeywordFamFriendlyPrice(searchTerm: String, famFriendly: boolean, lowPrice: number, highPrice: number) {
      if(highPrice){
        return this.http.get<Event[]>(`${this.eventsURL}/searchByKeywordFamFriendlyPrice/${searchTerm}/${famFriendly}/${lowPrice}/${highPrice}`);
      } else {
        return this.http.get<Event[]>(`${this.eventsURL}/searchByKeywordFamFriendlyPrice/${searchTerm}/${famFriendly}/${lowPrice}`);
      }
+   }
+
+   public searchByKeywordFamFriendlyPriceDate(date: any, searchTerm: String, famFriendly: boolean, lowPrice: number, highPrice: number) {
+    if(highPrice){
+      return this.http.post<Event[]>(`${this.eventsURL}/searchByKeywordFamFriendlyPrice/${searchTerm}/${famFriendly}/${lowPrice}/${highPrice}`, date);
+    } else {
+      return this.http.post<Event[]>(`${this.eventsURL}/searchByKeywordFamFriendlyPrice/${searchTerm}/${famFriendly}/${lowPrice}`, date);
+    }
    }
 
   public deleteEvent(eventId: number) {
