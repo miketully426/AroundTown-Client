@@ -9,9 +9,9 @@
         <p class="mb-4">{{ currentEvent.description }}</p>
         <h6>Where?</h6>
         <p class="mb-1">{{ currentEvent.locationName }}</p>
-        <p class="mb-4">{{ currentEvent.address }}, {{ currentEvent.city }}, {{ currentEvent.state }} {{ currentEvent.zipCode }}</p>
+        <p class="mb-4">{{ currentEvent.address }} {{ currentEvent.city }}, {{ currentEvent.state }} {{ currentEvent.zipCode }}</p>
         <h6>When?</h6>
-        <p class="mb-4">{{ currentEvent.date.month }}/{{ currentEvent.date.day }}/{{ currentEvent.date.year }} @ {{ currentEvent.time.hour }}:{{ currentEvent.time.minute }}</p>
+        <p class="mb-4">{{ currentEvent.date.month }}/{{ currentEvent.date.day }}/{{ currentEvent.date.year }} @ {{ timeStr }} {{ amPm }}</p>
         <h6>How much?</h6>
         <p class="mb-4" *ngIf="currentEvent.entryCost != '0'; else priceElseBlock">${{ currentEvent.entryCost }}</p>
         <ng-template #priceElseBlock><p class="mb-4">Free!</p></ng-template>

@@ -19,6 +19,8 @@ export class EventListComponent implements OnInit {
 
   events: Event[];
   alphabetizedByName: Event[];
+  timeStr: String = "";
+  amPm: String;
   faThumbsUp = faThumbsUp;
   faThumbsDown = faThumbsDown;
 
@@ -40,14 +42,41 @@ export class EventListComponent implements OnInit {
           location.reload();
         },
         error => console.log(error));
-  } 
-}
+    } 
+  }
 
-isUserLoggedIn() {
-  let user = sessionStorage.getItem('username')
-  //console.log(!(user === null))
-  return !(user === null)
-}
+  public displayTime(time: any) {
+    if(time.hour > 12 && time.hour != 24) {
+      this.timeStr += (time.hour - 12).toString();
+      this.amPm = "PM";
+    } else if (time.hour == 24) {
+      this.timeStr += (time.hour - 12).toString();
+      this.amPm  = "AM";
+    } else if (time.hour == 12) {
+      this.timeStr += time.hour.toString();
+      this.amPm = "PM";
+    }else if (time.hour < 12) {
+      this.timeStr += time.hour.toString();
+      this.amPm = "AM";
+    }
+
+    if(time.minute == 0) {
+      this.timeStr += ":00"
+    } else {
+      this.timeStr += ":" + time.minute.toString();
+    }
+    return this.timeStr + " " + this.amPm;
+  }
+
+  public resetValues() {
+    this.timeStr = "";
+  }
+
+  isUserLoggedIn() {
+    let user = sessionStorage.getItem('username')
+    //console.log(!(user === null))
+    return !(user === null)
+  }
 
   public onEdit(eventID: number) {
     this.router.navigate([`edit-events/${eventID}`]);

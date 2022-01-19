@@ -30,7 +30,7 @@
                     <td>{{ event.locationName}}</td>
                     <td>{{ event.address }} {{ event.city }}, {{ event.state }} {{ event.zipCode }}</td>
                     <td>{{ event.date.month }}/{{ event.date.day }}/{{ event.date.year }}</td>
-                    <td>{{ event.time.hour }}:{{ event.time.minute }}</td>    
+                    <td >{{ displayTime(event.time) }} {{ resetValues() }}</td>    
                     <td [hidden]="event.entryCost === '0'">${{ event.entryCost }}</td>
                     <td [hidden]="event.entryCost !== '0'">Free Entry!</td>
                     <td [hidden]="event.familyFriendly === false"><fa-icon [icon]="faThumbsUp" [styles]="{'color': 'green'}"></fa-icon></td>
