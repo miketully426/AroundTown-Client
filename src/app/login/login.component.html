@@ -13,11 +13,12 @@
       name="pwHash">
   </div>
   <div class="login-button">
-    <button (click)=checkLogin() class="btn btn-info card-link">Login</button>
+    <button (click)=checkLogin()  class="btn btn-info card-link">Login</button>
     </div>
-    <!-- <div [hidden] class="alert alert-danger" role="alert" *ngIf="!isLoggedInFail">
+    <!-- <div *ngIf="!errorFetch" style="color:red;">Invalid Data </div> -->
+    <div [hidden] class="alert alert-danger" role="alert" *ngIf="errorFetch">
       Sorry! That e-mail and password combination is invalid.
-    </div> -->
+    </div>
   
 </form>
 

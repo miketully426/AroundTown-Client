@@ -119,4 +119,14 @@ export class SearchResultsComponent implements OnInit {
   public clearDate() {
     this.filterDate = null;
   }
+
+  // public clearSearchButton() {
+  //   this.clearDate();
+  //   this.resetValue();
+  //   this.onSearch(" ", "No Filter", "No Filter");
+  //   this.famFriendly=null;
+  //   this.lowPrice=null;
+  //   this.highPrice=null;
+
+  // }
 }
