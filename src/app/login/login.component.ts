@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   username = '';
   pwhash = '';
   user: User;
+  
 
   constructor(private router: Router,
     private loginservice: AuthenticationService) {

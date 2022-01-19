@@ -31,6 +31,7 @@ export class UserFormComponent implements OnInit {
 
    onSubmit(password: String, confirmPassword: String) {
       if(password === confirmPassword) {
+        sessionStorage.setItem('username', 'password');
         this.userService.save(this.user).subscribe((result) => this.goToProfile());
       }
    }

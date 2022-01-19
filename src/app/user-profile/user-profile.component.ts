@@ -43,4 +43,11 @@ export class UserProfileComponent implements OnInit {
     } 
   }
 
+  //this is for future use in being able to access user profile differently
+  // profileCreationLogin() {
+  //   let user = sessionStorage.getItem('username')
+  //   return user;
+  //   console.log(user);
+  // } 
+
 }
